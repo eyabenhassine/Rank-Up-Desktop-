@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.Profile">
+    <children>
+        <AnchorPane layoutX="-4.0" prefHeight="404.0" prefWidth="222.0" style="-fx-background-color: #301934;">
+            <children>
+                <Label layoutX="85.0" layoutY="120.0" opacity="0.64" text="username" textFill="WHITE" />
+                <Label layoutX="63.0" layoutY="140.0" prefHeight="18.0" prefWidth="127.0" text="user@mail.domain" textFill="#efefef" />
+                <ImageView fitHeight="34.0" fitWidth="33.0" layoutX="30.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../changepass.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="83.0" layoutY="221.0" text="Chnage password" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+                <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="29.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../editprofile.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="83.0" layoutY="183.0" text="Edit" textFill="WHITE" />
+            </children></AnchorPane>
+        <ImageView fitHeight="112.0" fitWidth="152.0" layoutX="553.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../logo1.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="573.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../home.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="575.0" layoutY="56.0" text="Home" textFill="WHITE" />
+        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="626.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../logout.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="625.0" layoutY="56.0" text="Log out" textFill="WHITE" />
+        <ImageView fitHeight="104.0" fitWidth="108.0" layoutX="55.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../profilephoto.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="252.0" layoutY="80.0" opacity="0.72" text="Old Password :" textFill="WHITE" />
+        <Label layoutX="252.0" layoutY="135.0" opacity="0.72" text="New Password :" textFill="WHITE" />
+        <Label layoutX="251.0" layoutY="187.0" opacity="0.72" text="Confirm New Password :" textFill="WHITE" />
+        <Label layoutX="223.0" layoutY="4.0" text="Change Password" textFill="WHITE">
+            <font>
+                <Font name="Barlow Condensed Black Italic" size="48.0" />
+            </font>
+        </Label>
+      <TextField layoutX="252.0" layoutY="102.0" />
+      <TextField layoutX="251.0" layoutY="154.0" />
+      <TextField layoutX="251.0" layoutY="205.0" />
+      <Button layoutX="252.0" layoutY="252.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="save" textFill="WHITE" />
+    </children>
+</AnchorPane>
