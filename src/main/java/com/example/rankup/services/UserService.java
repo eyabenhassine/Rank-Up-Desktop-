@@ -81,6 +81,7 @@ public class UserService implements Iservice<User>
                             // Password is correct, set user session
                             int userId = resultSet.getInt("id");
                             SessionManager.setSession("userId", userId);
+                            SessionManager.setSession("email", email);
                             return true; // Login successful
                         }
                     }
@@ -90,6 +91,33 @@ public class UserService implements Iservice<User>
             e.printStackTrace(); // Handle the exception appropriately
         }
         return false; // Login failed
+    }
+    public boolean changePassword(int userId, String newPassword) {
+        try {
+            // Hash the new password
+            String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+
+            // Update the user's password in the database
+            String query = "UPDATE user SET password = ? WHERE id = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, hashedPassword);
+                preparedStatement.setInt(2, userId);
+
+                int rowsUpdated = preparedStatement.executeUpdate();
+
+                // Check if any rows were updated
+                if (rowsUpdated > 0) {
+                    System.out.println("Password updated successfully");
+                    return true;
+                } else {
+                    System.out.println("Failed to update password");
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public User fetchPlayerData() {

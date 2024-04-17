@@ -14,7 +14,7 @@
                   <Image url="@img/changepass.png" />
                </image>
             </ImageView>
-            <Label layoutX="83.0" layoutY="221.0" text="Chnage password" textFill="WHITE" />
+            <Label layoutX="83.0" layoutY="221.0" onMouseClicked="#changepass" text="Change password" textFill="WHITE" />
             <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="29.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/editprofile.png" />
@@ -31,7 +31,7 @@
             <Image url="@img/logo1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="573.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="573.0" layoutY="19.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/home.png" />
          </image>

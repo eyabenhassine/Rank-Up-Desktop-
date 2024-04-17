@@ -111,7 +111,7 @@ public class ProfileController {
             stage.setTitle("Login");
 
             // Close the current profile window
-            Stage currentStage = (Stage) nameq.getScene().getWindow();
+            Stage currentStage = (Stage) usernameq.getScene().getWindow();
             currentStage.close();
 
             // Show the login stage
@@ -148,6 +148,52 @@ public class ProfileController {
                 errorAlert.showAndWait();
             }
         }
+    }
+
+    @FXML
+    private void home() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("home");
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage currentStage = (Stage) nameq.getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    private void changepass() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/changepass.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Edit Profile");
+
+            // Show the stage
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage currentStage = (Stage) nameq.getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
