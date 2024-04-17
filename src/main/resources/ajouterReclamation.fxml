@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjouterReclamation">
+   <children>
+      <TextField fx:id="nomTF" layoutX="54.0" layoutY="73.0" promptText="nom" />
+      <TextField fx:id="NumTelTF" layoutX="262.0" layoutY="73.0" promptText="Num Tel" />
+      <TextField fx:id="typeTF" layoutX="54.0" layoutY="130.0" promptText="type" />
+      <TextField fx:id="dateTF" layoutX="54.0" layoutY="188.0" promptText="Date" />
+      <TextField fx:id="descriptionTF" layoutX="85.0" layoutY="242.0" prefHeight="91.0" prefWidth="355.0" promptText="description" />
+      <Button layoutX="474.0" layoutY="335.0" mnemonicParsing="false" onAction="#ajouterReclamation" prefHeight="42.0" prefWidth="69.0" text="send " />
+   </children>
+</AnchorPane>
