@@ -9,14 +9,14 @@
    <children>
       <ImageView fitHeight="436.0" fitWidth="309.0" layoutX="372.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../RiotForgeGames.png" />
+            <Image url="@img/RiotForgeGames.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="403.0" prefWidth="358.0" style="-fx-background-color: #301934;">
          <children>
             <ImageView fitHeight="101.0" fitWidth="145.0" layoutX="-8.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../logo1.png" />
+                  <Image url="@img/logo1.png" />
                </image>
             </ImageView>
             <Label layoutX="14.0" layoutY="114.0" opacity="0.71" prefHeight="34.0" prefWidth="106.0" text="Username" textFill="WHITE">
@@ -44,7 +44,8 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <ComboBox layoutX="139.0" layoutY="268.0" prefHeight="0.0" prefWidth="72.0" />
+            <ComboBox fx:id="rolelist" layoutX="139.0" layoutY="268.0" prefHeight="0.0" prefWidth="150.0">
+            </ComboBox>
             <Label layoutX="12.0" layoutY="182.0" opacity="0.71" text="Birth Date" textFill="WHITE">
                <font>
                   <Font size="15.0" />
@@ -62,13 +63,13 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Label layoutX="146.0" layoutY="358.0" text="Log in" textFill="#f2c100" underline="true" />
+            <Label layoutX="146.0" layoutY="358.0" onMouseClicked="#loginaction" text="Log in" textFill="#f2c100" underline="true" />
+            <PasswordField fx:id="confirmpass" layoutX="138.0" layoutY="237.0" prefHeight="26.0" prefWidth="150.0" />
          </children></AnchorPane>
       <Label layoutX="148.0" layoutY="30.0" text="Sign Up" textFill="WHITE">
          <font>
             <Font name="Barlow Condensed Black Italic" size="55.0" />
          </font></Label>
       <PasswordField fx:id="passwordsignup" layoutX="145.0" layoutY="214.0" prefHeight="26.0" prefWidth="150.0" />
-      <PasswordField layoutX="146.0" layoutY="243.0" prefHeight="26.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

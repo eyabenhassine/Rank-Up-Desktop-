@@ -9,61 +9,38 @@ public class User {
     String email, firstname, lastname, username, resetToken, password, photo, phone, whyBlocked, status, bio, summonername;
     LocalDate birthdate;
     List<String> roles = new ArrayList<>();
-    List<String> elo = new ArrayList<>();
+    String elo ;
 
     public User() {
     }
 
-    public User(int id, String email, String username, String password, LocalDate birthdate) {
+    public User(String firstname, String lastname, String username, String phone, String bio, String summonername, LocalDate birthdate, String elo) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.username = username;
+        this.phone = phone;
+        this.bio = bio;
+        this.summonername = summonername;
+        this.birthdate = birthdate;
+        this.elo = elo;
+    }
+
+    public User(int id, String email, String username, String password, LocalDate birthdate, List<String> roles) {
         this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
         this.birthdate = birthdate;
+        this.roles = roles;
     }
-
-    public User( String email, String username, String password, LocalDate birthdate) {
+    public User(String email, String username, String password, LocalDate birthdate, List<String> roles) {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.birthdate = birthdate;
-    }
-    public User(int id, String email, String firstname, String lastname, String username, String resetToken, String password, String photo, String phone, String whyBlocked, String status, String bio, String summonername, LocalDate birthdate, List<String> roles, List<String> elo) {
-        this.id = id;
-        this.email = email;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.username = username;
-        this.resetToken = resetToken;
-        this.password = password;
-        this.photo = photo;
-        this.phone = phone;
-        this.whyBlocked = whyBlocked;
-        this.status = status;
-        this.bio = bio;
-        this.summonername = summonername;
         this.birthdate = birthdate;
         this.roles = roles;
-        this.elo = elo;
     }
 
-    public User(String email, String firstname, String lastname, String username, String resetToken, String password, String photo, String phone, String whyBlocked, String status, String bio, String summonername, LocalDate birthdate, List<String> roles, List<String> elo) {
-        this.email = email;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.username = username;
-        this.resetToken = resetToken;
-        this.password = password;
-        this.photo = photo;
-        this.phone = phone;
-        this.whyBlocked = whyBlocked;
-        this.status = status;
-        this.bio = bio;
-        this.summonername = summonername;
-        this.birthdate = birthdate;
-        this.roles = roles;
-        this.elo = elo;
-    }
 
     public int getId() {
         return id;
@@ -177,11 +154,11 @@ public class User {
         this.roles = roles;
     }
 
-    public List<String> getElo() {
+    public String getElo() {
         return elo;
     }
 
-    public void setElo(List<String> elo) {
+    public void setElo(String elo) {
         this.elo = elo;
     }
 
