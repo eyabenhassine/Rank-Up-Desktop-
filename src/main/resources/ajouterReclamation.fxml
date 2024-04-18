@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjouterReclamation">
+   <children>
+      <TextField fx:id="nomTF" layoutX="55.0" layoutY="107.0" promptText="nom" />
+      <TextField fx:id="NumTelTF" layoutX="273.0" layoutY="107.0" promptText="Num Tel" />
+      <TextField fx:id="typeTF" layoutX="55.0" layoutY="175.0" promptText="type" />
+      <TextField fx:id="dateTF" layoutX="273.0" layoutY="175.0" promptText="Date" />
+      <TextField fx:id="descriptionTF" layoutX="67.0" layoutY="244.0" prefHeight="91.0" prefWidth="355.0" promptText="description" />
+      <Button layoutX="370.0" layoutY="344.0" mnemonicParsing="false" onAction="#ajouterReclamation" prefHeight="42.0" prefWidth="69.0" text="envoyer" />
+      <Button layoutX="494.0" layoutY="365.0" mnemonicParsing="false" onAction="#naviguer" text="liste Reclamation" />
+      <Text layoutX="55.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom complet :" />
+      <Text layoutX="277.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero de tel :" />
+      <Text layoutX="56.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type de reclamation :" />
+      <Text layoutX="277.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" />
+      <Text layoutX="67.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" />
+      <Text fontSmoothingType="LCD" layoutX="140.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Reclamation ">
+         <font>
+            <Font name="Agency FB" size="29.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
