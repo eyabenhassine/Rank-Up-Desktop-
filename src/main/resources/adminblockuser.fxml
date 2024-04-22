@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ProfileController">
+    <children>
+        <AnchorPane layoutY="-1.0" prefHeight="404.0" prefWidth="222.0" style="-fx-background-color: #301934;">
+            <children>
+                <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="86.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/subscription.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="52.0" fitWidth="60.0" layoutX="82.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/events.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="78.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/courses.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="52.0" fitWidth="47.0" layoutX="86.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/reclamation.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink layoutX="69.0" layoutY="106.0" text="Competetions" textFill="#fafafa" underline="true" />
+                <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="87.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/competition.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink layoutX="74.0" layoutY="166.0" text="Subscription" textFill="#fafafa" underline="true" />
+                <Hyperlink layoutX="88.0" layoutY="240.0" text="Events" textFill="#fafafa" underline="true" />
+                <Hyperlink layoutX="85.0" layoutY="302.0" text="Courses" textFill="#fafafa" underline="true" />
+                <Hyperlink layoutX="74.0" layoutY="373.0" text="Reclamation" textFill="#fafafa" underline="true" />
+                <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="82.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/editprofile.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink layoutX="89.0" layoutY="51.0" text="Users" textFill="#fafafa" underline="true" />
+            </children></AnchorPane>
+        <ImageView fitHeight="112.0" fitWidth="152.0" layoutX="553.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/logo1.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="626.0" layoutY="19.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/logout.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="625.0" layoutY="56.0" text="Log out" textFill="WHITE" />
+        <Label layoutX="231.0" layoutY="4.0" text="block user" textFill="WHITE">
+            <font>
+                <Font name="Barlow Condensed Black Italic" size="54.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="568.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/home.png" />
+            </image>
+        </ImageView>
+        <Text fx:id="nameq1" fill="WHITE" layoutX="572.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
+      <TextArea layoutX="236.0" layoutY="173.0" prefHeight="70.0" prefWidth="166.0" />
+      <Label layoutX="243.0" layoutY="147.0" opacity="0.7" text="block reason :" textFill="WHITE" />
+      <Label layoutX="242.0" layoutY="92.0" opacity="0.7" text="Status :" textFill="WHITE" />
+      <RadioButton layoutX="240.0" layoutY="118.0" mnemonicParsing="false" text="blocked" textFill="WHITE" />
+      <Button layoutX="240.0" layoutY="266.0" mnemonicParsing="false" text="Confirm" />
+    </children>
+</AnchorPane>

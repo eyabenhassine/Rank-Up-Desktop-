@@ -24,7 +24,7 @@
 
             <Label layoutX="82.0" layoutY="267.0" onMouseClicked="#deleteaccount" text="Delete account" textFill="WHITE" />
             <Text fx:id="usernameq" fill="WHITE" layoutX="84.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" />
-            <Text fx:id="emailq" fill="WHITE" layoutX="96.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
+            <Text fx:id="emailq" fill="WHITE" layoutX="70.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" />
          </children></AnchorPane>
       <ImageView fitHeight="112.0" fitWidth="152.0" layoutX="553.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -58,19 +58,19 @@
             <Font name="Barlow Condensed Black Italic" size="54.0" />
          </font>
       </Label>
-      <Text fx:id="nameq" fill="WHITE" layoutX="362.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="name" />
+      <Text fx:id="nameq" fill="WHITE" layoutX="386.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="name" />
       <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="27.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/deleteacc.png" />
          </image>
       </ImageView>
-      <Text fx:id="lastnameq" fill="WHITE" layoutX="362.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lastname" />
-      <Text fx:id="phoneq" fill="WHITE" layoutX="362.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone" />
-      <Text fx:id="birthdayq" fill="WHITE" layoutX="360.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="birthday" />
-      <Text fx:id="eloq" fill="WHITE" layoutX="364.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="elo" />
-      <Label layoutX="262.0" layoutY="305.0" opacity="0.72" text="bio :" textFill="WHITE" />
-      <Text fx:id="bioq" fill="WHITE" layoutX="368.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bio" />
-      <Label layoutX="242.0" layoutY="282.0" opacity="0.72" text="summonaire name :" textFill="WHITE" />
-      <Text fx:id="sumnameq" fill="WHITE" layoutX="368.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sumname" />
+      <Text fx:id="lastnameq" fill="WHITE" layoutX="386.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lastname" />
+      <Text fx:id="phoneq" fill="WHITE" layoutX="386.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone" />
+      <Text fx:id="birthdayq" fill="WHITE" layoutX="386.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="birthday" />
+      <Text fx:id="eloq" fill="WHITE" layoutX="391.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="elo" />
+      <Label layoutX="254.0" layoutY="317.0" opacity="0.72" text="Bio :" textFill="WHITE" />
+      <Text fx:id="bioq" fill="WHITE" layoutX="396.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bio" />
+      <Label layoutX="254.0" layoutY="282.0" opacity="0.72" text="Summonaire name :" textFill="WHITE" />
+      <Text fx:id="sumnameq" fill="WHITE" layoutX="392.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sumname" />
    </children>
 </AnchorPane>
