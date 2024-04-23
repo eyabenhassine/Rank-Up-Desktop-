@@ -74,7 +74,8 @@ public class ChangepasswordController {
         int userId = (int) SessionManager.getSession("userId");
 
         // Check if old password is correct
-        if (userService.loginUser(SessionManager.getSession("email").toString(), oldPassword)) {
+        String loginResult = userService.loginUser(SessionManager.getSession("email").toString(), oldPassword);
+        if (loginResult == null) {
             // Update password
             if (userService.changePassword(userId, newPassword)) {
                 // Password changed successfully
@@ -92,7 +93,7 @@ public class ChangepasswordController {
                 alert.showAndWait();
             }
         } else {
-
+            // Old password is incorrect
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -100,6 +101,7 @@ public class ChangepasswordController {
             alert.showAndWait();
         }
     }
+
 
     @FXML
     private void home() {

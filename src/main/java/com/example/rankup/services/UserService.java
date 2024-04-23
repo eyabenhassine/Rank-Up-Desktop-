@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+
+import javafx.scene.control.Alert;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UserService implements Iservice<User>
@@ -69,20 +71,60 @@ public class UserService implements Iservice<User>
             return false;
         }
     }
-    public boolean loginUser(String email, String password) {
+    public String getBlockReason(String email) {
         try {
-            String query = "SELECT id, password FROM user WHERE email = ?";
+            String query = "SELECT why_blocked FROM user WHERE email = ? AND status = 'blocked'";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, email);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return resultSet.getString("why_blocked");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null; // No block reason found
+    }
+
+    public String loginUser(String email, String password) {
+        try {
+            String query = "SELECT id, password, roles, status, why_blocked FROM user WHERE email = ?";
             try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
                 preparedStatement.setString(1, email);
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     if (resultSet.next()) {
                         String hashedPassword = resultSet.getString("password");
                         if (BCrypt.checkpw(password, hashedPassword)) {
-                            // Password is correct, set user session
+                            // Password is correct, check user roles
+                            String roles = resultSet.getString("roles");
+                            int sessionValue;
+                            if (roles.contains("coach") || roles.contains("player")) {
+                                // User is coach or player
+                                sessionValue = -1;
+                            } else if (roles.contains("admin")) {
+                                // User is admin
+                                sessionValue = 1;
+                            } else {
+                                // User has no defined role
+                                // You can handle this case as needed
+                                return "User role not defined";
+                            }
+
+                            // Check user status
+                            String status = resultSet.getString("status");
+                            if ("blocked".equals(status)) {
+                                String blockReason = resultSet.getString("why_blocked");
+                                // User is blocked, return block reason
+                                return blockReason;
+                            }
+
                             int userId = resultSet.getInt("id");
                             SessionManager.setSession("userId", userId);
                             SessionManager.setSession("email", email);
-                            return true; // Login successful
+                            SessionManager.setSession("role", sessionValue);
+                            return null; // Login successful
                         }
                     }
                 }
@@ -90,8 +132,11 @@ public class UserService implements Iservice<User>
         } catch (SQLException e) {
             e.printStackTrace(); // Handle the exception appropriately
         }
-        return false; // Login failed
+        return "Invalid email or password"; // Login failed
     }
+
+
+
     public boolean changePassword(int userId, String newPassword) {
         try {
             // Hash the new password
@@ -111,6 +156,29 @@ public class UserService implements Iservice<User>
                     return true;
                 } else {
                     System.out.println("Failed to update password");
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean updateUserStatusAndBlockReason(int userId, String status, String whyBlocked) {
+        try {
+            String query = "UPDATE user SET status = ?, why_blocked = ? WHERE id = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1,status );
+                preparedStatement.setString(2, whyBlocked);
+                preparedStatement.setInt(3, userId);
+
+                int rowsUpdated = preparedStatement.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    System.out.println("User status and block reason updated successfully");
+                    return true;
+                } else {
+                    System.out.println("Failed to update user status and block reason");
                     return false;
                 }
             }
@@ -141,10 +209,6 @@ public class UserService implements Iservice<User>
                         user.setElo(resultSet.getString("elo"));
                         user.setBio(resultSet.getString("bio"));
                         user.setSummonername(resultSet.getString("summonername"));
-
-
-
-
                     }
                 }
             }
@@ -217,8 +281,33 @@ public class UserService implements Iservice<User>
 
     @Override
     public User getOneByID(int id) {
+        try {
+            String query = "SELECT * FROM user WHERE id = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setInt(1, id);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        User user = new User();
+                        user.setId(resultSet.getInt("id"));
+                        user.setEmail(resultSet.getString("email"));
+                        user.setFirstname(resultSet.getString("firstname"));
+                        user.setLastname(resultSet.getString("lastname"));
+                        user.setUsername(resultSet.getString("username"));
+                        user.setPhone(resultSet.getString("phone"));
+                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
+                        user.setElo(resultSet.getString("elo"));
+                        user.setBio(resultSet.getString("bio"));
+                        user.setSummonername(resultSet.getString("summonername"));
+                        return user;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
+
     public static boolean emailExists(String email) {
         try {
             String query = "SELECT COUNT(*) FROM user WHERE email = ?";
@@ -231,8 +320,36 @@ public class UserService implements Iservice<User>
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle the exception appropriately
+            e.printStackTrace();
         }
         return false;
     }
+    public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM user";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    while (resultSet.next()) {
+                        User user = new User();
+                        user.setId(resultSet.getInt("id"));
+                        user.setEmail(resultSet.getString("email"));
+                        user.setFirstname(resultSet.getString("firstname"));
+                        user.setLastname(resultSet.getString("lastname"));
+                        user.setUsername(resultSet.getString("username"));
+                        user.setPhone(resultSet.getString("phone"));
+                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
+                        user.setElo(resultSet.getString("elo"));
+                        user.setBio(resultSet.getString("bio"));
+                        user.setSummonername(resultSet.getString("summonername"));
+                        userList.add(user);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userList;
+    }
+
 }

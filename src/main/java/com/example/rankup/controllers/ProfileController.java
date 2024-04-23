@@ -51,7 +51,9 @@ public class ProfileController {
     public void setStage(Stage stage) {
         this.stage = stage;
     }
+    public void setUserId(int userId) {
 
+    }
     private UserService userService;
 
     @FXML

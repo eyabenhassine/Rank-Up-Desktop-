@@ -3,6 +3,7 @@ package com.example.rankup.entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.property.*;
 
 public class User {
     int id;
