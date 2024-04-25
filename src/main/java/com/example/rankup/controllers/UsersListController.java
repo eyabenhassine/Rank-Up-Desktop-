@@ -1,6 +1,7 @@
 package com.example.rankup.controllers;
 
 import com.example.rankup.entities.User;
+import com.example.rankup.services.SessionManager;
 import com.example.rankup.services.UserService;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -74,5 +75,28 @@ public class UsersListController {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void logout() {
+        SessionManager.clearSession();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Login");
+
+            // Access the scene from the tableView
+            Stage currentStage = (Stage) tableView.getScene().getWindow();
+            currentStage.close();
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

@@ -45,9 +45,7 @@ private ComboBox<String> blockedCB ;
         String blockStatus = blockedCB.getValue();
         String blockReason = blockreason.getText();
 
-        // Check if both block status and reason are selected
         if (blockStatus != null && blockReason != null) {
-            // Call the service method to update user status and block reason
             boolean success = userService.updateUserStatusAndBlockReason(userId, blockStatus, blockReason);
             if (success) {
                 System.out.println("User successfully blocked");
@@ -60,7 +58,6 @@ private ComboBox<String> blockedCB ;
         }
     }
     private void closeWindow() {
-        // Close the current window
         blockreason.getScene().getWindow().hide();
     }
     @FXML

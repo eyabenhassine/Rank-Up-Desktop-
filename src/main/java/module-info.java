@@ -5,6 +5,7 @@ module com.example.rankup {
     requires com.dlsc.formsfx;
     requires java.sql;
     requires jbcrypt;
+    requires mail;
     opens com.example.rankup to javafx.fxml;
     exports com.example.rankup;
     exports com.example.rankup.controllers;

@@ -84,6 +84,16 @@ public class ChangepasswordController {
                 alert.setHeaderText(null);
                 alert.setContentText("Password changed successfully.");
                 alert.showAndWait();
+
+                // Redirect to profile.fxml
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/profile.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = (Stage) oldpass.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
                 // Failed to change password
                 Alert alert = new Alert(Alert.AlertType.ERROR);

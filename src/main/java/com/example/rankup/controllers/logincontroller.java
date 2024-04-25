@@ -150,7 +150,27 @@ public class logincontroller {
         Stage currentStage = (Stage) emailLogin.getScene().getWindow();
         currentStage.close();
     }
-    // Close the current dialog
+    @FXML
+    private void forgetpassword() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/reserpasswordenteremail.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("reset password");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage currentStage = (Stage) emailLogin.getScene().getWindow();
+        currentStage.close();
+    }
 
 
 }

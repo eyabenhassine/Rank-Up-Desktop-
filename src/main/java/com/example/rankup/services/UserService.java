@@ -134,8 +134,75 @@ public class UserService implements Iservice<User>
         }
         return "Invalid email or password"; // Login failed
     }
+    public boolean changePassword(String email, String newPassword) {
+        try {
+            // Hash the new password
+            String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+
+            // Update the user's password in the database
+            String query = "UPDATE user SET password = ? WHERE email = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, hashedPassword);
+                preparedStatement.setString(2, email);
+
+                int rowsUpdated = preparedStatement.executeUpdate();
+
+                // Check if any rows were updated
+                if (rowsUpdated > 0) {
+                    System.out.println("Password updated successfully");
+                    return true;
+                } else {
+                    System.out.println("Failed to update password");
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateResetToken(String email, String resetToken) {
+        try {
+            String query = "UPDATE user SET reset_token = ? WHERE email = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, resetToken);
+                preparedStatement.setString(2, email);
+
+                int rowsUpdated = preparedStatement.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    System.out.println("Reset token updated successfully");
+                    SessionManager.setSession("resetToken", resetToken);
+                    return true;
+                } else {
+                    System.out.println("Failed to update reset token");
+                    return false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 
+    public String getEmailByResetToken(String resetToken) {
+        try {
+            String query = "SELECT email FROM user WHERE reset_token = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, resetToken);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return resultSet.getString("email");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null; // No email found for the reset token
+    }
 
     public boolean changePassword(int userId, String newPassword) {
         try {
