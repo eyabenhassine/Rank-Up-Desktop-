@@ -39,10 +39,11 @@ public class EventService implements IService<Event> {
         }
     }
      public void insert (Event event){
-         String req = "INSERT INTO `evenement` (`nom_event`, `date_debut`, `date_fin`, `type`, `description`) VALUES (?,?,?,?,?)";
+         String req = "INSERT INTO evenement (`nom_event`, `date_debut`, `date_fin`, `type`, `description`) VALUES (?,?,?,?,?)";
 
          try {
              PreparedStatement ps = cnx.prepareStatement(req);
+
              ps.setString(1, event.getNom_event());
              ps.setString(2, event.getDate_debut());
              ps.setString(3, event.getDate_fin());

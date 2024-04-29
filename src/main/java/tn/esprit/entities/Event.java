@@ -31,9 +31,16 @@ public class Event {
 
     public Event() {
 
+
     }
 
-    public Event(String text, String text1, String text2, String text3, String text4) {
+    public Event(String nom_event, String date_debut, String date_fin, String type, String description) {
+        this.nom_event = nom_event;
+
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.type = type;
+        this.description = description;
     }
 
 

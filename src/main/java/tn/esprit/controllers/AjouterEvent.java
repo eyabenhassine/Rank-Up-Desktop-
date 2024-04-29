@@ -17,14 +17,15 @@ import javafx.scene.control.DatePicker;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class AjouterEvent {
 
     @FXML
-    private TextField dateDebutField;
+    private DatePicker dateDebutField;
 
     @FXML
-    private TextField dateFinField;
+    private DatePicker dateFinField;
 
     @FXML
     private TextField descriptionField;
@@ -105,13 +106,25 @@ public class AjouterEvent {
     @FXML
     void ajouterEvent(ActionEvent event) {
         String nomEvent = nomEventField.getText().trim();
-        String dateDebut = dateDebutField.getText().trim();
-        String dateFin = dateFinField.getText().trim();
+        //LocalDate dateDebut = String.valueOf(dateDebutField.getValue());
+        String dateDebut = String.valueOf(dateFinField.getValue());
+        String dateFin = String.valueOf(dateFinField.getValue());
         String type = typeField.getText().trim();
         String description = descriptionField.getText().trim();
-
+        System.out.println("le nom de l evenement est "+nomEvent);
+        // Vérifier si le champ nomEvent est vide
+        if (nomEvent.isEmpty()) {
+            System.out.println("Le champ nomEvent est vide.");
+            // Afficher une alerte à l'utilisateur pour indiquer que le champ nomEvent est obligatoire
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Le champ Nom de l'événement est obligatoire.");
+            alert.showAndWait();
+            return; // Ne pas procéder à l'insertion si le champ nomEvent est vide
+        }
         // Vérifier si l'un des champs est vide
-        if (nomEvent.isEmpty() || dateDebut.isEmpty() || dateFin.isEmpty() || type.isEmpty() || description.isEmpty()) {
+        if ( dateDebut.isEmpty() || dateFin.isEmpty() || type.isEmpty() || description.isEmpty()) {
             // Afficher une alerte à l'utilisateur pour remplir tous les champs
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
