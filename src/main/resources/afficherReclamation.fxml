@@ -93,11 +93,12 @@
          </children>
       </VBox>
 
-      <ButtonBar layoutX="697.0" layoutY="525.0" prefHeight="40.0" prefWidth="353.0">
+      <ButtonBar layoutX="697.0" layoutY="525.0" prefHeight="40.0" prefWidth="449.0">
          <buttons>
             <Button mnemonicParsing="false" onAction="#modifierReclamation" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #0D98Ba;" text="Update" />
              <Button mnemonicParsing="false" onAction="#deleteReclamation" style="-fx-background-color: #0D98Ba;" text="Delete" />
             <Button mnemonicParsing="false" onAction="#naviguer" style="-fx-background-color: #0D98Ba;" text="Exit" />
+            <Button fx:id="generatePDFButton" mnemonicParsing="false" onAction="#generatePDF" style="-fx-background-color: #0D98Ba;" text="Générer PDF" />
          </buttons>
       </ButtonBar>
       <HBox layoutX="710.0" layoutY="93.0" spacing="10">

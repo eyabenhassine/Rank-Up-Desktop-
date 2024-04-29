@@ -1,5 +1,6 @@
 package tn.esprit.controllers;
 
+
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import tn.esprit.entities.Reclamation;
 import tn.esprit.entities.Suivi_Reclamation;
@@ -22,6 +25,14 @@ import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import javafx.scene.control.Alert;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
 
 public class AfficherReclamation {
 
@@ -173,13 +184,7 @@ public class AfficherReclamation {
         }
     }
 
-    private void showAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
+
 
 
     public void search(ActionEvent actionEvent) {
@@ -277,6 +282,83 @@ public class AfficherReclamation {
         } catch (SQLException e) {
             // Gérer les exceptions...
         }
+    }
+    @FXML
+    private void generatePDF() {
+        Reclamation selectedReclamation = tableView.getSelectionModel().getSelectedItem();
+
+        if (selectedReclamation != null) {
+            try {
+                // Création du document PDF
+                PDDocument document = new PDDocument();
+                PDPage page = new PDPage();
+                document.addPage(page);
+
+                try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+                    // Charger le logo
+                    PDImageXObject logo = PDImageXObject.createFromFile("src/logo1.png", document);
+                    // Redimensionner le logo
+                    float logoWidth = logo.getWidth() / 4; // Largeur du logo divisée par 4
+                    float logoHeight = logo.getHeight() / 4; // Hauteur du logo divisée par 4
+                    contentStream.drawImage(logo, 50, 750 - logoHeight, logoWidth, logoHeight);
+
+                    // Ajouter le titre
+                    contentStream.setFont(PDType1Font.HELVETICA_BOLD, 16);
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(200, 750); // Position du titre
+                    contentStream.showText("Détails de la réclamation");
+                    contentStream.endText();
+
+                    // Début du texte des détails de réclamation
+                    contentStream.setFont(PDType1Font.HELVETICA, 12);
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(100, 650); // Position verticale initiale
+
+// Afficher les détails de la réclamation avec des séparateurs
+                    contentStream.showText("Nom: " + selectedReclamation.getNom());
+                    contentStream.newLineAtOffset(0, -20); // Décaler verticalement pour la prochaine ligne
+                    contentStream.showText("------------------------------------------");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("Numéro de téléphone: " + selectedReclamation.getNumTel());
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("------------------------------------------");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("Type: " + selectedReclamation.getType());
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("------------------------------------------");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("Description: " + selectedReclamation.getDescription());
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("------------------------------------------");
+                    contentStream.newLineAtOffset(0, -20);
+                    contentStream.showText("Date: " + selectedReclamation.getDate());
+
+
+                    // Fin du texte
+                    contentStream.endText();
+                }
+
+                // Sauvegarder le document PDF
+                String outputPath = "reclamation_" + selectedReclamation.getId() + ".pdf";
+                document.save(outputPath);
+                document.close();
+
+                showAlert("PDF généré", "Le PDF a été généré avec succès: " + outputPath);
+            } catch (IOException e) {
+                e.printStackTrace();
+                showAlert("Erreur", "Erreur lors de la génération du PDF: " + e.getMessage());
+            }
+        } else {
+            showAlert("Sélection manquante", "Veuillez sélectionner une réclamation pour générer un PDF.");
+        }
+    }
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
 }
