@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import tn.esprit.entities.Event;
 import tn.esprit.services.EventService;
+import java.time.LocalDate;
 
 import javafx.scene.control.DatePicker;
 
@@ -103,7 +104,7 @@ public class AjouterEvent {
         alert.showAndWait();
     }*/
 
-    @FXML
+    /*@FXML
     void ajouterEvent(ActionEvent event) {
         String nomEvent = nomEventField.getText().trim();
         //LocalDate dateDebut = String.valueOf(dateDebutField.getValue());
@@ -153,7 +154,77 @@ public class AjouterEvent {
         alert.setHeaderText(null);
         alert.setContentText("Événement ajouté avec succès.");
         alert.showAndWait();
+    }*/
+
+
+
+    @FXML
+    void ajouterEvent(ActionEvent event) {
+        String nomEvent = nomEventField.getText().trim();
+        LocalDate dateDebut = dateDebutField.getValue();
+        LocalDate dateFin = dateFinField.getValue();
+        String type = typeField.getText().trim();
+        String description = descriptionField.getText().trim();
+        LocalDate aujourdHui = LocalDate.now();
+
+        System.out.println("le nom de l evenement est " + nomEvent);
+
+        // Vérifier si le champ nomEvent est vide
+        if (nomEvent.isEmpty()) {
+            // Afficher une alerte à l'utilisateur pour indiquer que le champ nomEvent est obligatoire
+            afficherAlerteErreur("Le champ Nom de l'événement est obligatoire.");
+            return;
+        }
+
+        // Vérifier si l'un des champs est vide
+        if (dateDebut == null || dateFin == null || type.isEmpty() || description.isEmpty()) {
+            // Afficher une alerte à l'utilisateur pour remplir tous les champs
+            afficherAlerteErreur("Veuillez remplir tous les champs.");
+            return;
+        }
+
+        // Vérifier si la description contient au moins 12 caractères
+        if (description.length() < 12) {
+            // Afficher une alerte à l'utilisateur pour indiquer que la description est trop courte
+            afficherAlerteErreur("La description doit contenir au moins 12 caractères.");
+            return;
+        }
+
+        // Vérifier si la date de début est supérieure à la date d'aujourd'hui
+        if (dateDebut.isBefore(aujourdHui)) {
+            afficherAlerteErreur("La date de début doit être ultérieure à la date d'aujourd'hui.");
+            return;
+        }
+
+        // Vérifier si la date de fin est après la date de début
+        if (dateFin.isBefore(dateDebut)) {
+            afficherAlerteErreur("La date de fin ne peut pas être avant la date de début.");
+            return;
+        }
+
+        // Insérer l'événement dans la base de données
+        ev.insert(new Event(nomEvent, dateDebut.toString(), dateFin.toString(), type, description));
+
+        // Optionnel : afficher un message de succès
+        afficherAlerteInformation("Événement ajouté avec succès.");
     }
+
+    void afficherAlerteErreur(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    void afficherAlerteInformation(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succès");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
 
 
 

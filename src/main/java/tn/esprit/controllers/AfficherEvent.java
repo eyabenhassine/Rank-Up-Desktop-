@@ -8,18 +8,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tn.esprit.entities.Event;
-import javafx.scene.control.TableView;
 import tn.esprit.services.EventService;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import javafx.scene.control.ChoiceBox;
+
+
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.fxml.Initializable;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class AfficherEvent {
@@ -40,6 +48,16 @@ public class AfficherEvent {
 
     @FXML
     private TableView<Event> tableView;
+
+    @FXML
+    private TextField searchField;
+    @FXML
+    private ChoiceBox<String> colonneChoiceBox;
+
+    @FXML
+    private ChoiceBox<String> ordreChoiceBox;
+
+
 
     private final EventService rec;
 
@@ -145,5 +163,104 @@ public class AfficherEvent {
     }
 
 
+    public void naviguerAdd(ActionEvent actionEvent) {
+        // Implémentez la navigation vers l'ajout si nécessaire
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/AjouterEvent.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            afficherAlerteErreur("Erreur", "Impossible de charger la vue d'ajout d'événement.");
+        }
+    }
+    private void afficherAlerteErreur(String titre, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titre);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
+
+    public void search(ActionEvent actionEvent) {
+        String searchText = searchField.getText().trim();
+
+        if (!searchText.isEmpty()) {
+            List<Event> searchResults = null;
+            try {
+                searchResults = rec.chercher(searchText);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            // Convert the list to observable list
+            ObservableList<Event> observableList = FXCollections.observableArrayList(searchResults);
+
+            // Define the cell value factories for each column
+            NomECol.setCellValueFactory(new PropertyValueFactory<>("nom_event"));
+            StartDateCol.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
+            EndDateCol.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
+            TypeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
+            DescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+
+
+
+            // Set the items to the table
+            tableView.setItems(observableList);
+
+            // Create a sorted list to sort the table based on the selected column and order
+            SortedList<Event> sortedList = new SortedList<>(observableList);
+
+            // Set the comparator based on the selected column and order
+            Comparator<Event> comparator = getComparatorFromChoiceBox(colonneChoiceBox, ordreChoiceBox);
+            sortedList.setComparator(comparator);
+
+            // Bind the sorted list to the table
+            tableView.setItems(sortedList);
+        } else {
+            showAlert("Input Error", "Please enter a search term.");
+        }
+
+    }
+
+    private Comparator<Event> getComparatorFromChoiceBox(ChoiceBox<String> colonneChoiceBox, ChoiceBox<String> ordreChoiceBox) {
+        String selectedColumn = colonneChoiceBox.getValue();
+        String selectedOrder = ordreChoiceBox.getValue();
+
+        Comparator<Event> comparator = null;
+
+        switch (selectedColumn) {
+            case "Nom":
+                comparator = Comparator.comparing(Event::getNom_event);
+                break;
+            case "Starting Day":
+                comparator = Comparator.comparing(Event::getDate_debut);
+                break;
+            case "End Day":
+                comparator = Comparator.comparing(Event::getDate_fin);
+                break;
+            case "Type":
+                comparator = Comparator.comparing(Event::getType);
+                break;
+            case "Description":
+                comparator = Comparator.comparing(Event::getDescription);
+                break;
+
+            default:
+                break;
+        }
+
+        if (comparator != null && selectedOrder != null && selectedOrder.equals("DESC")) {
+            comparator = comparator.reversed();
+        }
+
+        return comparator;
+    }
+
+    @FXML
+    void trier(ActionEvent event) {
+        tableView.getItems().sort(getComparatorFromChoiceBox(colonneChoiceBox, ordreChoiceBox));
+    }
 }

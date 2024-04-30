@@ -38,98 +38,24 @@ public class EventService implements IService<Event> {
             throw new RuntimeException(e);
         }
     }
-     public void insert (Event event){
-         String req = "INSERT INTO evenement (`nom_event`, `date_debut`, `date_fin`, `type`, `description`) VALUES (?,?,?,?,?)";
 
-         try {
-             PreparedStatement ps = cnx.prepareStatement(req);
+    public void insert(Event event) {
+        String req = "INSERT INTO evenement (`nom_event`, `date_debut`, `date_fin`, `type`, `description`) VALUES (?,?,?,?,?)";
 
-             ps.setString(1, event.getNom_event());
-             ps.setString(2, event.getDate_debut());
-             ps.setString(3, event.getDate_fin());
-             ps.setString(4, event.getType());
-             ps.setString(5, event.getDescription());
-             ps.executeUpdate();
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
 
-         } catch (SQLException e) {
-             throw new RuntimeException(e);
-         }
-     }
-     /*public void insert(Event event) {
-         String req = "INSERT INTO `evenement` (`nom_event`, `date_debut`, `date_fin`, `type`, `description`) VALUES (?,?,?,?,?)";
+            ps.setString(1, event.getNom_event());
+            ps.setString(2, event.getDate_debut());
+            ps.setString(3, event.getDate_fin());
+            ps.setString(4, event.getType());
+            ps.setString(5, event.getDescription());
+            ps.executeUpdate();
 
-         try {
-             PreparedStatement ps = cnx.prepareStatement(req);
-             ps.setString(1, event.getNom_event());
-             ps.setDate(2, Date.valueOf(event.getDate_debut())); // Utilisez setDate pour les dates
-             ps.setDate(3, Date.valueOf(event.getDate_fin()));   // Utilisez setDate pour les dates
-             ps.setString(4, event.getType());
-             ps.setString(5, event.getDescription());
-             ps.executeUpdate();
-             System.out.println("Event inserted successfully.");
-         } catch (SQLException e) {
-             throw new RuntimeException(e);
-         }
-     }*/
-     /*public void insert(Event event) {
-         // Vérifie si le champ 'nom_event' est null ou vide
-         if (event.getNom_event() == null || event.getNom_event().isEmpty()) {
-             // Affiche un message d'erreur ou lance une exception selon votre logique d'application
-             System.err.println("Error: 'nom_event' cannot be null or empty.");
-             // Vous pouvez également lancer une exception ici pour arrêter le traitement
-             throw new IllegalArgumentException("'nom_event' cannot be null or empty.");
-         }
-
-         String req = "INSERT INTO `evenement` (`nom_event`, `date_debut`, `date_fin`, `type`, `description`) VALUES (?,?,?,?,?)";
-
-         try {
-             PreparedStatement ps = cnx.prepareStatement(req);
-             ps.setString(1, event.getNom_event());
-             // Vérifiez si les champs de date sont vides avant de les convertir en java.sql.Date
-             if (event.getDate_debut() != null && !event.getDate_debut().isEmpty()) {
-                 ps.setDate(2, Date.valueOf(event.getDate_debut()));
-             } else {
-                 ps.setNull(2, Types.DATE);
-             }
-             if (event.getDate_fin() != null && !event.getDate_fin().isEmpty()) {
-                 ps.setDate(3, Date.valueOf(event.getDate_fin()));
-             } else {
-                 ps.setNull(3, Types.DATE);
-             }
-             ps.setString(4, event.getType());
-             ps.setString(5, event.getDescription());
-             ps.executeUpdate();
-             System.out.println("Event inserted successfully.");
-         } catch (SQLException e) {
-             throw new RuntimeException(e);
-         }
-     }*/
-
-
-
-    /*public void add(Event event) throws SQLException {
-        // Define the SQL query with placeholders for the parameters
-        String sql = "INSERT INTO `evenement` (nom_event,Date_debut, date_fin,type, description) VALUES (?, ?, ?, ?, ?)";
-
-        // Create a PreparedStatement using the SQL query
-        PreparedStatement preparedStatement = cnx.prepareStatement(sql);
-
-        preparedStatement.setString(1, event.getNom_event());
-        preparedStatement.setString(2, event.getDate_debut());
-        preparedStatement.setString(3, event.getDate_fin());
-        preparedStatement.setString(4, event.getType());
-        preparedStatement.setString(5, event.getDescription());
-
-
-
-        // Execute the update
-        preparedStatement.executeUpdate();
-
-        // Print a success message
-        System.out.println("Reclamation sent successfully");
-    }*/
-
-
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     @Override
@@ -186,14 +112,14 @@ public class EventService implements IService<Event> {
 
     @Override
     public List<Event> getAll() {
-        List <Event> events = new ArrayList<>();
+        List<Event> events = new ArrayList<>();
 
 
         try {
             String req = "SELECT * FROM evenement";
             Statement st = cnx.createStatement();
             ResultSet res = st.executeQuery(req);
-            while (res.next()){
+            while (res.next()) {
 
                 Event event = new Event();
                 event.setId(res.getInt("id"));
@@ -206,9 +132,6 @@ public class EventService implements IService<Event> {
                 events.add(event);
 
             }
-
-
-
 
 
         } catch (SQLException e) {
@@ -245,4 +168,32 @@ public class EventService implements IService<Event> {
 
         return null;
     }
+
+
+    public List<Event> chercher(String searchText) throws SQLException {
+        List<Event> results = new ArrayList<>();
+
+        String query = "SELECT * FROM evenement WHERE nom_event LIKE ? OR date_debut LIKE ? OR date_fin LIKE ? OR type LIKE ? OR description LIKE ?";
+        try (PreparedStatement st = cnx.prepareStatement(query)) {
+            for (int i = 1; i <= 5; i++) {
+                st.setString(i, "%" + searchText + "%");
+            }
+
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Event ev = new Event();
+                ev.setId(rs.getInt("id"));
+                ev.setNom_event(rs.getString("nom_event"));
+                ev.setDate_debut(rs.getString("date_debut"));
+                ev.setDate_fin(rs.getString("date_fin"));
+                ev.setType(rs.getString("type"));
+                ev.setDescription(rs.getString("description"));
+
+                results.add(ev);
+            }
+        }
+        return results;
+
+    }
+
 }
