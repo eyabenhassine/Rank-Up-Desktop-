@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-
+import java.time.LocalDate;
+import java.time.Month;
 import javafx.scene.control.Alert;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -405,7 +406,10 @@ public class UserService implements Iservice<User>
                         user.setLastname(resultSet.getString("lastname"));
                         user.setUsername(resultSet.getString("username"));
                         user.setPhone(resultSet.getString("phone"));
-                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
+
+//                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
+                        user.setBirthdate(LocalDate.of(1, Month.JANUARY, 1));
+
                         user.setElo(resultSet.getString("elo"));
                         user.setBio(resultSet.getString("bio"));
                         user.setSummonername(resultSet.getString("summonername"));
