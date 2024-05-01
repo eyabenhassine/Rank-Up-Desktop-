@@ -10,16 +10,28 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import tn.esprit.entities.Event;
 import tn.esprit.services.EventService;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import javafx.scene.control.ChoiceBox;
+
+import com.itextpdf.layout.element.Cell;
+
+import com.itextpdf.io.image.ImageDataFactory;
+
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
 
 
 import javafx.collections.transformation.FilteredList;
@@ -263,4 +275,57 @@ public class AfficherEvent {
     void trier(ActionEvent event) {
         tableView.getItems().sort(getComparatorFromChoiceBox(colonneChoiceBox, ordreChoiceBox));
     }
+
+
+    @FXML
+    void GenererPdfEvent(ActionEvent event) {
+        // Créer une boîte de dialogue de sélection de fichier
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Enregistrer le PDF");
+
+        // Définir le filtre d'extension pour les fichiers PDF
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Fichiers PDF (*.pdf)", "*.pdf");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        // Afficher la boîte de dialogue de sélection de fichier et attendre que l'utilisateur sélectionne un emplacement et un nom de fichier
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            // Si l'utilisateur a sélectionné un fichier, générez le PDF avec le nom et l'emplacement choisis
+            try (PdfWriter writer = new PdfWriter(file.getAbsolutePath());
+                 PdfDocument pdf = new PdfDocument(writer);
+                 Document document = new Document(pdf)) {
+
+                document.add(new Paragraph("Liste des événements"));
+
+                // Créer une table avec 5 colonnes
+                Table table = new Table(5);
+                table.addCell("Nom");
+                table.addCell("Date de début");
+                table.addCell("Date de fin");
+                table.addCell("Type");
+                table.addCell("Description");
+
+                // Récupérer la liste des événements depuis la TableView
+                ObservableList<Event> observableList = tableView.getItems();
+
+                // Ajouter les données des événements à la table
+                for (Event ev : observableList) {
+                    table.addCell(ev.getNom_event());
+                    table.addCell(ev.getDate_debut());
+                    table.addCell(ev.getDate_fin());
+                    table.addCell(ev.getType());
+                    table.addCell(ev.getDescription());
+                }
+
+                document.add(table);
+
+                System.out.println("PDF des événements généré avec succès !");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }

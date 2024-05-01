@@ -72,6 +72,14 @@
        </ChoiceBox>
        <!-- Button to trigger sorting -->
        <Button layoutX="1020.0" layoutY="110.0" mnemonicParsing="false" onAction="#trier" prefHeight="26.0" prefWidth="72.0" text="Trier" />
+       <Button layoutX="1122.0" layoutY="110.0" mnemonicParsing="false" onAction="#GenererPdfEvent" prefHeight="26.0" prefWidth="95.0" text="Générer PDF" />
+
 
    </children>
 </AnchorPane>
+
+
+
+
+
+       
