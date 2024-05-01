@@ -1,85 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="634.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherEvent">
-   <children>
-      <ImageView fitHeight="645.0" fitWidth="1245.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/aaf88576009313.5c5ca8e8c347a.jpg" />
-         </image>
-      </ImageView>
+<VBox prefHeight="634.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AfficherEvent">
+    <stylesheets>
+        <URL value="@css/AfficherEvent.css" />
+    </stylesheets>
+    <children>
+        <VBox alignment="CENTER" spacing="10">
+            <Text styleClass="title" text="EVENTS list" />
+            <TableView fx:id="tableView" prefHeight="200.0" prefWidth="800.0">
+                <columns>
+                    <TableColumn fx:id="NomECol" prefWidth="214.3999908566475" text="Event Name" />
+                    <TableColumn fx:id="StartDateCol" prefWidth="216.8000030517578" text="Start Date" />
+                    <TableColumn fx:id="EndDateCol" prefWidth="275.20001220703125" text="End Date" />
+                    <TableColumn fx:id="TypeCol" prefWidth="241.5999755859375" text="Event Type" />
+                    <TableColumn fx:id="DescriptionCol" prefWidth="284.800048828125" text="Description" />
 
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <TextField fx:id="searchField" promptText="Search..." />
+                <ChoiceBox fx:id="colonneChoiceBox">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Nom" />
+                            <String fx:value="Starting Day" />
+                            <String fx:value="End Day" />
+                            <String fx:value="Type" />
+                            <String fx:value="Description" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <ChoiceBox fx:id="ordreChoiceBox">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="ASC" />
+                            <String fx:value="DESC" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Button onAction="#search" text="Search" />
+                <Button onAction="#trier" text="Trier" />
+                <Button layoutX="1122.0" layoutY="110.0" mnemonicParsing="false" onAction="#GenererPdfEvent" prefHeight="26.0" prefWidth="189.0" text="Générer PDF" />
+                <Button mnemonicParsing="false" onAction="#naviguerAdd"  text="Add" />
+                <Button mnemonicParsing="false" onAction="#modifierEvent" prefHeight="25.0" prefWidth="72.0" text="Update" />
+                <Button mnemonicParsing="false" onAction="#deleteEvent" prefHeight="26.0" prefWidth="72.0" text="Delete" />
+            </HBox>
+        </VBox>
 
-
-
-       <TableView fx:id="tableView" layoutX="577.0" layoutY="175.0" prefHeight="200.0" prefWidth="515.0">
-        <columns>
-          <TableColumn fx:id="NomECol" prefWidth="99.20001220703125" text="Event Name" />
-          <TableColumn fx:id="StartDateCol" prefWidth="75.20001220703125" text="Start Date" />
-            <TableColumn fx:id="EndDateCol" prefWidth="87.20001220703125" text="End Date" />
-            <TableColumn fx:id="TypeCol" prefWidth="78.4000244140625" text="Event Type" />
-            <TableColumn fx:id="DescriptionCol" prefWidth="174.39996337890625" text="Description" />
-        </columns>
-      </TableView>
-
-       <Button layoutX="827.0" layoutY="393.0" onAction="#naviguerAdd" prefHeight="26.0" prefWidth="72.0" text="Add" />
-       <Button layoutX="992.0" layoutY="393.0" mnemonicParsing="false" onAction="#modifierEvent" prefHeight="25.0" prefWidth="72.0" text="Update" />
-       <Button layoutX="908.0" layoutY="393.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="26.0" prefWidth="72.0" text="Delete" />
-      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="416.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EVENTS  list">
-         <font>
-            <Font name="Algerian" size="53.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/logo1.png" />
-         </image>
-      </ImageView>
-       <TextField fx:id="searchField" layoutX="577.0" layoutY="110.0" prefHeight="26.0" prefWidth="111.0" promptText="Search..." />
-      <Button layoutX="920.0" layoutY="110.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="85.0" text="Search" />
-       <ChoiceBox fx:id="colonneChoiceBox" layoutX="707.0" layoutY="110.0" prefHeight="25.0" prefWidth="83.0">
-           <items>
-               <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="Nom" />
-                   <String fx:value="Starting Day" />
-                   <String fx:value="End Day" />
-                   <!-- Ajoutez d'autres colonnes ici selon vos besoins -->
-                   <String fx:value="Type" />
-                   <String fx:value="Description" />
-
-               </FXCollections>
-           </items>
-       </ChoiceBox>
-       <ChoiceBox fx:id="ordreChoiceBox" layoutX="813.0" layoutY="110.0" prefHeight="25.0" prefWidth="85.0">
-           <items>
-               <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="ASC" />
-                   <String fx:value="DESC" />
-               </FXCollections>
-           </items>
-       </ChoiceBox>
-       <!-- Button to trigger sorting -->
-       <Button layoutX="1020.0" layoutY="110.0" mnemonicParsing="false" onAction="#trier" prefHeight="26.0" prefWidth="72.0" text="Trier" />
-       <Button layoutX="1122.0" layoutY="110.0" mnemonicParsing="false" onAction="#GenererPdfEvent" prefHeight="26.0" prefWidth="95.0" text="Générer PDF" />
-
-
-   </children>
-</AnchorPane>
-
-
-
-
-
-       
+        <ImageView fitHeight="150.0" fitWidth="200.0">
+            <!-- Image not specified -->
+        </ImageView>
+    </children>
+</VBox>
