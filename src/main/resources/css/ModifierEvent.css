@@ -1,0 +1,29 @@
+/* your_theme.css */
+
+/* Background color */
+.root {
+    -fx-background-color: #0d1117;
+}
+
+/* Titre de la page */
+.title {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+}
+
+/* Text field background color and font size */
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-font-size: 14px;
+}
+
+/* Boutons d'action */
+.action-button {
+    -fx-background-color: #0D98Ba;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.action-button:hover {
+    -fx-background-color: #0b6a85;
+}
