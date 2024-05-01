@@ -1,5 +1,9 @@
 package tn.esprit.controllers;
 
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.layout.element.Image;
+
+import com.itextpdf.layout.property.TextAlignment;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,8 +14,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
 import tn.esprit.entities.Event;
 import tn.esprit.services.EventService;
 
@@ -122,12 +131,14 @@ public class AfficherEvent {
                 // Mettre à jour la TableView en supprimant l'événement sélectionné de la liste des éléments
                 tableView.getItems().remove(selectedEvent);
                 showAlert("Suppression réussie", "L'événement a été supprimé avec succès.");
+                showNotification("Opération réussie", "Evenement a été supprimé avec succès.");
             } catch (SQLException e) {
                 showAlert("Erreur", "Échec de la suppression de l'événement : " + e.getMessage());
             }
         } else {
             showAlert("Aucune sélection", "Veuillez sélectionner un événement à supprimer.");
         }
+
     }
     @FXML
     void naviguer(ActionEvent event) {
@@ -154,9 +165,11 @@ public class AfficherEvent {
 
                 Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 currentStage.setScene(new Scene(root));
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         } else {
             System.out.println("Aucun événement sélectionné.");
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -164,6 +177,7 @@ public class AfficherEvent {
             alert.setContentText("Veuillez sélectionner un événement à modifier.");
             alert.showAndWait();
         }
+
     }
 
     private void showAlert(String title, String content) {
@@ -277,6 +291,8 @@ public class AfficherEvent {
     }
 
 
+
+
     @FXML
     void GenererPdfEvent(ActionEvent event) {
         // Créer une boîte de dialogue de sélection de fichier
@@ -325,6 +341,30 @@ public class AfficherEvent {
                 e.printStackTrace();
             }
         }
+    }
+
+
+
+    /*private void showNotification(String title, String message) {
+        Notifications.create()
+                .title(title)
+                .text(message)
+                .darkStyle()
+                .graphic(new Image(getClass().getResourceAsStream("/path/to/icon.png"))) // Ajouter une icône personnalisée
+                .backgroundColor(Color.web("#ffcc00")) // Changer la couleur de fond
+                .textColor(Color.BLACK) // Changer la couleur du texte
+                .font(Font.font("Arial", FontWeight.BOLD, 14)) // Changer la taille et le style de la police
+                .show();
+    }*/
+
+    @FXML
+
+    private void showNotification(String title, String message) {
+        Notifications.create()
+                .title(title)
+                .text(message)
+                .darkStyle() // Vous pouvez personnaliser le style ici
+                .show();
     }
 
 

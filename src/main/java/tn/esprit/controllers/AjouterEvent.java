@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import tn.esprit.entities.Event;
 import tn.esprit.services.EventService;
 import java.time.LocalDate;
+import org.controlsfx.control.Notifications;
 
 import javafx.scene.control.DatePicker;
 
@@ -207,6 +208,8 @@ public class AjouterEvent {
 
         // Optionnel : afficher un message de succès
         afficherAlerteInformation("Événement ajouté avec succès.");
+        showNotification("Opération réussie", "Evenement a été Ajouté avec succès.");
+
     }
 
     void afficherAlerteErreur(String message) {
@@ -223,6 +226,16 @@ public class AjouterEvent {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+
+    private void showNotification(String title, String message) {
+        Notifications.create()
+                .title(title)
+                .text(message)
+                .darkStyle() // Vous pouvez personnaliser le style ici
+                .show();
     }
 
 

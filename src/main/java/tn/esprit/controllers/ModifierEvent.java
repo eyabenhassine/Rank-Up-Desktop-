@@ -1,5 +1,5 @@
 package tn.esprit.controllers;
-
+import org.controlsfx.control.Notifications;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
 import tn.esprit.entities.Event;
 import tn.esprit.services.EventService;
 
@@ -85,6 +86,7 @@ public class ModifierEvent implements Initializable {
                 eventService.update(selectedEvent);
 
                 afficherAlerteInformation("Modification réussie", "L'événement a été modifié avec succès !");
+                showNotification("Opération réussie", "Evenement a été modifié avec succès.");
 
             } catch (SQLException e) {
                 afficherAlerteErreur("Erreur", "Erreur lors de la modification de l'événement : " + e.getMessage());
@@ -136,5 +138,15 @@ public class ModifierEvent implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+
+    private void showNotification(String title, String message) {
+        Notifications.create()
+                .title(title)
+                .text(message)
+                .darkStyle() // Vous pouvez personnaliser le style ici
+                .show();
     }
 }
