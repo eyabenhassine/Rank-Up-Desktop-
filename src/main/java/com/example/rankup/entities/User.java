@@ -11,6 +11,7 @@ public class User {
     LocalDate birthdate;
     List<String> roles = new ArrayList<>();
     String elo ;
+    int  id_budge , wallet ;
 
     public User() {
     }
@@ -42,6 +43,46 @@ public class User {
         this.roles = roles;
     }
 
+    public User(int id, String email, String firstname, String lastname, String username, String resetToken, String password, String photo, String phone, String whyBlocked, String status, String bio, String summonername, LocalDate birthdate, List<String> roles, String elo, int id_budge, int wallet) {
+        this.id = id;
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.username = username;
+        this.resetToken = resetToken;
+        this.password = password;
+        this.photo = photo;
+        this.phone = phone;
+        this.whyBlocked = whyBlocked;
+        this.status = status;
+        this.bio = bio;
+        this.summonername = summonername;
+        this.birthdate = birthdate;
+        this.roles = roles;
+        this.elo = elo;
+        this.id_budge = id_budge;
+        this.wallet = wallet;
+    }
+
+    public User(String email, String firstname, String lastname, String username, String resetToken, String password, String photo, String phone, String whyBlocked, String status, String bio, String summonername, LocalDate birthdate, List<String> roles, String elo, int id_budge, int wallet) {
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.username = username;
+        this.resetToken = resetToken;
+        this.password = password;
+        this.photo = photo;
+        this.phone = phone;
+        this.whyBlocked = whyBlocked;
+        this.status = status;
+        this.bio = bio;
+        this.summonername = summonername;
+        this.birthdate = birthdate;
+        this.roles = roles;
+        this.elo = elo;
+        this.id_budge = id_budge;
+        this.wallet = wallet;
+    }
 
     public int getId() {
         return id;

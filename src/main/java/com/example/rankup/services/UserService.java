@@ -4,11 +4,9 @@ import com.example.rankup.entities.User;
 import com.example.rankup.utils.DataSource;
 
 import java.sql.*;
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javafx.scene.control.Alert;
 import org.mindrot.jbcrypt.BCrypt;
@@ -161,7 +159,80 @@ public class UserService implements Iservice<User>
             return false;
         }
     }
+    public String getPhoneByEmail(String email) {
+        try {
+            String query = "SELECT phone FROM user WHERE email = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, email);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        return resultSet.getString("phone");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public void generateAndStoreVerificationCode(String email) {
+        String verificationCode = generateVerificationCode();
 
+        try {
+            String query = "UPDATE user SET verification_code = ? WHERE email = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, verificationCode);
+                preparedStatement.setString(2, email);
+
+                int rowsUpdated = preparedStatement.executeUpdate();
+
+                if (rowsUpdated > 0) {
+                    System.out.println("Verification code generated and stored successfully");
+                    sendVerificationCodeViaSMS(email, verificationCode); // Send the verification code via SMS
+                } else {
+                    System.out.println("Failed to generate and store verification code");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sendVerificationCodeViaSMS(String email, String verificationCode) {
+        // Get the user's phone number using the email
+        String phoneNumber = getPhoneByEmail(email);
+
+        if (phoneNumber != null) {
+            String message = "Your verification code for login: " + verificationCode;
+            SmsSender.sendSMS(phoneNumber, message);
+            System.out.println("Verification code sent via SMS to " + phoneNumber);
+        } else {
+            System.out.println("Failed to retrieve phone number for sending SMS");
+        }
+    }
+    public boolean verifyVerificationCode(String email, String verificationCode) {
+        try {
+            String query = "SELECT verification_code FROM user WHERE email = ?";
+            try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+                preparedStatement.setString(1, email);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        String storedVerificationCode = resultSet.getString("verification_code");
+                        return verificationCode.equals(storedVerificationCode);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public String generateVerificationCode() {
+        Random random = new Random();
+        int code = random.nextInt(9000) + 1000; // Generates a random 4-digit code
+        return String.valueOf(code);
+    }
     public boolean updateResetToken(String email, String resetToken) {
         try {
             String query = "UPDATE user SET reset_token = ? WHERE email = ?";
@@ -323,6 +394,73 @@ public class UserService implements Iservice<User>
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+            public boolean purchaseBadge(int userId, String badgeName, BadgeService badgeService) {
+                try {
+                    int badgePrice = badgeService.getBadgePrice(badgeName);
+                    if (badgePrice == -1) {
+                        System.out.println("Badge not found");
+                        return false;
+                    }
+
+            int userWallet = getUserWallet(userId);
+            if (userWallet < badgePrice) {
+                System.out.println("Insufficient funds");
+                return false;
+            }
+
+            // Update user's wallet balance
+            int newWalletBalance = userWallet - badgePrice;
+            updateWallet(userId, newWalletBalance);
+
+
+            int badgeId = badgeService.getBadgeId(badgeName);
+            if (badgeId == -1) {
+                System.out.println("Badge not found");
+                return false;
+            }
+
+            createRelation(userId, badgeId);
+
+            System.out.println("Badge purchased successfully");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    private int getUserWallet(int userId) throws SQLException {
+        String query = "SELECT wallet FROM user WHERE id = ?";
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setInt(1, userId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("wallet");
+                }
+            }
+        }
+        return -1;
+    }
+
+    private void updateWallet(int userId, int newWalletBalance) throws SQLException {
+        String query = "UPDATE user SET wallet = ? WHERE id = ?";
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setInt(1, newWalletBalance);
+            preparedStatement.setInt(2, userId);
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    private void createRelation(int userId, int badgeId) throws SQLException {
+        String query = "UPDATE user SET id_budge = ? WHERE id = ?";
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setInt(1, badgeId);
+            preparedStatement.setInt(2, userId);
+            preparedStatement.executeUpdate();
         }
     }
 

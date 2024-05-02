@@ -1,6 +1,7 @@
 package com.example.rankup.controllers;
 
 import com.example.rankup.services.SessionManager;
+import com.example.rankup.services.SmsSender;
 import com.example.rankup.services.UserService;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ import java.io.IOException;
 
 public class logincontroller {
 
+    private SmsSender smsSender;
     @FXML
     private TextField emailLogin;
 
@@ -32,7 +34,7 @@ public class logincontroller {
     @FXML
     public void initialize() {
         userService = new UserService();
-
+        smsSender = new SmsSender();
     }
 
     @FXML
@@ -63,55 +65,73 @@ public class logincontroller {
             loadingindicator.setVisible(false);
 
             if (loginSuccess) {
+                userService.generateAndStoreVerificationCode(email);
                 Object roleObj = SessionManager.getSession("role");
-                if (roleObj != null) {
-                    int role = (int) roleObj;
-                    if (role == -1) {
-                        // Coach or player, navigate to profile
-                        try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/profile.fxml"));
-                            Parent root = loader.load();
-                            ProfileController profileController = loader.getController();
-                            profileController.setStage(new Stage()); // Set the stage for profile controller
-                            Scene scene = new Scene(root);
-                            Stage stage = new Stage();
-                            stage.setScene(scene);
-                            stage.setTitle("Profile");
-                            stage.show();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                    } else if (role == 1) {
-                        // Admin, navigate to admin users page
-                        try {
-                            Parent root = FXMLLoader.load(getClass().getResource("/adminusers.fxml"));
-                            emailLogin.getScene().setRoot(root);
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                    } else {
-                        // Handle case where role is not defined
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("User role not defined. Please contact the administrator.");
-                        alert.show();
+                if (roleObj != null && (int) roleObj != 1) {
+                    // Redirect to 2FA page
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/2factor.fxml"));
+                        Parent root = loader.load();
+                        TwoFactorController twoFactorController = loader.getController();
+                        twoFactorController.setEmail(email); // Pass email to 2FA controller
+                        twoFactorController.setStage(new Stage()); // Set the stage for 2FA controller
+                        Scene scene = new Scene(root);
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.setTitle("Two-Factor Authentication");
+                        stage.show();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
                     }
                 } else {
-                    // Login unsuccessful
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Invalid email or password. Please try again.");
-                    alert.show();
+                    // Admin or Main user, handle accordingly
+                    if (roleObj != null) {
+                        int role = (int) roleObj;
+                        if (role == -1) {
+                            // Coach or player, navigate to profile
+                            try {
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/profile.fxml"));
+                                Parent root = loader.load();
+                                ProfileController profileController = loader.getController();
+                                profileController.setStage(new Stage()); // Set the stage for profile controller
+                                Scene scene = new Scene(root);
+                                Stage stage = new Stage();
+                                stage.setScene(scene);
+                                stage.setTitle("Profile");
+                                stage.show();
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
+                        } else if (role == 1) {
+                            // Admin, navigate to admin users page
+                            try {
+                                Parent root = FXMLLoader.load(getClass().getResource("/adminusers.fxml"));
+                                emailLogin.getScene().setRoot(root);
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            }
+                        } else {
+                            // Handle case where role is not defined
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("User role not defined. Please contact the administrator.");
+                            alert.show();
+                        }
+                    }
                 }
             } else {
-                // Login unsuccessful due to block
-                String blockReason = userService.getBlockReason(email); // Assuming you have a method to fetch block reason
-                if (blockReason != null) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Your account is blocked. Reason: " + blockReason);
-                    alert.show();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Invalid email or password. Please try again.");
-                    alert.show();
+                // Login unsuccessful
+                Object roleObj = SessionManager.getSession("role");
+                if (roleObj != null) {
+                    String blockReason = userService.getBlockReason(email); // Assuming you have a method to fetch block reason
+                    if (blockReason != null) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Your account is blocked. Reason: " + blockReason);
+                        alert.show();
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Invalid email or password. Please try again.");
+                        alert.show();
+                    }
                 }
             }
         });
@@ -125,7 +145,6 @@ public class logincontroller {
 
         new Thread(loginTask).start();
     }
-
 
 
     @FXML

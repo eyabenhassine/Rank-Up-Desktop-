@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #301934;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ResetPassController">
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #301934;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.TwoFactorController">
     <children>
         <ImageView fitHeight="461.0" fitWidth="312.0" layoutX="363.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -23,7 +23,7 @@
                         <Image url="@img/logo1.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="77.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleButton" prefHeight="28.0" prefWidth="79.0" style="-fx-background-color: #0D98Ba;" text="Next" textFill="WHITE">
+                <Button layoutX="77.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleButtonLogin" prefHeight="28.0" prefWidth="79.0" style="-fx-background-color: #0D98Ba;" text="Next" textFill="WHITE">
                     <font>
                         <Font size="13.0" />
                     </font>
@@ -36,7 +36,7 @@
 
 
                 <ProgressIndicator fx:id="loadingindicator" layoutX="374.0" layoutY="1.0" progress="0.0" />
-                <TextField fx:id="emailField" layoutX="68.0" layoutY="133.0" prefHeight="26.0" prefWidth="187.0" />
+                <TextField fx:id="codeField" layoutX="68.0" layoutY="133.0" prefHeight="26.0" prefWidth="187.0" />
                 <Label layoutX="74.0" layoutY="66.0" prefHeight="67.0" prefWidth="326.0" text="by entering a code" textFill="WHITE">
                     <font>
                         <Font name="Barlow Condensed Black Italic" size="17.0" />

@@ -111,7 +111,7 @@
             <Image url="@img/baron.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="544.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="navToBadges" fitHeight="35.0" fitWidth="34.0" layoutX="544.0" layoutY="17.0" onMouseClicked="#navToBadges" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/badge.png" />
          </image>
