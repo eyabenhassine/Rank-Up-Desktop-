@@ -57,6 +57,7 @@
                 <Button mnemonicParsing="false" onAction="#naviguerAdd"  text="Add" />
                 <Button mnemonicParsing="false" onAction="#modifierEvent" prefHeight="25.0" prefWidth="72.0" text="Update" />
                 <Button mnemonicParsing="false" onAction="#deleteEvent" prefHeight="26.0" prefWidth="72.0" text="Delete" />
+                <Button mnemonicParsing="false" onAction="#generatePDF" prefHeight="26.0" prefWidth="72.0" text="PDF" />
             </HBox>
         </VBox>
 

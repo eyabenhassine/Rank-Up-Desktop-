@@ -1,6 +1,7 @@
 package tn.esprit.controllers;
 
 import com.itextpdf.io.image.ImageData;
+import com.itextpdf.kernel.colors.DeviceGray;
 import com.itextpdf.layout.element.Image;
 
 import com.itextpdf.layout.property.TextAlignment;
@@ -17,6 +18,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -31,6 +34,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import javafx.scene.control.ChoiceBox;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import com.itextpdf.layout.element.Cell;
 
@@ -95,7 +105,7 @@ public class AfficherEvent {
         try {
             // Récupérer la liste des événements à partir de la méthode afficherEvents()
             List<Event> events = rec.afficherEvents();
-            System.out.println("Reclamations loaded: " + events);
+            System.out.println("Event loaded: " + events);
 
             // Créer une ObservableList à partir de la liste d'événements
             ObservableList<Event> observableList = FXCollections.observableList(events);
@@ -290,57 +300,190 @@ public class AfficherEvent {
         tableView.getItems().sort(getComparatorFromChoiceBox(colonneChoiceBox, ordreChoiceBox));
     }
 
+    private void displaySelectedEventDetails(Event event) {
+        // Afficher les détails de la réclamation sélectionnée
+        System.out.println("Selected Event: " + event);
+
+        // Vous pouvez afficher ces détails où vous le souhaitez
+        // Par exemple, affichez-les dans des labels à côté de la table
+        NomECol.setText(event.getNom_event());
+        StartDateCol.setText(String.valueOf(event.getDate_debut()));
+        EndDateCol.setText(event.getDate_fin());
+        TypeCol.setText(event.getType());
+        DescriptionCol.setText(event.getDescription());
+    }
+
 
 
 
     @FXML
     void GenererPdfEvent(ActionEvent event) {
-        // Créer une boîte de dialogue de sélection de fichier
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Enregistrer le PDF");
+        // Sélectionner l'emplacement et le nom du fichier PDF
+        File file = choisirFichierPDF();
 
-        // Définir le filtre d'extension pour les fichiers PDF
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Fichiers PDF (*.pdf)", "*.pdf");
-        fileChooser.getExtensionFilters().add(extFilter);
-
-        // Afficher la boîte de dialogue de sélection de fichier et attendre que l'utilisateur sélectionne un emplacement et un nom de fichier
-        File file = fileChooser.showSaveDialog(null);
-
+        // Générer le PDF si un fichier est sélectionné
         if (file != null) {
-            // Si l'utilisateur a sélectionné un fichier, générez le PDF avec le nom et l'emplacement choisis
-            try (PdfWriter writer = new PdfWriter(file.getAbsolutePath());
-                 PdfDocument pdf = new PdfDocument(writer);
-                 Document document = new Document(pdf)) {
+            try {
+                // Créer le document PDF
+                try (PdfWriter writer = new PdfWriter(file.getAbsolutePath());
+                     PdfDocument pdf = new PdfDocument(writer);
+                     Document document = new Document(pdf)) {
 
-                document.add(new Paragraph("Liste des événements"));
+                    // Ajouter un titre au document
+                    ajouterTitre(document);
 
-                // Créer une table avec 5 colonnes
-                Table table = new Table(5);
-                table.addCell("Nom");
-                table.addCell("Date de début");
-                table.addCell("Date de fin");
-                table.addCell("Type");
-                table.addCell("Description");
-
-                // Récupérer la liste des événements depuis la TableView
-                ObservableList<Event> observableList = tableView.getItems();
-
-                // Ajouter les données des événements à la table
-                for (Event ev : observableList) {
-                    table.addCell(ev.getNom_event());
-                    table.addCell(ev.getDate_debut());
-                    table.addCell(ev.getDate_fin());
-                    table.addCell(ev.getType());
-                    table.addCell(ev.getDescription());
+                    // Créer et ajouter la table d'événements
+                    creerEtAjouterTable(document);
                 }
 
-                document.add(table);
-
+                // Afficher un message de succès
                 System.out.println("PDF des événements généré avec succès !");
             } catch (IOException e) {
+                // Gérer les erreurs d'entrée/sortie
                 e.printStackTrace();
             }
         }
+    }
+
+
+
+    @FXML
+    private void generatePDF() {
+        Event selectedEvent = tableView.getSelectionModel().getSelectedItem();
+
+        if (selectedEvent != null) {
+            // Créer un sélecteur de fichiers
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Enregistrer le fichier PDF");
+
+            // Définir l'extension par défaut et le nom du fichier
+            fileChooser.setInitialFileName("Event_" + selectedEvent.getId() + ".pdf");
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Fichiers PDF (*.pdf)", "*.pdf");
+            fileChooser.getExtensionFilters().add(extFilter);
+
+            // Afficher la boîte de dialogue pour choisir l'emplacement et le nom du fichier PDF
+            Stage stage = (Stage) tableView.getScene().getWindow();
+            File file = fileChooser.showSaveDialog(stage);
+
+            if (file != null) {
+                try {
+                    // Création du document PDF
+                    PDDocument document = new PDDocument();
+                    PDPage page = new PDPage();
+                    document.addPage(page);
+
+                    try (PDPageContentStream contentStream = new PDPageContentStream(document, page)) {
+                        // Charger le logo
+                        PDImageXObject logo = PDImageXObject.createFromFile("src/logo0.png", document);
+                        //Redimensionner le logo
+                        float logoWidth = logo.getWidth() / 4; // Largeur du logo divisée par 4
+                        float logoHeight = logo.getHeight() / 4; // Hauteur du logo divisée par 4
+                        contentStream.drawImage(logo, 50, 750 - logoHeight, logoWidth, logoHeight);
+
+                        // Ajouter le titre
+                        contentStream.setFont(PDType1Font.HELVETICA_BOLD, 16);
+                        contentStream.beginText();
+                        contentStream.newLineAtOffset(200, 750); // Position du titre
+                        contentStream.showText("Détails de la réclamation");
+                        contentStream.endText();
+
+                        // Début du texte des détails de réclamation
+                        contentStream.setFont(PDType1Font.HELVETICA, 12);
+                        contentStream.beginText();
+                        contentStream.newLineAtOffset(100, 650); // Position verticale initiale
+
+                        // Afficher les détails de la réclamation avec des séparateurs
+                        contentStream.showText("Nom: " + selectedEvent.getNom_event());
+                        contentStream.newLineAtOffset(0, -20); // Décaler verticalement pour la prochaine ligne
+                        contentStream.showText("------------------------------------------");
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("Date de debut: " + selectedEvent.getDate_debut());
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("------------------------------------------");
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("Date: " + selectedEvent.getDate_fin());
+                        contentStream.showText("------------------------------------------");
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("Type: " + selectedEvent.getType());
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("------------------------------------------");
+                        contentStream.newLineAtOffset(0, -20);
+                        contentStream.showText("Description: " + selectedEvent.getDescription());
+                        contentStream.newLineAtOffset(0, -20);
+
+                        // Fin du texte
+                        contentStream.endText();
+                    }
+
+                    // Sauvegarder le document PDF
+                    document.save(file);
+                    document.close();
+
+                    showAlert("PDF généré", "Le PDF a été généré avec succès: " + file.getAbsolutePath());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    showAlert("Erreur", "Erreur lors de la génération du PDF: " + e.getMessage());
+                }
+            }
+        } else {
+            showAlert("Sélection manquante", "Veuillez sélectionner un événement pour générer un PDF.");
+        }
+    }
+
+
+    // Méthode pour sélectionner l'emplacement et le nom du fichier PDF
+    private File choisirFichierPDF() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Enregistrer le PDF");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PDF (*.pdf)", "*.pdf"));
+        return fileChooser.showSaveDialog(null);
+    }
+
+    // Méthode pour ajouter un titre au document PDF
+    private void ajouterTitre(Document document) {
+        Paragraph titre = new Paragraph("Liste des événements")
+                //.setFontColor(Color.BLACK)
+                .setBold()
+                .setFontSize(20)
+                .setTextAlignment(TextAlignment.CENTER)
+                .setMarginBottom(20);
+        document.add(titre);
+    }
+
+    // Méthode pour créer et ajouter la table d'événements
+    private void creerEtAjouterTable(Document document) {
+        // Créer une table avec 5 colonnes
+        Table table = new Table(5);
+        table.setWidth(100);
+
+        // Ajouter une en-tête de table avec un style personnalisé
+        ajouterEnTeteTable(table);
+
+        // Récupérer la liste des événements depuis la TableView
+        ObservableList<Event> observableList = tableView.getItems();
+
+        // Ajouter les données des événements à la table
+        for (Event ev : observableList) {
+            table.addCell(ev.getNom_event());
+            table.addCell(ev.getDate_debut());
+            table.addCell(ev.getDate_fin());
+            table.addCell(ev.getType());
+            table.addCell(ev.getDescription());
+        }
+
+        // Ajouter la table au document
+        document.add(table);
+    }
+
+    // Méthode pour ajouter une en-tête de table avec un style personnalisé
+    private void ajouterEnTeteTable(Table table) {
+        table.addHeaderCell("Nom");
+        table.addHeaderCell("Date de début");
+        table.addHeaderCell("Date de fin");
+        table.addHeaderCell("Type");
+        table.addHeaderCell("Description");
+
+        table.getHeader().setBackgroundColor(new DeviceGray(0.75f));
     }
 
 
