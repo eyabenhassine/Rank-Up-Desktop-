@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Home {
     public void naviguertoEvenement(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/afficherEvent.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherEClient.fxml"));
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.setScene(new Scene(root));
         } catch (IOException e) {
