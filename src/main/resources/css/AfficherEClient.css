@@ -1,0 +1,12 @@
+/* Style pour les conteneurs VBox */
+.vbox-container {
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-padding: 10px;
+}
+
+/* Espacement entre les cases */
+.grid-pane {
+    -fx-hgap: 20px;
+    -fx-vgap: 20px;
+}

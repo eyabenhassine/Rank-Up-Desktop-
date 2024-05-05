@@ -23,7 +23,7 @@ public class AfficherEClient {
 
     private final EventService eventService = new EventService();
 
-    public AfficherEClient() throws SQLException {
+    public AfficherEClient() throws IOException, SQLException {
     }
 
     // Méthode pour charger les données d'événement dans les labels appropriés
@@ -47,8 +47,16 @@ public class AfficherEClient {
 
     // Méthode pour afficher les détails d'un événement
     private void showEventDetails(Event event) {
-        // Vous pouvez afficher les détails de l'événement ici
-        System.out.println(event.toString());
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/EventDetails.fxml"));
+            Parent root = loader.load();
+            EventDetails controller = loader.getController();
+            controller.initialize(event);
+            Stage currentStage = (Stage) eventGrid.getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void showEventDetails(ActionEvent event) {

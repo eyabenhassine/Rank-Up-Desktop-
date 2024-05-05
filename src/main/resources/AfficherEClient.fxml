@@ -1,61 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<GridPane fx:id="eventGrid" xmlns:fx="http://javafx.com/fxml" fx:controller="tn.esprit.controllers.AfficherEClient"
+          alignment="CENTER" hgap="10" vgap="10" style="-fx-padding: 20px;">
+    <stylesheets>
+        <URL value="@css/AfficherEClient.css" />
+    </stylesheets>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="tn.esprit.controllers.AfficherEClient"
-
-            prefHeight="400.0" prefWidth="600.0">
-
-    <VBox xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml">
-
-
-        <GridPane>
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-            </columnConstraints>
-            <children>
-                <Label text="Nom" />
-                <Label text="Date Début" GridPane.columnIndex="1" />
-                <Label text="Date Fin" GridPane.columnIndex="2" />
-                <Label text="Type" GridPane.columnIndex="3" />
-                <Label text="Détails" GridPane.columnIndex="4" />
-            </children>
-        </GridPane>
-
-        <!-- Repeat the following for each event in your list -->
-        <GridPane fx:id="eventGrid">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-            </columnConstraints>
-            <children>
-                <Label fx:id="eventNameLabel" />
-                <Label fx:id="eventStartDateLabel" GridPane.columnIndex="1" />
-                <Label fx:id="eventEndDateLabel" GridPane.columnIndex="2" />
-                <Label fx:id="eventTypeLabel" GridPane.columnIndex="3" />
-                <Button text="Détails" onAction="#showEventDetails" GridPane.columnIndex="4" />
-
-
-
-                <Button layoutX="906.0" layoutY="209.0" mnemonicParsing="false" onAction="#BackToHome" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #0078d4;" text="Back home" />
-            </children>
-        </GridPane>
-
+    <!-- Définir un conteneur pour chaque événement -->
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Label fx:id="eventNameLabel" style="-fx-font-weight: bold;"/>
+        <Label fx:id="eventDatesLabel"/>
+        <Label fx:id="eventTypeLabel"/>
+        <Button fx:id="detailsButton" text="Détails"/>
     </VBox>
 
-</AnchorPane>
+    <!-- Ajouter d'autres conteneurs VBox pour chaque événement si nécessaire -->
+</GridPane>
