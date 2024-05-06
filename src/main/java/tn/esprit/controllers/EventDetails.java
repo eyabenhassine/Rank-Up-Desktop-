@@ -58,7 +58,7 @@ public class EventDetails {
                 + "Type: " + event.getType() + "\n"
                 + "Description: " + event.getDescription();
 
-        
+
 
         // Set the width and height of the QR code
         int width = 150;
