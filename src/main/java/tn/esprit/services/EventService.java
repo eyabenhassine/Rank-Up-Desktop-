@@ -5,6 +5,7 @@ import tn.esprit.interfaces.IService;
 import tn.esprit.util.MaConnexion;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -194,6 +195,33 @@ public class EventService implements IService<Event> {
         }
         return results;
 
+    }
+
+
+
+    public List<Event> getEventsByDate(LocalDate date) {
+        List<Event> events = new ArrayList<>();
+        String query = "SELECT * FROM evenement WHERE DATE(date_debut) = ?";
+
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setDate(1, Date.valueOf(date));
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Event event = new Event();
+                event.setId(resultSet.getInt("id"));
+                event.setNom_event(resultSet.getString("nom_event"));
+                event.setDate_debut(resultSet.getString("date_debut"));
+                event.setDate_fin(resultSet.getString("date_fin"));
+                event.setType(resultSet.getString("type"));
+                event.setDescription(resultSet.getString("description"));
+                events.add(event);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return events;
     }
 
 
