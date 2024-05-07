@@ -9,6 +9,7 @@ import javafx.beans.property.*;
 
 public class User {
     int id;
+    String equipe_id;
     String email, firstname, lastname, username, resetToken, password, photo, phone, whyBlocked, status, bio, summonername;
     LocalDate birthdate;
     List<String> roles = new ArrayList<>();
@@ -57,8 +58,16 @@ public class User {
         return email;
     }
 
+    public String getEquipe_id() {
+        return equipe_id;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setEquipe_id(String id) {
+        this.equipe_id = id;
     }
 
     public String getFirstname() {

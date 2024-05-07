@@ -1,16 +1,18 @@
 package com.example.rankup.controllers;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
+import com.example.rankup.entities.Equipe;
 import com.example.rankup.entities.User;
+import com.example.rankup.services.EquipeService;
 import com.example.rankup.services.UserService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -21,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.application.Application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -103,6 +106,7 @@ public class EquipeController {
     private List<User> selectedUsers;
 
     private UserService userService = new UserService();
+    EquipeService equipeService = new EquipeService();
 
     @FXML
     public void initialize() {
@@ -129,7 +133,37 @@ public class EquipeController {
         rmUser3.setOnAction(event -> handleVisibility(2));
         rmUser4.setOnAction(event -> handleVisibility(3));
         rmUser5.setOnAction(event -> handleVisibility(4));
+        confirmButton.setOnAction(event -> handleEquipeAddition());
         rmUser1.setStyle("-fx-visited-color: #64b8b1;");
+    }
+
+    private void handleEquipeAddition() {
+        if (nomEquipe.getText().equals("")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Team name must not be empty");
+            alert.showAndWait();
+            return;
+        }
+        else if (!isSelectedUsersFull()) {
+            System.out.println(isSelectedUsersFull());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Team is missing members");
+            alert.showAndWait();
+            return;
+        }
+        Equipe newEquipe = new Equipe(nomEquipe.getText());
+        equipeService.ajouter(newEquipe);
+        for (User u : selectedUsers) {
+            u.setEquipe_id(newEquipe.getId());
+            userService.modifierEquipe_id(u);
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setContentText("Team added successfully!");
+        alert.showAndWait();
     }
 
     private void handleVisibility(int i) {
@@ -189,6 +223,69 @@ public class EquipeController {
             texts.get(idx).setText("None");
             textFlows.get(idx).setVisible(false);
         }
+    }
+
+    Boolean isSelectedUsersFull() {
+        for (User u : selectedUsers) { if (u == null) return false; }
+        return true;
+    }
+
+    @FXML
+    void clearSelectedUsers(ActionEvent event) {
+        selectedUsers.replaceAll(user -> null);
+        System.out.println(selectedUsers);
+        for (TextFlow t : textFlows) { t.setVisible(false); }
+    }
+
+    @FXML
+    void showEquipeList(ActionEvent event) {
+        // Create a new stage (popup window)
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle("Choose Player");
+
+        List<Equipe> equipeList = equipeService.getAllEquipesWithUsers();
+        System.out.println(equipeList);
+//        ListView<Equipe> listView = new ListView<>(FXCollections.observableArrayList(equipeList));
+
+        // Create columns for the table
+        TableColumn<Equipe, String> equipeNameColumn = new TableColumn<>("Equipe Name");
+        equipeNameColumn.setCellValueFactory(cellData -> {
+            Equipe equipe = cellData.getValue();
+            String equipeName = equipe.getNom();
+            return new SimpleStringProperty(equipeName);
+        });
+
+        TableColumn<Equipe, String> userNameColumn = new TableColumn<>("Members");
+        userNameColumn.setCellValueFactory(cellData -> {
+            Equipe equipe = cellData.getValue();
+            List<User> users = equipe.getUsers();
+            String userNames = users.stream()
+                    .map(User::getUsername)
+                    .collect(Collectors.joining(", "));
+            System.out.println("userlist: "+userNames);
+            return new SimpleStringProperty(userNames);
+        });
+
+        // Create the table and add columns
+        TableView<Equipe> tableView = new TableView<>();
+        tableView.setItems(FXCollections.observableArrayList(equipeList));
+//        tableView.getColumns().addAll(equipeNameColumn, userNameColumn);
+        tableView.getColumns().addAll(equipeNameColumn, userNameColumn);
+
+        // Create content for the popup window
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(e -> popupStage.close());
+
+        VBox popupLayout = new VBox();
+        popupLayout.getChildren().addAll(tableView, closeButton);
+
+        // Set the content in the popup window
+        popupStage.setScene(new Scene(popupLayout, 300, 500));
+
+        // Show the popup window
+        popupStage.show();
+
     }
 
     public void logout(MouseEvent mouseEvent) {

@@ -18,7 +18,12 @@ public class UserService implements Iservice<User>
 {
 
     private LocalDate birthdate;
-    static Connection cnx = DataSource.getInstance().getCnx();
+    static Connection cnx = null;
+
+    public UserService() {
+        cnx = DataSource.getInstance().getCnx();
+    }
+
     public static boolean register(User user) {
         try {
 
@@ -329,12 +334,52 @@ public class UserService implements Iservice<User>
 
     @Override
     public void ajouter(User user) {
+        String query = "INSERT INTO `user`(`id`, `email`, `equipe_id`, `firstname`, " +
+                "`lastname`, `reset_token`, `username`, `roles`, `password`, `photo`, " +
+                "`phone`, `birthdate`, `why_blocked`, `status`, `elo`, `bio`, " +
+                "`summonername`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setInt(1, user.getId());  // Assuming id is an integer
+            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(3, user.getEquipe_id());
+            preparedStatement.setString(4, user.getFirstname());
+            preparedStatement.setString(5, user.getLastname());
+            preparedStatement.setString(6, user.getResetToken());
+            preparedStatement.setString(7, user.getUsername());
+            preparedStatement.setString(8, String.join(",", user.getRoles())); // Assuming roles is a list of strings
+            preparedStatement.setString(9, user.getPassword());
+            preparedStatement.setString(10, user.getPhoto());
+            preparedStatement.setString(11, user.getPhone());
+            preparedStatement.setDate(12, java.sql.Date.valueOf(user.getBirthdate())); // Assuming birthdate is a LocalDate
+            preparedStatement.setString(13, user.getWhyBlocked());
+            preparedStatement.setString(14, user.getStatus());
+            preparedStatement.setString(15, user.getElo());
+            preparedStatement.setString(16, user.getBio());
+            preparedStatement.setString(17, user.getSummonername());
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public void modifier(User user) {
 
+    }
+
+    public void modifierEquipe_id(User user) {
+        String query = "UPDATE user SET equipe_id = ? WHERE id = ?";
+
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setString(1, user.getEquipe_id());
+            preparedStatement.setInt(2, user.getId());
+            int rowsUpdated = preparedStatement.executeUpdate();
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -362,7 +407,8 @@ public class UserService implements Iservice<User>
                         user.setLastname(resultSet.getString("lastname"));
                         user.setUsername(resultSet.getString("username"));
                         user.setPhone(resultSet.getString("phone"));
-                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
+//                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
+                        user.setBirthdate(LocalDate.of(1, Month.JANUARY, 1));
                         user.setElo(resultSet.getString("elo"));
                         user.setBio(resultSet.getString("bio"));
                         user.setSummonername(resultSet.getString("summonername"));
