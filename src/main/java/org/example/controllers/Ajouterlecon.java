@@ -97,7 +97,7 @@ public class Ajouterlecon  {
             alert.showAndWait();
         }
          final String ACCOUNT_SID = "AC4fccfdaa904e35573b74219546d5707d";
-        final String AUTH_TOKEN = "1637d2641766535cf60f04293417da60";
+        final String AUTH_TOKEN = "cfbdff206ee98ab5d7d124018aca900e";
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
 // Définissez le numéro de téléphone Twilio à partir duquel vous souhaitez envoyer le SMS
