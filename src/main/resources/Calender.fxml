@@ -40,4 +40,5 @@
             <Insets right="9.0" />
         </padding>
     </HBox>
+   <Button layoutX="22.0" layoutY="24.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="26.0" prefWidth="74.0" text="&lt;-  back" />
 </AnchorPane>

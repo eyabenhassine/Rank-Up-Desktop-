@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="674.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjouterSponsor">
+   <children>
+      <ImageView fitHeight="900.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-364.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-731.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@img/addSponsor.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="NomSponsorField" layoutX="103.0" layoutY="105.0" prefHeight="38.0" prefWidth="294.0" promptText="Sponsor Name" />
+      <TextField fx:id="AdresseSponsorField" layoutX="103.0" layoutY="249.0" prefHeight="38.0" prefWidth="294.0" promptText="Sponsor Adresse" />
+      <TextField fx:id="MailSponsorField" layoutX="103.0" layoutY="393.0" prefHeight="38.0" prefWidth="294.0" promptText="Sponsor Mail" />
+      <Button layoutX="103.0" layoutY="538.0" mnemonicParsing="false" onAction="#AjouterSponsor" prefHeight="26.0" prefWidth="123.0" text="ADD" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1317.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo1.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="894.0" layoutY="255.0" mnemonicParsing="false" onAction="#BackHome" prefHeight="26.0" prefWidth="176.0" text="Home Page" textAlignment="CENTER" />
+      <Text fill="WHITE" layoutX="489.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Sponsor" wrappingWidth="255.7367401123047">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Button layoutX="894.0" layoutY="190.0" mnemonicParsing="false" onAction="#naviguerlistSponsor" prefHeight="26.0" prefWidth="176.0" text="View List" />
+   </children>
+</AnchorPane>

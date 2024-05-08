@@ -1,5 +1,6 @@
 package tn.esprit.services;
 
+import tn.esprit.entities.Event;
 import tn.esprit.entities.Sponsor;
 import tn.esprit.interfaces.IService;
 import tn.esprit.util.MaConnexion;
@@ -7,6 +8,9 @@ import tn.esprit.util.MaConnexion;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class SponsorService implements IService<Sponsor> {
 
@@ -96,6 +100,49 @@ public class SponsorService implements IService<Sponsor> {
     public Sponsor getOne(int id) {
         return null;
     }
+
+
+
+    public List<Sponsor> afficherSponsors() {
+        List<Sponsor> sponsorsList = new ArrayList<>();
+        String requete = "SELECT id, nom_sponsor, adresse_sponsor, mail_sponsor FROM sponsor";
+        try (Statement st = cnx.createStatement();
+             ResultSet rs = st.executeQuery(requete)) {
+
+            while (rs.next()) {
+                Sponsor sponsor = new Sponsor();  // Ensure this line is inside the while loop
+                sponsor.setId(rs.getInt("id"));
+                sponsor.setNom_sponsor(rs.getString("nom_sponsor").trim());
+                sponsor.setAdresse_sponsor(rs.getString("adresse_sponsor").trim());
+                sponsor.setMail_sponsor(rs.getString("mail_sponsor").trim());
+
+                sponsorsList.add(sponsor);
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error executing query: " + ex.getMessage());
+        }
+        return sponsorsList;
+    }
+
+
+
+    public void deleteSponsor(int id) throws SQLException {
+        String sql = "DELETE FROM sponsor WHERE id = ?";
+        try (PreparedStatement pst = cnx.prepareStatement(sql)) {
+            pst.setInt(1, id);
+            int rowsAffected = pst.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Un sponsor a été supprimé avec succès !");
+            } else {
+                System.out.println("Aucun sponsor trouvé avec l'ID : " + id);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la suppression : " + e.getMessage());
+            throw e;
+        }
+    }
+
+
 
     //actions
 
