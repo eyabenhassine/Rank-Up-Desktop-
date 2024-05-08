@@ -3,10 +3,13 @@ package com.example.rankup.entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import javafx.beans.property.*;
 
 public class User {
     int id;
+    String equipe_id;
     String email, firstname, lastname, username, resetToken, password, photo, phone, whyBlocked, status, bio, summonername;
     LocalDate birthdate;
     List<String> roles = new ArrayList<>();
@@ -112,8 +115,16 @@ public class User {
         return email;
     }
 
+    public String getEquipe_id() {
+        return equipe_id;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setEquipe_id(String id) {
+        this.equipe_id = id;
     }
 
     public String getFirstname() {
@@ -226,6 +237,24 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return username;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
 }
