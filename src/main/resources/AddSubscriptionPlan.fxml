@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AddSubscriptionPlan">
+
+    <children>
+      <ImageView fitHeight="791.0" fitWidth="1476.0" layoutX="242.0" layoutY="164.0" opacity="0.51" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-55.0" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="17.322021484375" AnchorPane.topAnchor="164.0">
+         <image>
+            <Image url="@img/oiuytr.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="422.0" fitWidth="725.0" layoutX="-98.0" layoutY="-36.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/hgfd.png" />
+         </image></ImageView>
+        <TextField fx:id="TypeTF" alignment="CENTER" layoutX="304.0" layoutY="138.0" prefHeight="67.0" prefWidth="274.0" promptText="Type">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.1882352977991104" green="0.09803921729326248" blue="0.20392157137393951" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+        <TextField fx:id="PrixTF" alignment="CENTER" layoutX="654.0" layoutY="138.0" prefHeight="67.0" prefWidth="274.0" promptText="Price">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.1882352977991104" green="0.09803921729326248" blue="0.20392157137393951" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+        <TextField fx:id="AInfoTF" alignment="CENTER" layoutX="340.0" layoutY="312.0" prefHeight="219.0" prefWidth="548.0" promptText="Additional Informations">
+         <effect>
+            <DropShadow height="5.25" radius="0.8125" width="0.0">
+               <color>
+                  <Color red="0.1882352977991104" green="0.09803921729326248" blue="0.20392157137393951" />
+               </color>
+            </DropShadow>
+         </effect></TextField>
+        <Button layoutX="541.0" layoutY="591.0" mnemonicParsing="false" onAction="#AddPlan" prefHeight="42.0" prefWidth="167.0" text=" Add New Plan">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.1882352977991104" green="0.09803921729326248" blue="0.20392157137393951" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+        <Button layoutX="547.0" layoutY="655.0" mnemonicParsing="false" onAction="#naviguer" prefHeight="32.0" prefWidth="155.0" text="Subscription plans list" textAlignment="CENTER">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.1882352977991104" green="0.09803921729326248" blue="0.20392157137393951" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+      <ImageView fitHeight="110.0" fitWidth="84.0" layoutX="1362.0" layoutY="78.0" onMouseClicked="#handleImageClick" opacity="0.68" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="733.0" AnchorPane.leftAnchor="1362.0" AnchorPane.rightAnchor="154.0" AnchorPane.topAnchor="78.0">
+         <image>
+            <Image url="@img/8-images.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="894.0" prefWidth="258.0" style="-fx-background-color: #301934;">
+         <children>
+            <ImageView fitHeight="149.0" fitWidth="117.0" layoutX="67.0" layoutY="697.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="88.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/subscription.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="84.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/events.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="87.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/courses.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="47.0" layoutX="93.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/reclamation.png" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="74.0" layoutY="168.0" text="Competetions" textFill="#fafafa" underline="true" />
+            <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="90.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/competition.png" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="80.0" layoutY="281.0" text="Subscription" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="93.0" layoutY="404.0" text="Events" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="92.0" layoutY="515.0" text="Courses" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="83.0" layoutY="644.0" text="Reclamation" textFill="#fafafa" underline="true" />
+            <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="85.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/editprofile.png" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="93.0" layoutY="55.0" text="Users" textFill="#fafafa" underline="true" />
+         </children>
+      </AnchorPane>
+
+
+    </children>
+
+</AnchorPane>

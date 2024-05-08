@@ -15,6 +15,7 @@ module com.example.rankup {
     requires kernel;
     requires layout;
     requires java.desktop;
+    requires stripe.java;
     opens com.example.rankup to javafx.fxml;
     exports com.example.rankup;
     opens com.example.rankup.entities;
