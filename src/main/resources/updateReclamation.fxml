@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="665.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.UpdateReclamation">
+   <children>
+      <AnchorPane layoutX="-77.0" layoutY="-24.0" prefHeight="726.0" prefWidth="736.0" style="-fx-background-color: #301934;">
+         <children>
+            <Pane layoutX="147.0" layoutY="207.0" prefHeight="477.0" prefWidth="497.0" style="-fx-background-color: #392A48;">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-65.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/logo1.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="224.0" layoutY="394.0" mnemonicParsing="false" onAction="#naviguerExit" prefHeight="34.0" prefWidth="49.0" style="-fx-background-color: #0D98Ba;" text="EXIT" />
+                  <Text fill="WHITE" layoutX="273.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number :">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Button layoutX="434.0" layoutY="601.0" mnemonicParsing="false" onAction="#naviguerAjout" prefHeight="34.0" prefWidth="49.0" style="-fx-background-color: #0D98Ba;" text="new" />
+            <Button layoutX="499.0" layoutY="601.0" mnemonicParsing="false" onAction="#modifierReclamation" prefHeight="34.0" prefWidth="57.0" style="-fx-background-color: #0D98Ba;" text="save" />
+            <TextField fx:id="descriptionUpdate" layoutX="183.0" layoutY="445.0" prefHeight="131.0" prefWidth="381.0" promptText="description" />
+            <Text fill="WHITE" layoutX="187.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Text>
+            <TextField fx:id="dateUpdate" layoutX="415.0" layoutY="346.0" prefHeight="34.0" prefWidth="149.0" promptText="date" />
+            <Text fill="WHITE" layoutX="415.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
+            <TextField fx:id="typeUpdate" layoutX="183.0" layoutY="346.0" prefHeight="34.0" prefWidth="149.0" promptText="type" />
+            <Text fill="WHITE" layoutX="187.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type  :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
+            <TextField fx:id="nomUpdate" layoutX="177.0" layoutY="245.0" prefHeight="37.0" prefWidth="149.0" promptText="nom" />
+            <TextField fx:id="numTelUpdate" layoutX="415.0" layoutY="245.0" prefHeight="37.0" prefWidth="149.0" promptText="NumTel" />
+            <Text fill="WHITE" layoutX="177.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name :">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="104.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Reclamation ">
+               <font>
+                  <Font name="Algerian" size="53.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="702.0" fitWidth="533.0" layoutX="654.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/forn1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,6 @@
+
+u	java:S116"TRename this field "NumtelCol" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹יר¬שÿÿÿÿ8ֳװדלמ1
+L	java:S1063"+Replace this use of System.out by a logger.(–­ׂ’ÿÿÿÿÿ8ֶװדלמ1
+F	java:S106e"+Replace this use of System.out by a logger.(ֶµפ8׀װדלמ1
+O
+java:S1172m"2Remove this unused method parameter "actionEvent".(›ָַ8׀װדלמ1

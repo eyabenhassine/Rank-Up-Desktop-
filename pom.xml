@@ -10,6 +10,8 @@
     <name>rankup</name>
 
     <properties>
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
     </properties>
@@ -69,6 +71,14 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+<!--        <dependency>-->
+<!--            <groupId>org.controlsfx</groupId>-->
+<!--            <artifactId>controlsfx</artifactId>-->
+<!--            <version>11.1.0</version> &lt;!&ndash; Assurez-vous de choisir la dernière version &ndash;&gt;-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>

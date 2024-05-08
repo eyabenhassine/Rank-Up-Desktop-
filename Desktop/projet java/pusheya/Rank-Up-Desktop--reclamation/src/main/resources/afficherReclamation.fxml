@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="634.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AfficherReclamation">
+   <children>
+      <ImageView fitHeight="645.0" fitWidth="1245.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/aaf88576009313.5c5ca8e8c347a.jpg" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="332.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamations  list">
+         <font>
+            <Font name="Algerian" size="53.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo1.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tableView" layoutX="565.0" layoutY="129.0" prefHeight="388.0" prefWidth="655.0" style="-fx-background-color: #0D1725;">
+         <columns>
+            <TableColumn fx:id="nomcol" prefWidth="100.0" text="nom" />
+            <TableColumn fx:id="NumtelCol" prefWidth="122.0" text="NumTel" />
+            <TableColumn fx:id="typeCol" text=" type" />
+            <TableColumn fx:id="descriptionCol" prefWidth="218.0" text="description" />
+            <TableColumn fx:id="dateCol" minWidth="0.0" prefWidth="166.0" text="date" />
+         </columns>
+      </TableView>
+      <VBox layoutX="174.0" layoutY="106.0" prefHeight="474.0" prefWidth="338.0" spacing="10">
+         <children>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedNomLabel" prefHeight="46.0" prefWidth="95.0" text="Nom " textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font></Label>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedNumTelLabel" prefWidth="200.0" text="NumTel: " textFill="WHITE">
+               <font>
+                  <Font size="31.0" />
+               </font></Label>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Type :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedTypeLabel" prefWidth="200.0" text="Type: " textFill="WHITE">
+               <font>
+                  <Font size="31.0" />
+               </font></Label>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedDateLabel" prefHeight="37.0" prefWidth="156.0" text="Date: " textFill="WHITE">
+               <font>
+                  <Font size="31.0" />
+               </font></Label>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedDescriptionLabel" prefHeight="85.0" prefWidth="338.0" text="Description: " textFill="WHITE">
+               <font>
+                  <Font size="31.0" />
+               </font></Label>
+         </children>
+      </VBox>
+
+      <ButtonBar layoutX="697.0" layoutY="525.0" prefHeight="40.0" prefWidth="353.0">
+         <buttons>
+            <Button mnemonicParsing="false" onAction="#modifierReclamation" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #0D98Ba;" text="Update" />
+             <Button mnemonicParsing="false" onAction="#deleteReclamation" style="-fx-background-color: #0D98Ba;" text="Delete" />
+            <Button mnemonicParsing="false" onAction="#naviguer" style="-fx-background-color: #0D98Ba;" text="Exit" />
+         </buttons>
+      </ButtonBar>
+      <HBox layoutX="710.0" layoutY="93.0" spacing="10">
+         <children>
+            <TextField fx:id="searchField" promptText="Search..." />
+            <Button onAction="#search" text="Search" />
+            <ChoiceBox fx:id="colonneChoiceBox" prefHeight="25.0" prefWidth="83.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Nom" />
+                     <String fx:value="NumTel" />
+                     <!-- Ajoutez d'autres colonnes ici selon vos besoins -->
+                     <String fx:value="Type" />
+                     <String fx:value="Description" />
+                     <String fx:value="Date" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+            <ChoiceBox fx:id="ordreChoiceBox" prefHeight="25.0" prefWidth="85.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="ASC" />
+                     <String fx:value="DESC" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+            <!-- Button to trigger sorting -->
+            <Button layoutX="717.0" layoutY="96.0" mnemonicParsing="false" onAction="#trier" text="Trier" />
+         </children>
+      </HBox>
+
+   </children>
+</AnchorPane>
