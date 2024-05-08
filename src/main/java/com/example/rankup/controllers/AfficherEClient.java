@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import tn.esprit.entities.Event;
-import tn.esprit.services.EventService;
+import com.example.rankup.entities.Event;
+import com.example.rankup.services.EventService;
 
 import java.io.IOException;
 import java.sql.SQLException;

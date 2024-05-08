@@ -1,4 +1,4 @@
-package tn.esprit.entities;
+package com.example.rankup.entities;
 
 public class Sponsor {
     private int id;

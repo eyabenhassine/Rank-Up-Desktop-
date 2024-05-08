@@ -1,4 +1,4 @@
-package tn.esprit.interfaces;
+package com.example.rankup.interfaces;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,7 +1,7 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import com.google.zxing.client.j2se.MatrixToImageWriter;
-import tn.esprit.entities.Event;
+import com.example.rankup.entities.Event;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

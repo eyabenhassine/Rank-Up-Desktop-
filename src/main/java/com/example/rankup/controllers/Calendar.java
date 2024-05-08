@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,8 +16,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import tn.esprit.entities.Event;
-import tn.esprit.services.EventService;
+import com.example.rankup.entities.Event;
+import com.example.rankup.services.EventService;
 
 import java.io.IOException;
 import java.net.URL;

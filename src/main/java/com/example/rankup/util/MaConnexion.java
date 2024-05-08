@@ -1,4 +1,4 @@
-package tn.esprit.util;
+package com.example.rankup.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class MaConnexion {
 
     //DB
-    final String URL ="jdbc:mysql://localhost:3306/pidevsymfony";
+    final String URL ="jdbc:mysql://localhost:3306/rankup";
     final String USR ="root";
     final String PWD ="";
     

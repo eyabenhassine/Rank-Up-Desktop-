@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,8 +15,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.stage.Stage;
 
-import tn.esprit.entities.Sponsor;
-import tn.esprit.services.SponsorService;
+import com.example.rankup.entities.Sponsor;
+import com.example.rankup.services.SponsorService;
+//import com.example.rankup.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;

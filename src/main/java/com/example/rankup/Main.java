@@ -1,10 +1,10 @@
-package tn.esprit;
+package com.example.rankup;
 
-import tn.esprit.entities.Event;
-import tn.esprit.entities.Sponsor;
-import tn.esprit.services.EventService;
-import tn.esprit.services.SponsorService;
-import tn.esprit.util.MaConnexion;
+import com.example.rankup.entities.Event;
+import com.example.rankup.entities.Sponsor;
+import com.example.rankup.services.EventService;
+import com.example.rankup.services.SponsorService;
+import com.example.rankup.util.MaConnexion;
 
 import java.sql.SQLException;
 import java.time.LocalDate;

@@ -11,11 +11,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import tn.esprit.controllers.ModifierSponsor?>
+<?import com.example.rankup.controllers.ModifierSponsor?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="tn.esprit.controllers.ModifierSponsor"
+            fx:controller="com.example.rankup.controllers.ModifierSponsor"
             prefHeight="400.0" prefWidth="600.0">
     <!-- Content of your FXML -->
 

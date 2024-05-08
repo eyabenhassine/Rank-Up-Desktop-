@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.kernel.colors.DeviceGray;
@@ -24,8 +24,8 @@ import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
-import tn.esprit.entities.Event;
-import tn.esprit.services.EventService;
+import com.example.rankup.entities.Event;
+import com.example.rankup.services.EventService;
 
 import java.awt.event.KeyEvent;
 import java.io.File;

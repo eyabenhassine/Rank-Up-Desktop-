@@ -1,4 +1,4 @@
-package tn.esprit.util;
+package com.example.rankup.util;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

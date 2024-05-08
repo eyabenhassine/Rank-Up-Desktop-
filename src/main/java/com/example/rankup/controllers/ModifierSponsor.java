@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import org.controlsfx.control.Notifications;
 import javafx.event.ActionEvent;
@@ -12,8 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import tn.esprit.entities.Sponsor;
-import tn.esprit.services.SponsorService;
+import com.example.rankup.entities.Sponsor;
+import com.example.rankup.services.SponsorService;
 
 import java.io.IOException;
 import java.net.URL;

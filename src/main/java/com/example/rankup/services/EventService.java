@@ -1,8 +1,8 @@
-package tn.esprit.services;
+package com.example.rankup.services;
 
-import tn.esprit.entities.Event;
-import tn.esprit.interfaces.IService;
-import tn.esprit.util.MaConnexion;
+import com.example.rankup.entities.Event;
+import com.example.rankup.interfaces.IService;
+import com.example.rankup.util.MaConnexion;
 
 import java.sql.*;
 import java.time.LocalDate;
