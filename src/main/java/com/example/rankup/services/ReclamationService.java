@@ -1,13 +1,13 @@
 package com.example.rankup.services;
 
 import com.example.rankup.entities.Reclamation;
-import com.example.rankup.interfaces.Iservice;
+import com.example.rankup.interfaces.IService;
 import com.example.rankup.util.MaConnexion;
 
 import java.sql.*;
 import java.util.*;
 
-public class ReclamationService implements Iservice<Reclamation> {
+public class ReclamationService implements IService<Reclamation> {
     // var
     Connection cnx = MaConnexion.getInstance().getCnx();
 
@@ -63,7 +63,7 @@ public class ReclamationService implements Iservice<Reclamation> {
         System.out.println("Reclamation updated successfully.");
     }
 
-    @Override
+//    @Override
     public void deleteC(int id) throws SQLException {
 
     }
@@ -78,6 +78,11 @@ public class ReclamationService implements Iservice<Reclamation> {
     }
 
     @Override
+    public List<Reclamation> getAll() {
+        return List.of();
+    }
+
+//    @Override
     public List<Reclamation> show() throws SQLException {
         List<Reclamation> reclamationsList = new ArrayList<>();
         String requete = "SELECT * FROM reclamation";

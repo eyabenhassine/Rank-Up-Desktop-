@@ -2,14 +2,14 @@ package com.example.rankup.services;
 
 import javafx.collections.FXCollections;
 import com.example.rankup.entities.lecon;
-import com.example.rankup.interfaces.Iservice;
+import com.example.rankup.interfaces.IService;
 import com.example.rankup.utile.maConnexion;
 
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 
-public class leconService implements Iservice<lecon> {
+public class leconService implements IService<lecon> {
 
     Connection cnx = maConnexion.getInstance().getCnx();
 
@@ -40,8 +40,18 @@ public class leconService implements Iservice<lecon> {
         ps.executeUpdate();
     }
 
+    @Override
+    public void delete(int id) throws SQLException {
+
+    }
 
     @Override
+    public List<lecon> getAll() {
+        return List.of();
+    }
+
+
+    //    @Override
     public void deleteC(int id) throws SQLException {
         String sql = "delete from lecon where id = ?";
         PreparedStatement preparedStatement = cnx.prepareStatement(sql);
@@ -49,7 +59,7 @@ public class leconService implements Iservice<lecon> {
         preparedStatement.executeUpdate();
     }
 
-    @Override
+//    @Override
     public List<lecon> show() throws SQLException {
         return List.of();
     }

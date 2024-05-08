@@ -3,20 +3,20 @@ package com.example.rankup.interfaces;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface Iservice<T> {
-    void add(T t) throws SQLException;
-    void update(T t) throws SQLException;
+public interface IService <T> {
 
+    //CDUD
+    //1
+    public void add(T t) throws SQLException;
+    //2
+    void  update(T t) throws SQLException;
+    //3
+    void delete (int id) throws SQLException;
+    //4 : ALL
+    List<T> getAll();
 
-    void deleteC(int id) throws SQLException;
-
-
-    List<T> show() throws SQLException;
-
-
-
-    //5: one
+    //5 : One
     T getOne(int id);
-
+    //6 : by type
 
 }

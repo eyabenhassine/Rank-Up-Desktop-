@@ -1,14 +1,14 @@
 package com.example.rankup.services;
 
 import com.example.rankup.entities.Categorie;
-import com.example.rankup.interfaces.Iservice;
+import com.example.rankup.interfaces.IService;
 import com.example.rankup.utile.maConnexion;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategorieService implements Iservice<Categorie> {
+public class CategorieService implements IService<Categorie> {
 
     Connection cnx = maConnexion.getInstance().getCnx();
 
@@ -35,6 +35,16 @@ public class CategorieService implements Iservice<Categorie> {
         ps.setInt(3, categorie.getId());
         ps.executeUpdate();
         System.out.println("Catégorie mise à jour avec succès.");
+    }
+
+    @Override
+    public void delete(int id) throws SQLException {
+
+    }
+
+    @Override
+    public List<Categorie> getAll() {
+        return List.of();
     }
 
     public void deleteC(int id) throws SQLException {
@@ -67,7 +77,7 @@ public class CategorieService implements Iservice<Categorie> {
         return categorieList;
     }
 
-    @Override
+//    @Override
     public List<Categorie> show() throws SQLException {
         return null;
     }
