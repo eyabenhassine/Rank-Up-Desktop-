@@ -31,7 +31,7 @@
                 </columns>
             </TableView>
             <HBox spacing="10">
-                <TextField fx:id="searchField" promptText="Search..." />
+                <TextField fx:id="searchField" promptText="Search..." onKeyReleased="#handleSearch" />
                 <ChoiceBox fx:id="colonneChoiceBox">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
@@ -51,7 +51,7 @@
                         </FXCollections>
                     </items>
                 </ChoiceBox>
-                <Button onAction="#search" text="Search" />
+
                 <Button onAction="#trier" text="Trier" />
                 <Button layoutX="1122.0" layoutY="110.0" mnemonicParsing="false" onAction="#GenererPdfEvent" prefHeight="26.0" prefWidth="189.0" text="Générer PDF" />
                 <Button mnemonicParsing="false" onAction="#naviguerAdd"  text="Add" />

@@ -27,6 +27,7 @@ import org.controlsfx.control.Notifications;
 import tn.esprit.entities.Event;
 import tn.esprit.services.EventService;
 
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -122,6 +123,12 @@ public class AfficherEvent {
 
             // Actualiser la TableView pour refléter les changements
             tableView.refresh();
+            // Ajouter un écouteur de changement au champ de recherche
+            searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+                search(newValue.trim()); // Appeler la méthode search avec le nouveau texte
+            });
+
+
         } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -220,7 +227,52 @@ public class AfficherEvent {
     }
 
 
-    public void search(ActionEvent actionEvent) {
+
+
+    private void search(String searchText) {
+        final String finalSearchText = searchText.toLowerCase().trim();
+
+        if (!finalSearchText.isEmpty()) {
+            try {
+                List<Event> searchResults = rec.chercher(finalSearchText);
+                ObservableList<Event> observableList = FXCollections.observableArrayList(searchResults);
+
+                FilteredList<Event> filteredList = new FilteredList<>(observableList, p -> true);
+
+                filteredList.setPredicate(event -> {
+                    String lowerCaseNom = event.getNom_event().toLowerCase();
+                    String lowerCaseDD = event.getDate_debut().toLowerCase();
+                    String lowerCaseDF = event.getDate_fin().toLowerCase();
+                    String lowerCaseType = event.getType().toString().toLowerCase();
+                    String lowerCaseDescription = event.getDescription().toLowerCase();
+
+
+                    return lowerCaseNom.contains(finalSearchText)
+                            || lowerCaseDD.contains(finalSearchText)
+                            || lowerCaseDF.contains(finalSearchText)
+                            || lowerCaseType.contains(finalSearchText)
+                            || lowerCaseDescription.contains(finalSearchText);
+                            
+                });
+
+                tableView.setItems(filteredList);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Gérer les exceptions...
+            }
+        } else {
+            loadReclamationData();
+        }
+    }
+
+    private void loadReclamationData() {
+        List<Event> reclamations = rec.afficherEvents();
+        ObservableList<Event> observableList = FXCollections.observableList(reclamations);
+        tableView.setItems(observableList);
+    }
+
+
+    /*public void search(ActionEvent actionEvent) {
         String searchText = searchField.getText().trim();
 
         if (!searchText.isEmpty()) {
@@ -259,7 +311,7 @@ public class AfficherEvent {
             showAlert("Input Error", "Please enter a search term.");
         }
 
-    }
+    }*/
 
     private Comparator<Event> getComparatorFromChoiceBox(ChoiceBox<String> colonneChoiceBox, ChoiceBox<String> ordreChoiceBox) {
         String selectedColumn = colonneChoiceBox.getValue();
@@ -511,4 +563,8 @@ public class AfficherEvent {
     }
 
 
+    public void handleSearch(javafx.scene.input.KeyEvent keyEvent) {
+        String searchText = searchField.getText().trim();
+        search(searchText);
+    }
 }
