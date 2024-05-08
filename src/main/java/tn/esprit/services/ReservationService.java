@@ -41,7 +41,7 @@ public class ReservationService implements IService <Reservation> {
 
     @Override
     public void delete(int id) {
-        String req = "DELETE FROM reservation WHERE = ?";
+        String req = "DELETE FROM reservation WHERE id = ?";
 
         try {
             PreparedStatement pr = cnx.prepareStatement(req);
@@ -57,7 +57,7 @@ public class ReservationService implements IService <Reservation> {
     @Override
     public List<Reservation> getAll() {
         List<Reservation> reslist = new ArrayList<>();
-        String req = "SELECT * FROM `reservation`";
+        String req = "SELECT * FROM reservation";
         try {
             Statement st = cnx.createStatement();
             ResultSet res = st.executeQuery(req);
@@ -66,6 +66,7 @@ public class ReservationService implements IService <Reservation> {
                 reso.setId(res.getInt("id"));
                 reso.setDate(res.getDate(2));
                 reso.setDescription(res.getString(3));
+                reslist.add(reso);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

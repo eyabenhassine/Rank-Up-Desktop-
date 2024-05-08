@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ShowReservation">
+   <ImageView fitHeight="952.0" fitWidth="1712.0" layoutX="-62.0" layoutY="44.0" opacity="0.52" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-96.0" AnchorPane.leftAnchor="-62.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="44.0">
+      <image>
+         <Image url="@img/purepng.com-project-lucian-skin-splashart-renderlolleague-of-legendsrenderprojectlucian-331521944884a09fr.png" />
+      </image>
+   </ImageView>
+    <TableView fx:id="reservationTable" layoutX="430.0" layoutY="90.0" prefHeight="690.0" prefWidth="814.0">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+            <TableColumn fx:id="dateColumn" prefWidth="150.0" text="Date" />
+            <TableColumn fx:id="descriptionColumn" prefWidth="400.0" text="Description" />
+        </columns>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.1882352977991104" green="0.09803921729326248" blue="0.20392157137393951" />
+            </color>
+         </DropShadow>
+      </effect>
+    </TableView>
+
+    <Button layoutX="1278.0" layoutY="415.0" mnemonicParsing="false" onAction="#deleteReservation" prefHeight="45.0" prefWidth="181.0" text="Delete" AnchorPane.bottomAnchor="440.0" AnchorPane.leftAnchor="1278.0" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="415.0" />
+
+
+    <ImageView fitHeight="110.0" fitWidth="84.0" layoutX="1445.0" layoutY="60.0" onMouseClicked="#handleImageClick" opacity="0.68" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="751.0" AnchorPane.leftAnchor="1445.0" AnchorPane.rightAnchor="71.0" AnchorPane.topAnchor="60.0">
+        <image>
+            <Image url="@img/8-images.png" />
+        </image>
+    </ImageView>
+   <AnchorPane prefHeight="894.0" prefWidth="258.0" style="-fx-background-color: #301934;">
+      <children>
+         <ImageView fitHeight="149.0" fitWidth="117.0" layoutX="67.0" layoutY="697.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/logo1.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="88.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/subscription.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="84.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/events.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="87.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/courses.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="52.0" fitWidth="47.0" layoutX="93.0" layoutY="579.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/reclamation.png" />
+            </image>
+         </ImageView>
+         <Hyperlink layoutX="74.0" layoutY="168.0" text="Competetions" textFill="#fafafa" underline="true" />
+         <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="90.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/competition.png" />
+            </image>
+         </ImageView>
+         <Hyperlink layoutX="80.0" layoutY="281.0" text="Subscription" textFill="#fafafa" underline="true" />
+         <Hyperlink layoutX="93.0" layoutY="404.0" text="Events" textFill="#fafafa" underline="true" />
+         <Hyperlink layoutX="92.0" layoutY="515.0" text="Courses" textFill="#fafafa" underline="true" />
+         <Hyperlink layoutX="83.0" layoutY="644.0" text="Reclamation" textFill="#fafafa" underline="true" />
+         <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="85.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@img/editprofile.png" />
+            </image>
+         </ImageView>
+         <Hyperlink layoutX="93.0" layoutY="55.0" text="Users" textFill="#fafafa" underline="true" />
+      </children>
+   </AnchorPane>
+</AnchorPane>

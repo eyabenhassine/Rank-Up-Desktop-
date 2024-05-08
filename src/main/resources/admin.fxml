@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="645.0" prefWidth="1245.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.admin">
+    <children>
+        <ImageView fitHeight="422.0" fitWidth="725.0" layoutX="516.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@img/valo no bg.png" />
+            </image>
+        </ImageView>
+        <AnchorPane prefHeight="645.0" prefWidth="222.0" style="-fx-background-color: #301934;">
+            <children>
+                <ImageView fitHeight="149.0" fitWidth="117.0" layoutX="53.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/logo1.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="88.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/subscription.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="52.0" fitWidth="60.0" layoutX="84.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/events.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="78.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/courses.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="52.0" fitWidth="47.0" layoutX="88.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/reclamation.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink layoutX="71.0" layoutY="141.0" text="Competetions" textFill="#fafafa" underline="true" />
+                <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="89.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/competition.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink layoutX="75.0" layoutY="249.0" onAction="#naviguerToSuivuList" text="Subscription" textFill="#fafafa" underline="true" />
+                <Hyperlink layoutX="91.0" layoutY="337.0" text="Events" textFill="#fafafa" underline="true" />
+                <Hyperlink layoutX="86.0" layoutY="411.0" text="Courses" textFill="#fafafa" underline="true" />
+                <Hyperlink layoutX="74.0" layoutY="497.0"  text="Reclamation" textFill="#fafafa" underline="true" />
+                <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="85.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/editprofile.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink layoutX="93.0" layoutY="55.0" text="Users" textFill="#fafafa" underline="true" />
+            </children></AnchorPane>
+        <Label layoutX="246.0" layoutY="71.0" prefHeight="86.0" prefWidth="713.0" text="&quot;Control Central:" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Black" size="57.0" />
+            </font>
+        </Label>
+        <Label layoutX="353.0" layoutY="157.0" prefHeight="70.0" prefWidth="335.0" text=" Your Admin Hub&quot;" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Black" size="33.0" />
+            </font>
+        </Label>
+        <Label layoutX="235.0" layoutY="560.0" prefHeight="52.0" prefWidth="237.0" text="admin first + last name" textFill="#f7f31f" />
+        <Label layoutX="235.0" layoutY="597.0" prefHeight="34.0" prefWidth="145.0" text="admin email" textFill="#d1d437" />
+    </children>
+</AnchorPane>

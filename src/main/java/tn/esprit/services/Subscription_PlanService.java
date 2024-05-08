@@ -59,7 +59,7 @@ public class Subscription_PlanService implements IService <Subscription_plan> {
 
     @Override
     public void delete (int id)  {
-        String req = "DELETE FROM subscription_plan WHERE = ?";
+        String req = "DELETE FROM subscription_plan WHERE id = ?";
         try  {
             PreparedStatement pr = cnx.prepareStatement(req);
             pr.setInt(1,id);
@@ -83,7 +83,7 @@ public class Subscription_PlanService implements IService <Subscription_plan> {
                 subplan.setId(res.getInt("id"));
                 subplan.setType(res.getString(2));
                 subplan.setPrix(res.getFloat(3));
-                subplan.setAdditional_plan(res.getString("additional_info"));
+                subplan.setAdditional_info(res.getString("additional_info"));
                 subplans.add(subplan);
             }
 
@@ -100,6 +100,32 @@ public class Subscription_PlanService implements IService <Subscription_plan> {
     public Subscription_plan getOne(int id) {
         return null;
     }
+
+
+    public List<Subscription_plan> chercher(String searchText) throws SQLException {
+        List<Subscription_plan> results = new ArrayList<>();
+
+        String query = "SELECT * FROM subscription_plan WHERE type = ?, prix = ?, additional_info = ? WHERE id = ?";
+        try (PreparedStatement st = cnx.prepareStatement(query)) {
+            for (int i = 1; i <= 5; i++) {
+                st.setString(i, "%" + searchText + "%");
+            }
+
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Subscription_plan ev = new Subscription_plan();
+                ev.setId(rs.getInt("id"));
+                ev.setType(rs.getString("type"));
+                ev.setPrix(rs.getFloat("prix"));
+
+
+                results.add(ev);
+            }
+        }
+        return results;
+
+    }
+
 
 
 }

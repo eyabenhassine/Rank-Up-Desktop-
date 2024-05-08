@@ -38,7 +38,7 @@ public class Subscription_plan {
         return additional_info;
     }
 
-    public void setAdditional_plan(String additional_plan) {
+    public void setAdditional_info(String additional_info) {
         this.additional_info = additional_info;
     }
 
