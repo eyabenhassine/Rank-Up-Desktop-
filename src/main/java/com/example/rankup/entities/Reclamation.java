@@ -8,6 +8,7 @@ public class Reclamation {
     private  String type;
     private  String description ;
     private  String date ;
+    private int userId;
 
     //constructor
 
@@ -17,6 +18,16 @@ public class Reclamation {
     }
 
     public Reclamation() {
+    }
+
+    public Reclamation(int id, int NumTel, String type, String description, String date, int userId) {
+        this.id = id;
+        this.nom = "user";
+        this.NumTel = NumTel;
+        this.type = type;
+        this.description = description;
+        this.date = date;
+        this.userId = userId;
     }
 
     public Reclamation(int id, String nom, int NumTel, String type, String description, String date) {
@@ -33,6 +44,16 @@ public class Reclamation {
         this.type = type;
         this.description = description;
         this. date =  date;
+    }
+
+    public Reclamation(String nom, int NumTel, String type, String description, String date, int userId) {
+        this.id = id;
+        this.nom = "user";
+        this.NumTel = NumTel;
+        this.type = type;
+        this.description = description;
+        this.date = date;
+        this.userId = userId;
     }
 
     public Reclamation(String text, String text1, String text2, String text3, String text4) {
@@ -106,5 +127,12 @@ public class Reclamation {
                 '}';
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 }
 

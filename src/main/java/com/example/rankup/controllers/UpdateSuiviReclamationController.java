@@ -62,6 +62,7 @@ public class UpdateSuiviReclamationController {
             datePicker.setValue(localDate);        }
     }
 
+
     @FXML
     public void updateSuiviReclamation(ActionEvent actionEvent) {
         // Récupérer les valeurs des champs depuis l'interface
@@ -92,6 +93,7 @@ public class UpdateSuiviReclamationController {
         System.out.println(suiviReclamation);
     }
 
+
     private void showAlert(Alert.AlertType alertType, String message) {
         Alert alert = new Alert(alertType);
         alert.setHeaderText(null);
@@ -120,8 +122,17 @@ public class UpdateSuiviReclamationController {
             e.printStackTrace();
         }
     }
-
-  
+    @FXML
+    void listSuivi(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/suiviReclamationView.fxml"));
+            Parent root = loader.load();
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
   /*  private SuiviReclamationService service = new SuiviReclamationService();
 

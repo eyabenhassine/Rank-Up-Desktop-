@@ -15,7 +15,7 @@ public class ReclamationService implements IService<Reclamation> {
     @Override
     public void add(Reclamation reclamation) throws SQLException {
         // Define the SQL query with placeholders for the parameters
-        String sql = "INSERT INTO `reclamation` (id,Nom, NumTel, type, description, date) VALUES (?,?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO `reclamation` (id, Nom, NumTel, type, description, date, id_user) VALUES (?,?,?, ?, ?, ?, ?)";
 
         // Create a PreparedStatement using the SQL query
         PreparedStatement preparedStatement = cnx.prepareStatement(sql);
@@ -26,6 +26,7 @@ public class ReclamationService implements IService<Reclamation> {
         preparedStatement.setString(4, reclamation.getType());
         preparedStatement.setString(5, reclamation.getDescription());
         preparedStatement.setString(6, reclamation.getDate());
+        preparedStatement.setInt(7, reclamation.getUserId());
 
         // Execute the update
         preparedStatement.executeUpdate();
@@ -33,6 +34,7 @@ public class ReclamationService implements IService<Reclamation> {
         // Print a success message
         System.out.println("Reclamation sent successfully");
     }
+
 
     @SuppressWarnings("JpaQueryApiInspection")
     @Override

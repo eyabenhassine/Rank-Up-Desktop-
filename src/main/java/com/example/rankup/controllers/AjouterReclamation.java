@@ -1,19 +1,27 @@
 package com.example.rankup.controllers;
 
 import com.example.rankup.entities.Reclamation;
+import com.example.rankup.entities.User;
 import com.example.rankup.services.ReclamationService;
+import com.example.rankup.services.SessionManager;
+import com.example.rankup.services.UserService;
 import com.twilio.Twilio;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class AjouterReclamation {
 
@@ -28,11 +36,26 @@ public class AjouterReclamation {
     private TextField descriptionTF;
 
     @FXML
-    private TextField nomTF;
+    private Text nomTF;
+
+    private UserService userService = new UserService();
+    private User CurrUser = null;
 
     @FXML
     private TextField typeTF;
     private final ReclamationService rec = new ReclamationService();
+
+    @FXML
+    public void initialize() {
+        System.out.println("Current session is: ");
+        System.out.println(SessionManager.getSession("userId"));
+        int userId = (int) SessionManager.getSession("userId");
+        System.out.println(userId);
+
+        CurrUser = userService.getOneByID(userId);
+        System.out.println(CurrUser);
+        nomTF.setText(CurrUser.getUsername());
+    }
 
     @FXML
     void ajouterReclamation(ActionEvent event) {
@@ -58,14 +81,14 @@ public class AjouterReclamation {
 
         try {
             // Adds a new Reclamation object using data from text fields
-            rec.add(new Reclamation(nomTF.getText(), Integer.parseInt(NumTelTF.getText()), typeTF.getText(), descriptionTF.getText(), dateTF.getText()));
+            rec.add(new Reclamation(nomTF.getText(), Integer.parseInt(NumTelTF.getText()), typeTF.getText(), descriptionTF.getText(), dateTF.getText(), CurrUser.getId()));
 
 
 
             // Send SMS using Twilio
-            String accountSid = "ACc9c627e21ad6900d0432e0f3eeddff1c";
-            String authToken = "a0c2c5cad27d106577c065e112a7a8c3";
-            String twilioNumber = "+14052469879";
+            String accountSid = "ACaf2ebced6cc47cb1c63a40515fba8c2a";
+            String authToken = "6756c878dd1a611c7d33872f5a8185ec";
+            String twilioNumber = "+15597084928";
 
             // Initialize Twilio
             Twilio.init(accountSid, authToken);
@@ -96,20 +119,22 @@ public class AjouterReclamation {
     void naviguer(ActionEvent event) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/AfficherReclamation.fxml"));
-            nomTF.getScene().setRoot(root);
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/afficherReclamation.fxml")));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
     @FXML
     void BackHome(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
-            nomTF.getScene().setRoot(root);
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/home.fxml")));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
 
@@ -122,5 +147,10 @@ public class AjouterReclamation {
                 .text(message)
                 .darkStyle() // Vous pouvez personnaliser le style ici
                 .show();
+    }
+
+    @FXML
+    void buttontest(ActionEvent event) {
+
     }
 }

@@ -40,7 +40,7 @@
                 <Hyperlink layoutX="74.0" layoutY="166.0" text="Subscription" textFill="#fafafa" underline="true" />
                 <Hyperlink layoutX="88.0" layoutY="240.0" text="Events" textFill="#fafafa" underline="true" />
                 <Hyperlink layoutX="85.0" layoutY="302.0" text="Courses" textFill="#fafafa" underline="true" />
-                <Hyperlink layoutX="74.0" layoutY="373.0" text="Reclamation" textFill="#fafafa" underline="true" />
+                <Hyperlink layoutX="74.0" layoutY="373.0" onAction="#SuiviRec" text="Reclamation" textFill="#fafafa" underline="true" />
             <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="82.0" layoutY="8.0" onMouseClicked="#useraction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/editprofile.png" />
@@ -48,18 +48,18 @@
             </ImageView>
             <Hyperlink layoutX="89.0" layoutY="51.0" text="Users" textFill="#fafafa" underline="true" />
             </children></AnchorPane>
-        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="669.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="623.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/logout.png" />
             </image>
         </ImageView>
-        <Label layoutX="663.0" layoutY="50.0" text="Log out" textFill="WHITE" />
+        <Label layoutX="622.0" layoutY="56.0" text="Log out" textFill="WHITE" />
         <Label layoutX="237.0" layoutY="137.0" prefHeight="34.0" prefWidth="448.0" text="&quot;Control Central:" textFill="WHITE">
             <font>
                 <Font name="Segoe UI Black" size="23.0" />
             </font>
         </Label>
-      <ImageView fitHeight="94.0" fitWidth="104.0" layoutX="631.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="94.0" fitWidth="104.0" layoutX="578.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/logo1.png" />
          </image></ImageView>

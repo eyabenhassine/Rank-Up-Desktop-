@@ -46,7 +46,7 @@
             <Hyperlink layoutX="74.0" layoutY="166.0" text="Subscription" textFill="#fafafa" underline="true" />
             <Hyperlink layoutX="88.0" layoutY="240.0" text="Events" textFill="#fafafa" underline="true" />
             <Hyperlink layoutX="85.0" layoutY="302.0" text="Courses" textFill="#fafafa" underline="true" />
-            <Hyperlink layoutX="74.0" layoutY="373.0" text="Reclamation" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="74.0" layoutY="373.0" onAction="#navToReclamation" text="Reclamation" textFill="#fafafa" underline="true" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/sword.png" />
