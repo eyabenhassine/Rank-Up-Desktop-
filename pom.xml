@@ -40,22 +40,22 @@
             <artifactId>controlsfx</artifactId>
             <version>8.0.5</version>
         </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.itextpdf</groupId>-->
+<!--            <artifactId>layout</artifactId>-->
+<!--            <version>7.2.3</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>layout</artifactId>
-            <version>7.2.3</version>
+            <version>7.1.16</version>
         </dependency>
 
         <dependency>
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
             <version>11.1.0</version> <!-- Assurez-vous de choisir la dernière version -->
-        </dependency>
-
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-            <version>7.1.16</version>
         </dependency>
 
         <dependency>
