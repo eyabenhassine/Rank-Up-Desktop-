@@ -7,9 +7,9 @@ import com.twilio.type.PhoneNumber;
 
 public class SmsSender {
 
-    public static final String ACCOUNT_SID = "ACa646db80db14487da6f32c12ad2cf361";
-    public static final String AUTH_TOKEN = "cdf3ef0713c20f91ae73f2beadd6e702";
-    public static final String TWILIO_PHONE_NUMBER = "+14026955227";
+    public static final String ACCOUNT_SID = "ACaf2ebced6cc47cb1c63a40515fba8c2a";
+    public static final String AUTH_TOKEN = "6756c878dd1a611c7d33872f5a8185ec";
+    public static final String TWILIO_PHONE_NUMBER = "+15597084928";
 
 
     public static void sendSMS(String toPhoneNumber, String message) {
