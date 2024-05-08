@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EventDetails">
+<AnchorPane prefHeight="404.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.EventDetails">
+   <ImageView fitHeight="437.0" fitWidth="844.0" layoutX="-60.8" layoutY="-23.2" opacity="0.13" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-61.0" AnchorPane.rightAnchor="-52.0" AnchorPane.topAnchor="-23.0">
+      <image>
+         <Image url="@img/back1.png" />
+      </image>
+   </ImageView>
     <Label fx:id="eventNameLabel" layoutX="93.0" layoutY="99.0" prefHeight="46.0" prefWidth="182.0" />
     <Label fx:id="eventStartDateLabel" layoutX="93.0" layoutY="158.0" prefHeight="46.0" prefWidth="182.0" />
     <Label fx:id="eventEndDateLabel" layoutX="105.0" layoutY="229.0" prefHeight="46.0" prefWidth="159.0" />
     <Label fx:id="eventTypeLabel" layoutX="105.0" layoutY="284.0" prefHeight="46.0" prefWidth="159.0" />
-    <Label fx:id="eventDescriptionLabel" layoutX="94.0" layoutY="381.0" prefHeight="188.0" prefWidth="806.0" />
-    <ImageView fx:id="qrCodeImageView" fitHeight="167.0" fitWidth="182.0" layoutX="1193.0" layoutY="132.0" />
-   <Button layoutX="120.0" layoutY="624.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="159.0" text="Participate" />
+    <Label fx:id="eventDescriptionLabel" layoutX="25.0" layoutY="235.0" prefHeight="144.0" prefWidth="706.0" />
+    <ImageView fx:id="qrCodeImageView" fitHeight="167.0" fitWidth="182.0" layoutX="484.0" layoutY="53.0" />
 
 
 

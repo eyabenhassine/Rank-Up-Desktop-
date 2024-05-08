@@ -71,4 +71,25 @@ public class AfficherEClient {
             e.printStackTrace();
         }
     }
+
+    public void ToCalander(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Calender.fxml"));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void BackHomeC(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

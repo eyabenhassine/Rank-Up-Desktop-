@@ -567,4 +567,14 @@ public class AfficherEvent {
         String searchText = searchField.getText().trim();
         search(searchText);
     }
+
+    public void HomeE(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/admin.fxml"));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -126,7 +126,7 @@ public class Calendar implements Initializable {
 
     public void BackButton(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/afficherSponsor.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherEClient.fxml"));
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.setScene(new Scene(root));
         } catch (IOException e) {

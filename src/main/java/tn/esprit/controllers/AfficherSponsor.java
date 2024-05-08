@@ -134,5 +134,13 @@ public class AfficherSponsor {
     }
 
 
-
+    public void HomeS(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

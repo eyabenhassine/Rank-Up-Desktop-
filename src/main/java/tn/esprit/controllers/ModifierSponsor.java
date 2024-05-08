@@ -145,4 +145,24 @@ public class ModifierSponsor implements Initializable {
                 .darkStyle() // You can customize the style here
                 .show();
     }
+
+    public void BackB(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/afficherSponsor.fxml"));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void backhome(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
