@@ -1,0 +1,64 @@
+/* styles.css */
+
+/* Body */
+.root {
+    -fx-background-color: #17181a; /* Dark background similar to Epic Games Store */
+}
+
+/* Text */
+.title {
+    -fx-font-family: "Arial";
+    -fx-font-size: 24px;
+    -fx-fill: #ffffff; /* White text */
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: #1e1e20; /* Dark background for the table */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #232426; /* Slightly lighter background for column headers */
+}
+
+.table-view .column-header, .table-row-cell {
+    -fx-border-color: #2a2b2d; /* Border color for consistency */
+}
+
+/* Buttons */
+.button {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-background-color: #3a71ff; /* Blue button color */
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+}
+
+.button:hover {
+    -fx-background-color: #4e90ff; /* Darker blue on hover */
+}
+
+/* TextFields */
+.text-field {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-pref-height: 30px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #999999;
+}
+
+/* ChoiceBox */
+.choice-box {
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-pref-height: 30px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #999999;
+}
+
+/* Button "Générer PDF" */
+#genererPdfButton {
+    -fx-pref-width: 120px; /* Adjust the preferred width as needed */
+}

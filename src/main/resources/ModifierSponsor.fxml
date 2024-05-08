@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import com.example.rankup.controllers.ModifierSponsor?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.rankup.controllers.ModifierSponsor"
+            prefHeight="400.0" prefWidth="600.0">
+    <!-- Content of your FXML -->
+
+
+
+    <Label layoutX="154.0" layoutY="26.0" text="Modifier Sponsor" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <Label layoutX="70.0" layoutY="65.0" text="Nom du Sponsor:" />
+    <TextField fx:id="nomSponsorUpdate" layoutX="200.0" layoutY="61.0" />
+
+    <Label layoutX="70.0" layoutY="105.0" text="Adresse du Sponsor:" />
+    <TextField fx:id="adresseSponsorUpdate" layoutX="200.0" layoutY="101.0" />
+
+    <Label layoutX="70.0" layoutY="145.0" text="Mail du Sponsor:" />
+    <TextField fx:id="mailSponsorUpdate" layoutX="200.0" layoutY="141.0" />
+
+    <Button layoutX="154.0" layoutY="185.0" mnemonicParsing="false" onAction="#modifierSponsor" text="Modifier" />
+
+</AnchorPane>
