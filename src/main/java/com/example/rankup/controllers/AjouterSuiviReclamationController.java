@@ -1,18 +1,10 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
+import com.example.rankup.services.SuiviReclamationService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import tn.esprit.entities.SuiviReclamation;
-import tn.esprit.services.SuiviReclamationService;
-
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class AjouterSuiviReclamationController {
 

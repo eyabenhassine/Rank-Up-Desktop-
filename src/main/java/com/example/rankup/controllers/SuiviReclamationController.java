@@ -1,5 +1,9 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
+import com.example.rankup.entities.Reclamation;
+import com.example.rankup.entities.SuiviReclamation;
+import com.example.rankup.services.ReclamationService;
+import com.example.rankup.services.SuiviReclamationService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -14,16 +18,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
-import tn.esprit.entities.Reclamation;
-import tn.esprit.entities.SuiviReclamation;
-import tn.esprit.services.ReclamationService;
-import tn.esprit.services.SuiviReclamationService;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import javafx.scene.control.TextField;

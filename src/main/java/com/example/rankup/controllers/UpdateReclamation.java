@@ -1,5 +1,7 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
+import com.example.rankup.entities.Reclamation;
+import com.example.rankup.services.ReclamationService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +13,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
-import tn.esprit.entities.Reclamation;
-import tn.esprit.services.ReclamationService;
 
 import java.io.IOException;
 import java.net.URL;

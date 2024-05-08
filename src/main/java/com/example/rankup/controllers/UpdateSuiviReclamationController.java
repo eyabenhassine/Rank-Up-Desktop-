@@ -1,5 +1,9 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
+import com.example.rankup.entities.Reclamation;
+import com.example.rankup.entities.SuiviReclamation;
+import com.example.rankup.services.ReclamationService;
+import com.example.rankup.services.SuiviReclamationService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,18 +16,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import tn.esprit.entities.Reclamation;
-import tn.esprit.entities.SuiviReclamation;
-import tn.esprit.services.ReclamationService;
-import tn.esprit.services.SuiviReclamationService;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 public class UpdateSuiviReclamationController {
    SuiviReclamationService suiviReclamationService = new SuiviReclamationService();
    SuiviReclamation suiviReclamationSelectionee = new SuiviReclamation();

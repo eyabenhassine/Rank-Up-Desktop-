@@ -1,9 +1,10 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 
+import com.example.rankup.entities.Reclamation;
+import com.example.rankup.services.ReclamationService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,10 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.transformation.FilteredList;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
-import tn.esprit.entities.Reclamation;
-import tn.esprit.services.ReclamationService;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;

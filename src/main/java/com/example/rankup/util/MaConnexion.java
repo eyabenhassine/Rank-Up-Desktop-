@@ -1,4 +1,4 @@
-package tn.esprit.util;
+package com.example.rankup.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

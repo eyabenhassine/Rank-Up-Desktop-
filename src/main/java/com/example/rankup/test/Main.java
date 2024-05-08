@@ -1,22 +1,17 @@
-package tn.esprit.test;
-import java.time.LocalDate;
-import tn.esprit.entities.Reclamation;
-import tn.esprit.entities.SuiviReclamation;
-import tn.esprit.services.ReclamationService;
-import tn.esprit.services.SuiviReclamationService;
-import tn.esprit.util.MaConnexion;
-import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
+package com.example.rankup.test;
+
+import com.example.rankup.entities.Reclamation;
+import com.example.rankup.services.ReclamationService;
+import com.example.rankup.services.SuiviReclamationService;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
 
-        SuiviReclamationService    suiviReclamationService = new SuiviReclamationService();
+        SuiviReclamationService suiviReclamationService = new SuiviReclamationService();
         ReclamationService sr = new ReclamationService();
         List<Reclamation> malist = new ArrayList<>(sr.show());
         for (Reclamation r : malist){

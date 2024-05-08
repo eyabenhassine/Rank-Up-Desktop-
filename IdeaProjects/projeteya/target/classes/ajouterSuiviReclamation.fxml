@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.ComboBox?>
-<AnchorPane prefHeight="470.0" prefWidth="552.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AjouterSuiviReclamationController">
+<AnchorPane prefHeight="470.0" prefWidth="552.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AjouterSuiviReclamationController">
     <children>
 
         <TextField fx:id="statusField" layoutX="167.0" layoutY="197.0" promptText="Status" />

@@ -1,4 +1,4 @@
-package tn.esprit.test;
+package com.example.rankup.test;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
