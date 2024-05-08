@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="235e31d1-1d59-4387-b26e-518bb67024f7" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+    <option name="sortByName" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2eVlwNAdvkLsOYYTwhkeHYfK1ZZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/Hp PC/IdeaProjects/projeteya/src/main/java",
+    "last_opened_file_path": "C:/Users/Hp PC/IdeaProjects/projeteya/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hp PC\IdeaProjects\projeteya\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+      <command value="mvn clean javafx:run" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tn.esprit.test.Main" />
+      <module name="projeteya" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tn.esprit.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tn.esprit.test.MainFx" />
+      <module name="projeteya" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\medsl\OneDrive\Bureau\javafx-sdk-17.0.10\lib --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tn.esprit.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainFx" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="235e31d1-1d59-4387-b26e-518bb67024f7" name="Changes" comment="" />
+      <created>1711997866154</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711997866154</updated>
+      <workItem from="1711997867070" duration="9571000" />
+      <workItem from="1712082074696" duration="6317000" />
+      <workItem from="1712170178868" duration="3767000" />
+      <workItem from="1712308578926" duration="932000" />
+      <workItem from="1713100648064" duration="14389000" />
+      <workItem from="1713133348490" duration="7178000" />
+      <workItem from="1713179674031" duration="1791000" />
+      <workItem from="1713189752703" duration="15765000" />
+      <workItem from="1713262431239" duration="120000" />
+      <workItem from="1713295407543" duration="1175000" />
+      <workItem from="1713298366366" duration="11080000" />
+      <workItem from="1713312099790" duration="5378000" />
+      <workItem from="1713348651402" duration="505000" />
+      <workItem from="1713375498424" duration="7784000" />
+      <workItem from="1713384097273" duration="1771000" />
+      <workItem from="1713395879900" duration="668000" />
+      <workItem from="1713397347198" duration="1960000" />
+      <workItem from="1713442287238" duration="345000" />
+      <workItem from="1713442884673" duration="2697000" />
+      <workItem from="1713558078030" duration="2454000" />
+      <workItem from="1713565455869" duration="4903000" />
+      <workItem from="1713572541145" duration="2680000" />
+      <workItem from="1713576677918" duration="15716000" />
+      <workItem from="1713654814638" duration="8420000" />
+      <workItem from="1713714419902" duration="158000" />
+      <workItem from="1713725324333" duration="684000" />
+      <workItem from="1713867209557" duration="1417000" />
+      <workItem from="1713957476330" duration="6631000" />
+      <workItem from="1713977227013" duration="4616000" />
+      <workItem from="1713997440087" duration="4170000" />
+      <workItem from="1714044282747" duration="4879000" />
+      <workItem from="1714061114317" duration="790000" />
+      <workItem from="1714400180222" duration="12328000" />
+      <workItem from="1714428940082" duration="227000" />
+      <workItem from="1714495563491" duration="712000" />
+      <workItem from="1714648466637" duration="3041000" />
+      <workItem from="1714832286042" duration="1987000" />
+      <workItem from="1715024556843" duration="13745000" />
+      <workItem from="1715089426398" duration="264000" />
+      <workItem from="1715111486190" duration="1932000" />
+      <workItem from="1715115677291" duration="1613000" />
+      <workItem from="1715162291288" duration="2652000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/tn/esprit/test/Main.java</url>
+          <line>16</line>
+          <properties class="tn.esprit.test.Main" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
