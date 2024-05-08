@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ShowReservation">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ShowReservation">
    <ImageView fitHeight="952.0" fitWidth="1712.0" layoutX="-62.0" layoutY="44.0" opacity="0.52" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-96.0" AnchorPane.leftAnchor="-62.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="44.0">
       <image>
          <Image url="@img/purepng.com-project-lucian-skin-splashart-renderlolleague-of-legendsrenderprojectlucian-331521944884a09fr.png" />

@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
@@ -16,9 +16,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import tn.esprit.entities.Subscription_plan;
-import tn.esprit.services.Subscription_PlanService;
-import tn.esprit.services.PaymentService;
+import com.example.rankup.entities.Subscription_plan;
+import com.example.rankup.services.Subscription_PlanService;
+import com.example.rankup.services.PaymentService;
 import com.stripe.Stripe;
 
 

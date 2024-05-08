@@ -1,8 +1,8 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import tn.esprit.entities.Subscription_plan;
+import com.example.rankup.entities.Subscription_plan;
 import javafx.event.ActionEvent;
 
 public class PlanDetails {

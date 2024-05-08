@@ -1,9 +1,9 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
-import tn.esprit.entities.Subscription_plan;
-import tn.esprit.services.PaymentService;
+import com.example.rankup.entities.Subscription_plan;
+import com.example.rankup.services.PaymentService;
 
 public class PaymentController {
     private PaymentService paymentService;

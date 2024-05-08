@@ -1,9 +1,9 @@
-package tn.esprit.services;
+package com.example.rankup.services;
 
+import com.example.rankup.entities.Subscription_plan;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
-import tn.esprit.entities.Subscription_plan;
 
 import java.util.HashMap;
 import java.util.Map;

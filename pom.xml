@@ -61,8 +61,8 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <executable>C:\Users\Mariem\.jdks\corretto-21.0.3\bin\java.exe</executable>
-                    <mainClass>tn.esprit.test.MainFX</mainClass>
+<!--                    <executable>C:\Users\Mariem\.jdks\corretto-21.0.3\bin\java.exe</executable>-->
+                    <mainClass>com.example.rankup.test.MainFX</mainClass>
                 </configuration>
             </plugin>
         </plugins>

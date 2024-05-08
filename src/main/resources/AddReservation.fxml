@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.AddReservation">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AddReservation">
 
     <children>
       <ImageView fitHeight="1237.0" fitWidth="2013.0" layoutX="152.0" layoutY="-54.0" opacity="0.46" preserveRatio="true" AnchorPane.bottomAnchor="-283.0" AnchorPane.leftAnchor="152.0" AnchorPane.rightAnchor="-565.0" AnchorPane.topAnchor="-54.0">

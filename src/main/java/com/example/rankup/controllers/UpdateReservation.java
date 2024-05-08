@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 
 import javafx.fxml.FXML;
@@ -11,8 +11,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import tn.esprit.entities.Reservation;
-import tn.esprit.services.ReservationService;
+import com.example.rankup.entities.Reservation;
+import com.example.rankup.services.ReservationService;
 
 import java.awt.*;
 import java.io.IOException;

@@ -1,8 +1,5 @@
-package tn.esprit.test;
+package com.example.rankup.test;
 
-import tn.esprit.entities.Subscription_plan;
-import tn.esprit.services.Subscription_PlanService;
-import tn.esprit.util.MaConnexion;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Customer;

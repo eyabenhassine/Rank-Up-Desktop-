@@ -1,14 +1,14 @@
-package tn.esprit.services;
+package com.example.rankup.services;
 
-import tn.esprit.entities.Subscription_plan;
-import tn.esprit.interfaces.IService;
-import tn.esprit.util.MaConnexion;
+import com.example.rankup.entities.Subscription_plan;
+import com.example.rankup.interfaces.IService;
+import com.example.rankup.util.MaConnexion;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Subscription_PlanService implements IService <Subscription_plan> {
+public class Subscription_PlanService implements IService<Subscription_plan> {
 
     Connection cnx = MaConnexion.getInstance().getCnx();
 

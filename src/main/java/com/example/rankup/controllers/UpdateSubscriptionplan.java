@@ -1,17 +1,15 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import tn.esprit.entities.Subscription_plan;
-import tn.esprit.services.Subscription_PlanService;
-import org.controlsfx.control.Notifications;
+import com.example.rankup.entities.Subscription_plan;
+import com.example.rankup.services.Subscription_PlanService;
 
 import java.awt.*;
 import java.io.IOException;

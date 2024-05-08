@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +10,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import tn.esprit.entities.Reservation;
-import tn.esprit.services.ReservationService;
+import com.example.rankup.entities.Reservation;
+import com.example.rankup.services.ReservationService;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;

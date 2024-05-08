@@ -1,4 +1,4 @@
-package tn.esprit.entities;
+package com.example.rankup.entities;
 
 import java.util.Date;
 public class Reservation {

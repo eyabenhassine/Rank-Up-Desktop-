@@ -1,4 +1,4 @@
-package tn.esprit.interfaces;
+package com.example.rankup.interfaces;
 
 import java.util.List;
 public interface IService <T> {

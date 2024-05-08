@@ -14,7 +14,7 @@
 <?import javafx.scene.control.Label?>
 
 
-<AnchorPane prefHeight="634.0" prefWidth="1227.0"  style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.controllers.ShowSubscriptionPlan">
+<AnchorPane prefHeight="634.0" prefWidth="1227.0"  style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ShowSubscriptionPlan">
     <ImageView fitHeight="1409.0" fitWidth="2406.0" layoutX="-678.0" layoutY="-411.0" opacity="0.28" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-98.0" AnchorPane.leftAnchor="-678.0" AnchorPane.rightAnchor="-128.0" AnchorPane.topAnchor="-411.0">
         <image>
             <Image url="@img/league-of-legends-renders-vladimir-male-character-wallpaper-png-clipart.png" />

@@ -1,4 +1,4 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,8 +12,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import tn.esprit.entities.Subscription_plan;
-import tn.esprit.services.Subscription_PlanService;
+import com.example.rankup.entities.Subscription_plan;
+import com.example.rankup.services.Subscription_PlanService;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Label;
 import javafx.event.ActionEvent;

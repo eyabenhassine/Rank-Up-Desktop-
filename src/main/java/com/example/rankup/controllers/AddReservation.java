@@ -1,12 +1,12 @@
-package tn.esprit.controllers;
+package com.example.rankup.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import tn.esprit.entities.Reservation;
-import tn.esprit.services.ReservationService;
+import com.example.rankup.entities.Reservation;
+import com.example.rankup.services.ReservationService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;

@@ -1,4 +1,4 @@
-package tn.esprit.entities;
+package com.example.rankup.entities;
 
 public class Subscription_plan {
     int id;
