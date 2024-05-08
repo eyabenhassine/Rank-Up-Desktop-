@@ -1,0 +1,23 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(öºŸ
+l
+java:S2095M"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÁÏòŞ8ğ–Üìî1
+k
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÄõÂ¬øÿÿÿÿ
+j
+java:S2095s"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÄõÂ¬øÿÿÿÿ
+A
+java:S2326"+suivi_Reclamation is not used in the class.(öºŸ
+^	java:S119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(öºŸ
+G	java:S106&"+Replace this use of System.out by a logger.(ùÄ³¥8İÈÇìî1
+G	java:S106)"+Replace this use of System.out by a logger.(éıÓ½8İÈÇìî1
+G	java:S106+"+Replace this use of System.out by a logger.(•ØËâ8İÈÇìî1
+@	java:S106."+Replace this use of System.err by a logger.(¹£ö€
+L	java:S106E"+Replace this use of System.err by a logger.(Ğ­Øæüÿÿÿÿ8µéÂêî1
+L	java:S106X"+Replace this use of System.out by a logger.(»”§Ëüÿÿÿÿ8«Üìî1
+F	java:S106Z"+Replace this use of System.out by a logger.(Ÿô¼68«Üìî1
+L	java:S106]"+Replace this use of System.err by a logger.(÷Ì–üÿÿÿÿ8ÇşÚìî1
+A
+java:S1168e"+Return an empty collection instead of null.(¥¹ï
+G	java:S106v"+Replace this use of System.err by a logger.(•¬ªĞ8¥æÛìî1
+H	java:S106„"+Replace this use of System.err by a logger.(•¬ªĞ8Ÿ«Üìî1
