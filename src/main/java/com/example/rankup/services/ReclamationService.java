@@ -1,18 +1,18 @@
 package com.example.rankup.services;
 
 import com.example.rankup.entities.Reclamation;
-import com.example.rankup.interfaces.IService;
+import com.example.rankup.interfaces.Iservice;
 import com.example.rankup.util.MaConnexion;
 
 import java.sql.*;
 import java.util.*;
 
-public class ReclamationService implements IService<Reclamation> {
+public class ReclamationService implements Iservice<Reclamation> {
     // var
     Connection cnx = MaConnexion.getInstance().getCnx();
 
 
-    @Override
+//    @Override
     public void add(Reclamation reclamation) throws SQLException {
         // Define the SQL query with placeholders for the parameters
         String sql = "INSERT INTO `reclamation` (id, Nom, NumTel, type, description, date, id_user) VALUES (?,?,?, ?, ?, ?, ?)";
@@ -63,8 +63,13 @@ public class ReclamationService implements IService<Reclamation> {
         System.out.println("Reclamation updated successfully.");
     }
 
-
     @Override
+    public void deleteC(int id) throws SQLException {
+
+    }
+
+
+//    @Override
     public void delete(int id) throws SQLException {
         String sql = "delete from reclamation where id = ?";
         PreparedStatement preparedStatement = cnx.prepareStatement(sql);
@@ -134,7 +139,7 @@ public class ReclamationService implements IService<Reclamation> {
         }
         return reclamation;
     }
-    @Override
+//    @Override
     public ResultSet Getall() {
         ResultSet rs = null;
         try {

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="470.0" prefWidth="552.0" style="-fx-background-color: #240046;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ajouterCategorier">
+    <children>
+        <TextField fx:id="nom_categorie" layoutX="75.0" layoutY="143.0" promptText="Nom de la catégorie" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" />
+        <TextField fx:id="type" layoutX="75.0" layoutY="216.0" promptText="Type" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" />
+        <Button fx:id="ajouterCategorie" layoutX="95.0" layoutY="371.0" mnemonicParsing="false" style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" text="Ajouter catégorie" />
+        <Button layoutX="502.0" layoutY="430.0" mnemonicParsing="false" onAction="#naviguerCategorie" style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" text="Exit" />
+        <Button fx:id="uploadImg" layoutX="121.0" layoutY="287.0" mnemonicParsing="false" style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" text="Upload" />
+        <ImageView fx:id="imageView" fitHeight="319.0" fitWidth="250.0" layoutX="276.0" layoutY="41.0" />
+        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="75.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une catégorie" wrappingWidth="176.571533203125">
+            <font>
+                <Font name="Agency FB" size="36.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

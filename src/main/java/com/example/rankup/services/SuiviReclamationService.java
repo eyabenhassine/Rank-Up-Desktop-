@@ -1,6 +1,6 @@
 package com.example.rankup.services;
 
-import com.example.rankup.interfaces.IService;
+import com.example.rankup.interfaces.Iservice;
 import com.example.rankup.entities.Reclamation;
 import com.example.rankup.entities.SuiviReclamation;
 import com.example.rankup.util.MaConnexion;
@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuiviReclamationService implements IService<SuiviReclamation> {
+public class SuiviReclamationService implements Iservice<SuiviReclamation> {
 
     Connection cnx = MaConnexion.getInstance().getCnx();
 
@@ -116,8 +116,13 @@ public class SuiviReclamationService implements IService<SuiviReclamation> {
         }
     }
 
-
     @Override
+    public void deleteC(int id) throws SQLException {
+
+    }
+
+
+//    @Override
     public void delete(int id) throws SQLException {
         String sql = "delete from suivi_reclamation where id = ?";
         PreparedStatement preparedStatement = cnx.prepareStatement(sql);
@@ -151,7 +156,7 @@ public class SuiviReclamationService implements IService<SuiviReclamation> {
         }
         return results;
     }
-    @Override
+//    @Override
     public ResultSet Getall() {
         return null;
     }

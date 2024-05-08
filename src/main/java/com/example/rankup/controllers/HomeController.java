@@ -133,6 +133,21 @@ public class HomeController {
         }
     }
 
-
+    @FXML
+    void navToCourses() {
+        try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/afficherlecon.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Afficher Lecon");
+        stage.showAndWait();
+        Stage currentStage = (Stage) walletq.getScene().getWindow();
+        currentStage.close();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
 
 }

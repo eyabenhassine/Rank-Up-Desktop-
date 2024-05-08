@@ -1,0 +1,9 @@
+.notification {
+    -fx-background-color: #2ecc71; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur du texte */
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-border-color: #27ae60; /* Couleur de la bordure */
+    -fx-border-width: 2px; /* Largeur de la bordure */
+    -fx-background-radius: 5px; /* Rayon du coin du fond */
+    -fx-border-radius: 5px; /* Rayon du coin de la bordure */
+}

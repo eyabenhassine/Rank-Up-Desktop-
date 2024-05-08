@@ -85,6 +85,7 @@
             <version>11.1.0</version> <!-- Assurez-vous de choisir la dernière version -->
         </dependency>
 
+
     </dependencies>
 
     <build>
@@ -108,4 +109,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

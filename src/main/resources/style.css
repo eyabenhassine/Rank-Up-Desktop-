@@ -1,0 +1,22 @@
+.button-design{
+    -fx-background-color:linear-gradient(to bottom right,#B45040,#377fa7);
+    -fx-background-radius:20px;
+    -fx-cursor:hand;
+
+}
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF, #377fa7);
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.textfield-design{
+    -fx-background-color:transparent;
+    -fx-background-radius:10px;
+    -fx-border-color:linear-gradient(to bottom right,#B45040,#377fa7);
+    -fx-border-radius:10px;
+    -fx-text-inner-color:#000;
+}
+.table-view {
+    -fx-background-color: #FFFFFF;
+}
