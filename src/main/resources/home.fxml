@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.HomeController">
     <children>
@@ -57,13 +58,13 @@
                </image>
             </ImageView>
             </children></AnchorPane>
-        <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="593.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="593.0" layoutY="17.0" onMouseClicked="#navToProfile" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/icons8-user-menu-male-26.png" />
             </image>
         </ImageView>
         <Label layoutX="592.0" layoutY="54.0" text="Profile" textFill="WHITE" />
-        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="646.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="646.0" layoutY="19.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/logout.png" />
             </image>
@@ -122,10 +123,6 @@
             <Image url="@img/solde.png" />
          </image>
       </ImageView>
-      <Label layoutX="468.0" layoutY="22.0" text="100000" textFill="WHITE">
-         <font>
-            <Font name="Barlow Condensed Black" size="22.0" />
-         </font>
-      </Label>
+      <Text fx:id="walletq" fill="WHITE" layoutX="479.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wallet" />
     </children>
 </AnchorPane>

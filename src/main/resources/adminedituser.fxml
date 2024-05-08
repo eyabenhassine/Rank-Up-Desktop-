@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.UserDetailsController">
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.UserDetailsController">
     <children>
         <AnchorPane fx:id="userDetailsPane" layoutY="-1.0" prefHeight="404.0" prefWidth="222.0" style="-fx-background-color: #301934;">
             <children>
@@ -82,12 +85,12 @@
          </image>
       </ImageView>
       <Label layoutX="298.0" layoutY="367.0" onMouseClicked="#navigateToDialog" text="block this user" textFill="#e70f0f" underline="true" />
-      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="568.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="568.0" layoutY="18.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/home.png" />
          </image>
       </ImageView>
-      <Text fx:id="nameq1" fill="WHITE" layoutX="572.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" />
+      <Text fx:id="nameq1" fill="WHITE" layoutX="576.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List" />
       <Text fx:id="idq" fill="WHITE" layoutX="592.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="id" />
     </children>
 </AnchorPane>

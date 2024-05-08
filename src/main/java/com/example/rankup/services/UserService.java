@@ -347,6 +347,7 @@ public class UserService implements Iservice<User>
                         user.setElo(resultSet.getString("elo"));
                         user.setBio(resultSet.getString("bio"));
                         user.setSummonername(resultSet.getString("summonername"));
+                        user.setWallet(resultSet.getInt("wallet"));
                     }
                 }
             }
@@ -397,13 +398,13 @@ public class UserService implements Iservice<User>
         }
     }
 
-            public boolean purchaseBadge(int userId, String badgeName, BadgeService badgeService) {
-                try {
-                    int badgePrice = badgeService.getBadgePrice(badgeName);
-                    if (badgePrice == -1) {
-                        System.out.println("Badge not found");
-                        return false;
-                    }
+    public boolean purchaseBadge(int userId, String badgeName, BadgeService badgeService) {
+        try {
+            int badgePrice = badgeService.getBadgePrice(badgeName);
+            if (badgePrice == -1) {
+                System.out.println("Badge not found");
+                return false;
+            }
 
             int userWallet = getUserWallet(userId);
             if (userWallet < badgePrice) {

@@ -16,6 +16,22 @@ public class User {
     public User() {
     }
 
+    public int getId_budge() {
+        return id_budge;
+    }
+
+    public void setId_budge(int id_budge) {
+        this.id_budge = id_budge;
+    }
+
+    public int getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(int wallet) {
+        this.wallet = wallet;
+    }
+
     public User(String firstname, String lastname, String username, String phone, String bio, String summonername, LocalDate birthdate, String elo) {
         this.firstname = firstname;
         this.lastname = lastname;

@@ -14,7 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Alert;
 import java.io.IOException;
 
 public class logincontroller {
@@ -80,6 +80,8 @@ public class logincontroller {
                         stage.setScene(scene);
                         stage.setTitle("Two-Factor Authentication");
                         stage.show();
+                        Stage currentStage = (Stage) emailLogin.getScene().getWindow();
+                        currentStage.close();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -103,9 +105,9 @@ public class logincontroller {
                                 ex.printStackTrace();
                             }
                         } else if (role == 1) {
-                            // Admin, navigate to admin users page
+
                             try {
-                                Parent root = FXMLLoader.load(getClass().getResource("/adminusers.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("/admin.fxml"));
                                 emailLogin.getScene().setRoot(root);
                             } catch (IOException ex) {
                                 ex.printStackTrace();

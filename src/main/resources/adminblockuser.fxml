@@ -68,7 +68,7 @@
                 <Font name="Barlow Condensed Black Italic" size="54.0" />
             </font>
         </Label>
-        <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="568.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="568.0" layoutY="18.0" onMouseClicked="#home" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@img/home.png" />
             </image>

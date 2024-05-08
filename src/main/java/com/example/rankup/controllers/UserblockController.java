@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -82,5 +83,26 @@ private ComboBox<String> blockedCB ;
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void home(MouseEvent mouseEvent) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminusers.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Edit Profile");
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Stage currentStage = (Stage) blockreason.getScene().getWindow();
+        currentStage.close();
     }
 }

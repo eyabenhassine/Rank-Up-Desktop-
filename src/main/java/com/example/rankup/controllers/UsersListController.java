@@ -71,6 +71,8 @@ public class UsersListController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
+            Stage currentStage = (Stage) tableView.getScene().getWindow();
+            currentStage.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

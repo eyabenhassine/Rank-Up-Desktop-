@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin">
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.adminController">
     <children>
         <AnchorPane layoutY="-1.0" prefHeight="404.0" prefWidth="222.0" style="-fx-background-color: #301934;">
             <children>
@@ -39,7 +41,7 @@
                 <Hyperlink layoutX="88.0" layoutY="240.0" text="Events" textFill="#fafafa" underline="true" />
                 <Hyperlink layoutX="85.0" layoutY="302.0" text="Courses" textFill="#fafafa" underline="true" />
                 <Hyperlink layoutX="74.0" layoutY="373.0" text="Reclamation" textFill="#fafafa" underline="true" />
-            <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="82.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="82.0" layoutY="8.0" onMouseClicked="#useraction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/editprofile.png" />
                </image>

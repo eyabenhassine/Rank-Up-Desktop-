@@ -7,6 +7,7 @@
     import javafx.fxml.FXMLLoader;
     import javafx.scene.Parent;
     import javafx.scene.Scene;
+    import javafx.scene.input.MouseEvent;
     import javafx.scene.text.Text;
     import javafx.stage.Stage;
 
@@ -121,6 +122,23 @@
         }
 
 
+        public void home(MouseEvent mouseEvent) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminusers.fxml"));
+                Parent root = loader.load();
 
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setTitle("Home");
+
+                stage.show();
+
+                Stage currentStage = (Stage) nameq.getScene().getWindow();
+                currentStage.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
