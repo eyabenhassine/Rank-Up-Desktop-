@@ -1,10 +1,9 @@
-package org.example.services;
+package org.example.rankup.services;
 
 import javafx.collections.FXCollections;
-import org.example.entities.Categorie;
-import org.example.entities.lecon;
-import org.example.interfaces.Iservice;
-import org.example.utile.maConnexion;
+import org.example.rankup.entities.lecon;
+import org.example.rankup.interfaces.Iservice;
+import org.example.rankup.utile.maConnexion;
 
 import java.sql.*;
 import java.util.List;

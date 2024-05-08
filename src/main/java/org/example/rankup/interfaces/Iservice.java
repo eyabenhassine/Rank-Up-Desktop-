@@ -1,6 +1,4 @@
-package org.example.interfaces;
-
-import org.example.entities.Categorie;
+package org.example.rankup.interfaces;
 
 import java.sql.SQLException;
 import java.util.List;

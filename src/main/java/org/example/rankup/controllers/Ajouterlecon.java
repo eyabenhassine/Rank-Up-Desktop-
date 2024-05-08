@@ -1,4 +1,4 @@
-package org.example.controllers;
+package org.example.rankup.controllers;
 
 
 import javafx.event.ActionEvent;
@@ -8,8 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import org.controlsfx.control.Notifications;
-import org.example.entities.lecon;
-import org.example.services.leconService;
+import org.example.rankup.entities.lecon;
+import org.example.rankup.services.leconService;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;

@@ -1,7 +1,5 @@
-package org.example.entities;
+package org.example.rankup.entities;
 
-
-import javafx.beans.property.SimpleStringProperty;
 
 public class Categorie {
     private int id;

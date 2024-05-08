@@ -1,7 +1,6 @@
-package org.example.controllers;
+package org.example.rankup.controllers;
 
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,9 +22,8 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.controlsfx.control.Notifications;
-import org.example.entities.Categorie;
-import org.example.entities.lecon;
-import org.example.services.leconService;
+import org.example.rankup.entities.lecon;
+import org.example.rankup.services.leconService;
 
 import java.io.IOException;
 import java.sql.SQLException;

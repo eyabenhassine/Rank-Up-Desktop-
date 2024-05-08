@@ -1,4 +1,4 @@
-package org.example.test;
+package org.example.rankup.test;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

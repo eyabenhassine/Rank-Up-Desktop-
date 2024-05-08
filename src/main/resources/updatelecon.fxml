@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="472.0" prefWidth="666.0" style="-fx-background-color: #8338ec;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controllers.updatelecon">
+<AnchorPane prefHeight="472.0" prefWidth="666.0" style="-fx-background-color: #8338ec;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.rankup.controllers.updatelecon">
     <children>
         <!-- Champs de texte pour mettre à jour une leçon -->
         <TextField fx:id="nom_lecon" layoutX="69.0" layoutY="121.0" promptText="nom" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" />

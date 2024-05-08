@@ -1,4 +1,4 @@
-package org.example.utile;
+package org.example.rankup.utile;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

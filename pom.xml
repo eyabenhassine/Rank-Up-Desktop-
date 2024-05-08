@@ -67,7 +67,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>org.example.test.mainfx</mainClass>
+                    <mainClass>org.example.rankup.test.mainfx</mainClass>
                 </configuration>
             </plugin>
         </plugins>

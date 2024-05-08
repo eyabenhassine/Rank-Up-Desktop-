@@ -1,4 +1,4 @@
-package org.example.controllers;
+package org.example.rankup.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,8 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import org.example.entities.Categorie;
-import org.example.services.CategorieService;
+import org.example.rankup.entities.Categorie;
+import org.example.rankup.services.CategorieService;
 
 import java.io.IOException;
 import java.sql.SQLException;

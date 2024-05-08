@@ -1,6 +1,5 @@
-package org.example.controllers;
+package org.example.rankup.controllers;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,25 +12,17 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
-import org.example.entities.Categorie;
-import org.example.services.CategorieService;
+import org.example.rankup.entities.Categorie;
+import org.example.rankup.services.CategorieService;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
-import javax.imageio.ImageIO;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import javafx.embed.swing.SwingFXUtils;
 
 public class afficheCategorie {
 

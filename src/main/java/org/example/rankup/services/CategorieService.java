@@ -1,10 +1,9 @@
-package org.example.services;
+package org.example.rankup.services;
 
-import org.example.entities.Categorie;
-import org.example.interfaces.Iservice;
-import org.example.utile.maConnexion;
+import org.example.rankup.entities.Categorie;
+import org.example.rankup.interfaces.Iservice;
+import org.example.rankup.utile.maConnexion;
 
-import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
