@@ -50,8 +50,10 @@ public class uppPanel {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Profile");
-            stage.showAndWait();
+            stage.setTitle("Badges");
+            stage.show(); // Use show() instead of showAndWait()
+
+            // Close the current stage immediately
             Stage currentStage = (Stage) walletq.getScene().getWindow();
             currentStage.close();
         } catch (IOException e) {

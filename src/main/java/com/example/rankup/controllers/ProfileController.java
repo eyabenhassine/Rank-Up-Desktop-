@@ -60,7 +60,7 @@ public class ProfileController {
     @FXML
     public void initialize() {
         userService = new UserService();
-        fetchUserData();
+//        fetchUserData();
     }
 
     private void fetchUserData() {
