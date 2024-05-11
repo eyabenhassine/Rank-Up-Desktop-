@@ -8,7 +8,7 @@
 
 <VBox layoutY="-1.0" minHeight="399.0" prefHeight="399.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ui.navSlider">
    <children>
-      <AnchorPane prefHeight="404.0" prefWidth="222.0">
+      <AnchorPane fx:id="stageAnchor" prefHeight="404.0" prefWidth="222.0">
          <children>
             <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="86.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -30,7 +30,7 @@
                   <Image url="@img/reclamation.png" />
                </image>
             </ImageView>
-            <Hyperlink layoutX="69.0" layoutY="106.0" text="Competetions" textFill="#fafafa" underline="true" />
+            <Hyperlink fx:id="stageText" layoutX="69.0" layoutY="106.0" onAction="#navToCompetition" text="Competetions" textFill="#fafafa" underline="true" />
             <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="87.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/competition.png" />
