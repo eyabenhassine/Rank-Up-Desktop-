@@ -92,7 +92,7 @@ public class logincontroller {
                         if (role == -1) {
                             // Coach or player, navigate to profile
                             try {
-                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/profile.fxml"));
+                                FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
                                 Parent root = loader.load();
                                 ProfileController profileController = loader.getController();
                                 profileController.setStage(new Stage()); // Set the stage for profile controller

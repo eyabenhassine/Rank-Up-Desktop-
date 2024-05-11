@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox layoutY="-1.0" minHeight="399.0" prefHeight="399.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ui.navSlider">
+   <children>
+      <AnchorPane prefHeight="404.0" prefWidth="222.0">
+         <children>
+            <ImageView fitHeight="41.0" fitWidth="47.0" layoutX="86.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/subscription.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="60.0" layoutX="82.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/events.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="70.0" layoutX="78.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/courses.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="47.0" layoutX="86.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/reclamation.png" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="69.0" layoutY="106.0" text="Competetions" textFill="#fafafa" underline="true" />
+            <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="87.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/competition.png" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="74.0" layoutY="166.0" text="Subscription" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="88.0" layoutY="240.0" text="Events" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="85.0" layoutY="302.0" onAction="#navToCourses" text="Courses" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="74.0" layoutY="373.0" onAction="#navToReclamation" text="Reclamation" textFill="#fafafa" underline="true" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/sword.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="166.0" fitWidth="67.0" layoutX="153.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/sword2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ui.uppPanel">
+   <children>
+      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="172.0" onMouseClicked="#navToProfile" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8-user-menu-male-26.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="171.0" layoutY="37.0" text="Profile" textFill="WHITE" />
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="225.0" layoutY="2.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logout.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="224.0" layoutY="37.0" text="Log out" textFill="WHITE" />
+      <ImageView fx:id="navToBadges" fitHeight="35.0" fitWidth="34.0" layoutX="123.0" onMouseClicked="#navToBadges" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/badge.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="120.0" layoutY="36.0" text="Badge" textFill="WHITE" />
+      <ImageView fitHeight="52.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/solde.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="walletq" fill="WHITE" layoutX="58.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wallet" />
+   </children>
+</AnchorPane>

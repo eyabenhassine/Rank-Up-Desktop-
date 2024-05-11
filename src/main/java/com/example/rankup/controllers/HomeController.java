@@ -36,7 +36,8 @@ public class HomeController {
 
     private void fetchUserData() {
 
-        User user = userService.fetchPlayerData();
+//        User user = userService.fetchPlayerData();
+                User user = null;
         if (user != null) {
 
 
@@ -48,7 +49,7 @@ public class HomeController {
         } else {
 
 
-            walletq.setText("N/A");
+//            walletq.setText("N/A");
 
         }
     }
@@ -75,7 +76,7 @@ public class HomeController {
     @FXML
     private void logout() {
 
-        SessionManager.clearSession();
+//        SessionManager.clearSession();
 
 
         try {
