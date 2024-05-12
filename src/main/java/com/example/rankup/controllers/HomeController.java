@@ -120,7 +120,7 @@ public class HomeController {
     @FXML
     void navToReclamation() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ajouterReclamation.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ajtrec.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage();
             stage.setScene(scene);

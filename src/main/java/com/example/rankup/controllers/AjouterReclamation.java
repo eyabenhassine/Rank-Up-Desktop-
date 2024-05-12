@@ -48,13 +48,13 @@ public class AjouterReclamation {
     @FXML
     public void initialize() {
         System.out.println("Current session is: ");
-        System.out.println(SessionManager.getSession("userId"));
-        int userId = (int) SessionManager.getSession("userId");
-        System.out.println(userId);
-
-        CurrUser = userService.getOneByID(userId);
-        System.out.println(CurrUser);
-        nomTF.setText(CurrUser.getUsername());
+//        System.out.println(SessionManager.getSession("userId"));
+//        int userId = (int) SessionManager.getSession("userId");
+//        System.out.println(userId);
+//
+//        CurrUser = userService.getOneByID(userId);
+//        System.out.println(CurrUser);
+//        nomTF.setText(CurrUser.getUsername());
     }
 
     @FXML
@@ -119,7 +119,7 @@ public class AjouterReclamation {
     void naviguer(ActionEvent event) {
 
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/afficherReclamation.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/listrec.fxml")));
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.setScene(new Scene(root));
         } catch (IOException e) {

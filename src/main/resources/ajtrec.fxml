@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AjouterReclamation">
+    <AnchorPane layoutX="13.0" layoutY="-2.0">
+        <fx:include source="background.fxml" />
+      <TextField fx:id="NumTelTF" layoutX="461.0" layoutY="100.0" prefHeight="34.0" prefWidth="150.0" promptText="Num Tel" />
+      <TextField fx:id="typeTF" layoutX="273.0" layoutY="162.0" prefHeight="34.0" prefWidth="161.0" promptText="type" />
+      <TextField fx:id="dateTF" layoutX="462.0" layoutY="162.0" prefHeight="34.0" prefWidth="149.0" promptText="Date" />
+      <TextField fx:id="descriptionTF" layoutX="273.0" layoutY="228.0" prefHeight="130.0" prefWidth="341.0" promptText="description" />
+      <Button layoutX="555.0" layoutY="369.0" mnemonicParsing="false" onAction="#ajouterReclamation" prefHeight="19.0" prefWidth="58.0" style="-fx-background-color: #0D98Ba;" text="Send" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Text fill="WHITE" layoutX="272.0" layoutY="96.0" opacity="0.52" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name :">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="465.0" layoutY="95.0" opacity="0.52" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number :">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="272.0" layoutY="155.0" opacity="0.52" strokeType="OUTSIDE" strokeWidth="0.0" text="Type  :">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="461.0" layoutY="156.0" opacity="0.52" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="274.0" layoutY="219.0" opacity="0.52" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+      <Text fx:id="nomTF" fill="WHITE" layoutX="272.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NONE" wrappingWidth="76.0" />
+      <Label layoutX="248.0" prefHeight="62.0" prefWidth="150.0" text="Reclame !" textFill="WHITE">
+         <font>
+            <Font name="Barlow Condensed Black Italic" size="37.0" />
+         </font>
+      </Label>
+      <Button layoutX="427.0" layoutY="370.0" mnemonicParsing="false" onAction="#naviguer" style="-fx-background-color: #0D98Ba;" text="liste Reclamation" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+    </AnchorPane>
+    <AnchorPane layoutX="423.0" layoutY="18.0">
+        <fx:include source="upperPanel.fxml" />
+    </AnchorPane>
+    <AnchorPane prefHeight="404.0" prefWidth="222.0">
+        <children>
+            <fx:include source="navSlider.fxml" />
+        </children>
+    </AnchorPane>
+
+
+    <!--   </children>-->
+</AnchorPane>

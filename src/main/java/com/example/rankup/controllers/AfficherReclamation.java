@@ -152,7 +152,7 @@ public class AfficherReclamation {
 
         if (selectedReclamation != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateReclamation.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/updaterec.fxml"));
                 Parent root = loader.load();
 
                 UpdateReclamation controller = loader.getController();

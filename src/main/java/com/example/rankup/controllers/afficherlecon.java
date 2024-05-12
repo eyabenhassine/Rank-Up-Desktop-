@@ -96,7 +96,7 @@ public class afficherlecon {
         if (selectedLecon != null) {
             try {
                 // Charger la nouvelle scène à partir de votre fichier FXML cible
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/updatelecon.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/updatelec.fxml"));
                 Parent root = loader.load();
 
                 // Obtenez le contrôleur de la vue de mise à jour et passez la leçon sélectionnée

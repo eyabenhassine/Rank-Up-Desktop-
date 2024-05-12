@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ui.adminbgController">
+   <children>
+      <ImageView fitHeight="320.0" fitWidth="497.0" layoutX="192.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/baron.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="102.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/logo1.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-12.0" prefHeight="409.0" prefWidth="222.0" style="-fx-background-color: #298caa;">
+         <children>
+            <ImageView fitHeight="102.0" fitWidth="92.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo1.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <ImageView fitHeight="125.0" fitWidth="150.0" layoutX="153.0" layoutY="131.0">
+         <image>
+            <Image url="@img/jinx.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

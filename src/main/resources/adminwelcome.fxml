@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="327.0" prefWidth="476.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ui.adminWelcomePanel">
+   <children>
+      <Label layoutX="83.0" layoutY="37.0" prefHeight="9.0" prefWidth="384.0" text="Pro League of Legends " textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="141.0" text="Ready to take your game to the next level? Reach your dream rank" textFill="WHITE" underline="true" />
+      <Label layoutX="83.0" layoutY="71.0" text="Coaching" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="74.0" layoutY="164.0" text=" effortlessly with tailored lessons from the best Challenger coaches." textFill="WHITE" underline="true" />
+      <ImageView fitHeight="157.0" fitWidth="260.0" layoutX="166.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/fiddle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="386.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/chat.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="157.0" fitWidth="104.0" layoutX="334.0" layoutY="-16.0">
+         <image>
+            <Image url="@img/d73b4f0-769a45d8-0af4-4b14-94c0-9282af8c62f0.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

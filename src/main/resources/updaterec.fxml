@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AfficherReclamation">
+    <AnchorPane layoutX="13.0" layoutY="-2.0">
+        <fx:include source="background.fxml" />
+        <Label layoutX="248.0" prefHeight="62.0" prefWidth="150.0" text="Reclame !" textFill="WHITE">
+            <font>
+                <Font name="Barlow Condensed Black Italic" size="37.0" />
+            </font>
+        </Label>
+      <Button layoutX="467.0" layoutY="354.0" mnemonicParsing="false" onAction="#modifierReclamation" prefHeight="34.0" prefWidth="57.0" style="-fx-background-color: #0D98Ba;" text="save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <TextField fx:id="descriptionUpdate" layoutX="230.0" layoutY="264.0" prefHeight="83.0" prefWidth="298.0" promptText="description" />
+      <Text fill="WHITE" layoutX="232.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="dateUpdate" layoutX="445.0" layoutY="197.0" prefHeight="34.0" prefWidth="149.0" promptText="date" />
+      <Text fill="WHITE" layoutX="445.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="typeUpdate" layoutX="230.0" layoutY="197.0" prefHeight="34.0" prefWidth="133.0" promptText="type" />
+      <Text fill="WHITE" layoutX="230.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type  :">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <TextField fx:id="nomUpdate" layoutX="230.0" layoutY="134.0" prefHeight="34.0" prefWidth="134.0" promptText="nom" />
+      <TextField fx:id="numTelUpdate" layoutX="445.0" layoutY="132.0" prefHeight="37.0" prefWidth="149.0" promptText="NumTel" />
+      <Text fill="WHITE" layoutX="230.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name :">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="445.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Text>
+    </AnchorPane>
+    <AnchorPane layoutX="423.0" layoutY="18.0">
+        <fx:include source="upperPanel.fxml" />
+    </AnchorPane>
+    <AnchorPane prefHeight="404.0" prefWidth="222.0">
+        <children>
+            <fx:include source="navSlider.fxml" />
+        </children>
+    </AnchorPane>
+
+
+    <!--   </children>-->
+</AnchorPane>

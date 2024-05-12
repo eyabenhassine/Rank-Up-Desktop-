@@ -124,7 +124,7 @@ public class Ajouterlecon  {
 
     public void naviguer(ActionEvent actionEvent) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/afficherlecon.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/shwlec.fxml"));
             nomFT.getScene().setRoot(root);
         } catch (IOException e) {
             throw new RuntimeException(e);

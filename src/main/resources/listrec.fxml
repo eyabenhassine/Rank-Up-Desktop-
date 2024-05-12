@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AfficherReclamation">
+    <AnchorPane layoutX="13.0" layoutY="-2.0">
+        <fx:include source="background.fxml" />
+        <Label layoutX="248.0" prefHeight="62.0" prefWidth="150.0" text="Reclame !" textFill="WHITE">
+            <font>
+                <Font name="Barlow Condensed Black Italic" size="37.0" />
+            </font>
+        </Label>
+      <VBox layoutX="217.0" layoutY="109.0" prefHeight="286.0" prefWidth="140.0" spacing="10">
+         <children>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedNomLabel" prefHeight="15.0" prefWidth="74.0" text="Nom " textFill="WHITE" />
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number :">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedNumTelLabel" prefHeight="15.0" prefWidth="82.0" text="NumTel: " textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Type :">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedTypeLabel" prefHeight="16.0" prefWidth="58.0" text="Type: " textFill="WHITE">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedDateLabel" prefHeight="26.0" prefWidth="46.0" text="Date: " textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Text fill="#ffd2d2" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
+            <Label fx:id="selectedDescriptionLabel" prefHeight="27.0" prefWidth="55.0" text="Description: " textFill="WHITE">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="368.0" layoutY="82.0" spacing="10">
+         <children>
+            <TextField fx:id="searchField" onKeyReleased="#handleSearch" prefHeight="26.0" prefWidth="106.0" promptText="Search..." />
+            <ChoiceBox fx:id="colonneChoiceBox" prefHeight="26.0" prefWidth="58.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Nom" />
+                     <String fx:value="NumTel" />
+                     <String fx:value="Type" />
+                     <String fx:value="Description" />
+                     <String fx:value="Date" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+            <ChoiceBox fx:id="ordreChoiceBox" prefHeight="26.0" prefWidth="46.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="ASC" />
+                     <String fx:value="DESC" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+            <Button layoutX="717.0" layoutY="96.0" mnemonicParsing="false" onAction="#trier" text="Trier" />
+         </children>
+      </HBox>
+      <TableView fx:id="tableView" layoutX="323.0" layoutY="119.0" prefHeight="226.0" prefWidth="338.0" style="-fx-background-color: #0D1725;">
+         <columns>
+            <TableColumn fx:id="nomcol" prefWidth="100.0" text="nom" />
+            <TableColumn fx:id="NumtelCol" prefWidth="90.4000244140625" text="NumTel" />
+            <TableColumn fx:id="typeCol" prefWidth="70.40008544921875" text=" type" />
+            <TableColumn fx:id="descriptionCol" prefWidth="259.9998779296875" text="description" />
+            <TableColumn fx:id="dateCol" minWidth="0.0" prefWidth="166.0" text="date" />
+         </columns>
+      </TableView>
+      <ButtonBar layoutX="323.0" layoutY="355.0" prefHeight="40.0" prefWidth="338.0">
+         <buttons>
+            <Button minWidth="68.0" mnemonicParsing="false" onAction="#modifierReclamation" prefHeight="18.0" prefWidth="72.0" style="-fx-background-color: #0D98Ba;" text="Update" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#deleteReclamation" prefHeight="27.0" prefWidth="110.0" style="-fx-background-color: #0D98Ba;" text="Delete" textFill="WHITE" />
+            <Button fx:id="generatePDFButton" minWidth="55.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="26.0" style="-fx-background-color: #0D98Ba;" text="PDF" textFill="WHITE" />
+         </buttons>
+      </ButtonBar>
+    </AnchorPane>
+    <AnchorPane layoutX="423.0" layoutY="18.0">
+        <fx:include source="upperPanel.fxml" />
+    </AnchorPane>
+    <AnchorPane prefHeight="404.0" prefWidth="222.0">
+        <children>
+            <fx:include source="navSlider.fxml" />
+        </children>
+    </AnchorPane>
+
+
+    <!--   </children>-->
+</AnchorPane>

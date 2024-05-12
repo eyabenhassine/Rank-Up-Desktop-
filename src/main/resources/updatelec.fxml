@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #392A48;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.updatelecon">
+    <AnchorPane layoutX="13.0" layoutY="-2.0">
+        <fx:include source="background.fxml" />
+        <Label layoutX="248.0" prefHeight="62.0" prefWidth="150.0" text="Courses !" textFill="WHITE">
+            <font>
+                <Font name="Barlow Condensed Black Italic" size="37.0" />
+            </font>
+        </Label>
+      <TextField fx:id="URL" layoutX="451.0" layoutY="107.0" promptText="URL" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" />
+      <Text fill="#fffafa" layoutX="451.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL :" />
+      <TextField fx:id="nom_lecon" layoutX="251.0" layoutY="107.0" promptText="nom" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" />
+      <Text fill="WHITE" layoutX="251.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom leçon :" />
+      <TextField fx:id="prix" layoutX="252.0" layoutY="160.0" promptText="prix" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" />
+      <Text fill="#fffcfc" layoutX="252.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix :" />
+      <Text fill="#fffcfc" layoutX="253.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" />
+      <TextField fx:id="descriptionUpdate" layoutX="252.0" layoutY="210.0" prefHeight="131.0" prefWidth="381.0" promptText="description" style="-fx-background-color: #2c3e50; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" />
+      <Button layoutX="556.0" layoutY="349.0" mnemonicParsing="false" onAction="#modifier_lecon" prefHeight="37.0" prefWidth="79.0" style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-border-color: #8338ec; -fx-border-width: 2px;" text="Modifier" />
+    </AnchorPane>
+    <AnchorPane layoutX="423.0" layoutY="18.0">
+        <fx:include source="upperPanel.fxml" />
+    </AnchorPane>
+    <AnchorPane prefHeight="404.0" prefWidth="222.0">
+        <children>
+            <fx:include source="navSlider.fxml" />
+        </children>
+    </AnchorPane>
+
+
+
+    <!--   </children>-->
+</AnchorPane>
