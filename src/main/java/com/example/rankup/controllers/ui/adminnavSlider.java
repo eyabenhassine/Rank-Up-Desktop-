@@ -18,7 +18,7 @@ public class adminnavSlider {
     @FXML
     void navToCompetition(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/competition.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminhome.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -37,7 +37,7 @@ public class adminnavSlider {
     @FXML
     void navToCourses(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/competition.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/showcourses1.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -57,5 +57,61 @@ public class adminnavSlider {
     void navToReclamation(ActionEvent event) {
 
     }
+    @FXML
+    void navtosub(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/addsubscriptionplan1.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Competition");
+            stage.show(); // Use show() instead of showAndWait()
+
+            // Close the current stage immediately
+            Stage currentStage = (Stage) stageAnchor.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void navToUsers(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminusers1.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Competition");
+            stage.show(); // Use show() instead of showAndWait()
+
+            // Close the current stage immediately
+            Stage currentStage = (Stage) stageAnchor.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void navToEvent(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/addevent1.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Competition");
+            stage.show(); // Use show() instead of showAndWait()
+
+            // Close the current stage immediately
+            Stage currentStage = (Stage) stageAnchor.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

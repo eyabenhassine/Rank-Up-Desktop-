@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #7c7c7c;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.AjouterEvent">
+    <AnchorPane layoutX="13.0" layoutY="-2.0">
+        <fx:include source="adminbackground.fxml" />
+      <TextField fx:id="nomEventField" layoutX="315.0" layoutY="104.0" prefHeight="31.0" prefWidth="144.0" promptText="Event Name" />
+      <TextField fx:id="typeField" layoutX="471.0" layoutY="104.0" prefHeight="31.0" prefWidth="163.0" promptText="Event Type" />
+      <DatePicker fx:id="dateDebutField" layoutX="315.0" layoutY="154.0" prefHeight="31.0" prefWidth="144.0" promptText="Start Date" />
+      <DatePicker fx:id="dateFinField" layoutX="472.0" layoutY="154.0" prefHeight="31.0" prefWidth="163.0" promptText="End Date" />
+      <TextField fx:id="descriptionField" layoutX="315.0" layoutY="193.0" prefHeight="112.0" prefWidth="318.0" promptText="Description" />
+      <Button layoutX="411.0" layoutY="320.0" mnemonicParsing="false" onAction="#ajouterEvent" prefHeight="31.0" prefWidth="92.0" style="-fx-background-color: #a53e76;" text="Add" textFill="WHITE" />
+      <Button layoutX="513.0" layoutY="320.0" mnemonicParsing="false" onAction="#naviguerlistEvent" prefHeight="31.0" prefWidth="120.0" style="-fx-background-color: #0078d4;" text="View Event List" textFill="WHITE" />
+      <Label layoutX="230.0" layoutY="14.0" prefHeight="71.0" prefWidth="170.0" text="Event !" textFill="WHITE">
+         <font>
+            <Font name="Barlow Condensed Black Italic" size="62.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="157.0" fitWidth="163.0" layoutX="215.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/thresh.png" />
+         </image>
+      </ImageView>
+    </AnchorPane>
+    <AnchorPane layoutX="423.0" layoutY="18.0">
+        <fx:include source="upperPanel.fxml" />
+    </AnchorPane>
+    <AnchorPane prefHeight="404.0" prefWidth="222.0">
+        <children>
+            <fx:include source="adminnavSlider.fxml" />
+        </children>
+    </AnchorPane>
+
+
+    <!--   </children>-->
+</AnchorPane>

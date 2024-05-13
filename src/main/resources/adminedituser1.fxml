@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #7c7c7c;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.UserDetailsController">
+    <AnchorPane layoutX="13.0" layoutY="-2.0">
+        <fx:include source="adminbackground.fxml" />
+    </AnchorPane>
+    <AnchorPane layoutX="423.0" layoutY="18.0">
+        <fx:include source="upperPanel.fxml" />
+    </AnchorPane>
+    <AnchorPane prefHeight="404.0" prefWidth="222.0">
+        <children>
+            <fx:include source="adminnavSlider.fxml" />
+        </children>
+    </AnchorPane>
+   <Label layoutX="299.0" layoutY="90.0" opacity="0.72" text="First Name :" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <Label layoutX="299.0" layoutY="132.0" opacity="0.72" text="Last Name :" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <Label layoutX="299.0" layoutY="175.0" opacity="0.72" text="Phone number :" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <Label layoutX="299.0" layoutY="212.0" opacity="0.72" text="Birthdate :" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <Label layoutX="299.0" layoutY="257.0" opacity="0.72" text="Elo :" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <Label layoutX="241.0" layoutY="14.0" text="User Details !" textFill="WHITE">
+      <font>
+         <Font name="Barlow Condensed Black Italic" size="39.0" />
+      </font>
+   </Label>
+   <Text fx:id="nameq" fill="WHITE" layoutX="528.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="name">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
+   <Text fx:id="lastnameq" fill="WHITE" layoutX="528.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lastname">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
+   <Text fx:id="phoneq" fill="WHITE" layoutX="528.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="phone">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
+   <Text fx:id="birthdayq" fill="WHITE" layoutX="528.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="birthday">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
+   <Text fx:id="eloq" fill="WHITE" layoutX="533.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="elo">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
+   <Label layoutX="301.0" layoutY="327.0" opacity="0.72" text="Bio :" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <Text fx:id="bioq" fill="WHITE" layoutX="538.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bio">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
+   <Label layoutX="301.0" layoutY="292.0" opacity="0.72" text="Summonaire name :" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+   <Text fx:id="sumnameq" fill="WHITE" layoutX="534.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sumname">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Text>
+   <ImageView fitHeight="39.0" fitWidth="38.0" layoutX="261.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@img/blockuser1.png" />
+      </image>
+   </ImageView>
+   <Label layoutX="302.0" layoutY="366.0" onMouseClicked="#navigateToDialog" text="block this user" textFill="#e70f0f" underline="true">
+      <font>
+         <Font name="System Bold" size="16.0" />
+      </font>
+   </Label>
+
+
+    <!--   </children>-->
+</AnchorPane>

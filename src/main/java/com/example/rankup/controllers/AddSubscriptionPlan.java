@@ -68,7 +68,7 @@ public class AddSubscriptionPlan {
     void naviguer(ActionEvent event) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/ShowSubscriptionPlan.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/showsubscriptionplan1.fxml"));
             TypeTF.getScene().setRoot(root);
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class maConnexion {
     // Les informations de connexion à la base de données
-   final String URL = "jdbc:mysql://localhost:3306/rankup";
+   final String URL = "jdbc:mysql://localhost:3306/integration";
    final String UTILISATEUR = "root";
    final String MOT_DE_PASSE = "";
 

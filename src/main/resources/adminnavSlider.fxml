@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox layoutY="-1.0" minHeight="399.0" prefHeight="399.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ui.adminnavSlider">
+<VBox layoutY="-1.0" minHeight="399.0" prefHeight="399.0" prefWidth="222.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.ui.adminnavSlider">
    <children>
       <AnchorPane fx:id="stageAnchor" prefHeight="404.0" prefWidth="222.0">
          <children>
@@ -36,8 +34,8 @@
                   <Image url="@img/competition.png" />
                </image>
             </ImageView>
-            <Hyperlink layoutX="74.0" layoutY="166.0" text="Subscription" textFill="#fafafa" underline="true" />
-            <Hyperlink layoutX="88.0" layoutY="240.0" text="Events" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="74.0" layoutY="166.0" onAction="#navtosub" text="Subscription" textFill="#fafafa" underline="true" />
+            <Hyperlink layoutX="88.0" layoutY="240.0" onAction="#navToEvent" text="Events" textFill="#fafafa" underline="true" />
             <Hyperlink layoutX="85.0" layoutY="302.0" onAction="#navToCourses" text="Courses" textFill="#fafafa" underline="true" />
             <Hyperlink layoutX="74.0" layoutY="373.0" onAction="#navToReclamation" text="Reclamation" textFill="#fafafa" underline="true" />
             <ImageView fitHeight="200.0" fitWidth="56.0" layoutX="14.0" layoutY="51.0">
@@ -50,6 +48,12 @@
                   <Image url="@img/divider.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="45.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/editprofile.png" />
+               </image>
+            </ImageView>
+            <Hyperlink layoutX="90.0" layoutY="50.0" onAction="#navToUsers" text="Users" textFill="WHITE" underline="true" />
          </children>
       </AnchorPane>
    </children>

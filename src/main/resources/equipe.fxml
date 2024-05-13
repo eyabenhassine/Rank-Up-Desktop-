@@ -33,9 +33,9 @@
                   </font>
                </Label>
                <TextField fx:id="nomEquipe" layoutX="31.0" layoutY="77.0" promptText="Team Name" />
-               <Button layoutX="362.0" layoutY="70.0" mnemonicParsing="false" onAction="#showEquipeList" prefHeight="26.0" prefWidth="56.0" text="List" />
-               <Button fx:id="choosePlayer1" layoutX="50.0" layoutY="154.0" mnemonicParsing="false" text="Choose" />
-               <Button fx:id="choosePlayer2" layoutX="130.0" layoutY="154.0" mnemonicParsing="false" text="Choose" />
+               <Button layoutX="404.0" layoutY="18.0" mnemonicParsing="false" onAction="#showEquipeList" prefHeight="26.0" prefWidth="56.0" style="-fx-background-color: #0D98Ba;" text="List" textFill="WHITE" />
+               <Button fx:id="choosePlayer1" layoutX="50.0" layoutY="154.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="choosePlayer2" layoutX="130.0" layoutY="154.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
                <TextFlow fx:id="textFlow1" layoutX="50.0" layoutY="117.0" prefHeight="26.0" prefWidth="56.0">
                   <children>
                      <Text fx:id="text1" strokeType="OUTSIDE" strokeWidth="0.0" text="None" />
@@ -66,11 +66,11 @@
                      <Hyperlink fx:id="rmUser5" prefHeight="20.0" prefWidth="0.0" text="X" textFill="#f67676" underline="true" />
                   </children>
                </TextFlow>
-               <Button fx:id="choosePlayer3" layoutX="211.0" layoutY="154.0" mnemonicParsing="false" text="Choose" />
-               <Button fx:id="choosePlayer4" layoutX="291.0" layoutY="154.0" mnemonicParsing="false" text="Choose" />
-               <Button fx:id="choosePlayer5" layoutX="368.0" layoutY="154.0" mnemonicParsing="false" text="Choose" />
-               <Button fx:id="confirmButton" layoutX="124.0" layoutY="224.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #64b8b1;" text="Confirm" />
-               <Button fx:id="resetButton" layoutX="285.0" layoutY="224.0" mnemonicParsing="false" onAction="#clearSelectedUsers" prefHeight="26.0" prefWidth="67.0" text="Clear" />
+               <Button fx:id="choosePlayer3" layoutX="211.0" layoutY="154.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="choosePlayer4" layoutX="291.0" layoutY="154.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="choosePlayer5" layoutX="376.0" layoutY="154.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="confirmButton" layoutX="308.0" layoutY="235.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #9b59b6; -fx-border-color: #8338ec;" text="Confirm" textFill="WHITE" />
+               <Button fx:id="resetButton" layoutX="383.0" layoutY="235.0" mnemonicParsing="false" onAction="#clearSelectedUsers" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #9b59b6; -fx-border-color: #8338ec;" text="Clear" textFill="WHITE" />
             </children>
          </AnchorPane>
       </children>

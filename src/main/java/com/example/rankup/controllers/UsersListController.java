@@ -60,7 +60,7 @@ public class UsersListController {
     }
     private void openUserDetails(int userId) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminedituser.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminedituser1.fxml"));
             Parent root = loader.load();
 
             UserDetailsController userDetailsController = loader.getController();

@@ -108,7 +108,7 @@ public class ShowSubscriptionPlan {
         Subscription_plan selectedPlan = planTableView.getSelectionModel().getSelectedItem();
         if (selectedPlan != null) {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateSubscriptionPlan.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/updatesubscriptionplan1.fxml"));
                 Parent root = loader.load();
 
                 // Get the controller of the UpdateSubscriptionplan interface

@@ -101,7 +101,7 @@
         @FXML
         private void navigateToDialog() {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminblockuser.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminblockuser1.fxml"));
                 Parent root = loader.load();
 
                 UserblockController controller = loader.getController();
