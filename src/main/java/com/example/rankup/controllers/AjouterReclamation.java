@@ -48,13 +48,13 @@ public class AjouterReclamation {
     @FXML
     public void initialize() {
         System.out.println("Current session is: ");
-//        System.out.println(SessionManager.getSession("userId"));
-//        int userId = (int) SessionManager.getSession("userId");
-//        System.out.println(userId);
-//
-//        CurrUser = userService.getOneByID(userId);
-//        System.out.println(CurrUser);
-//        nomTF.setText(CurrUser.getUsername());
+        System.out.println("this"+SessionManager.getSession("userId"));
+        int userId = (int) SessionManager.getSession("userId");
+        System.out.println(userId);
+
+        CurrUser = userService.getOneByID(userId);
+        System.out.println(CurrUser);
+        nomTF.setText(CurrUser.getUsername());
     }
 
     @FXML
@@ -91,16 +91,16 @@ public class AjouterReclamation {
             String twilioNumber = "+15597084928";
 
             // Initialize Twilio
-            Twilio.init(accountSid, authToken);
+//            Twilio.init(accountSid, authToken);
 
             // Send SMS
-            Message message = Message.creator(
-                            new PhoneNumber("+216" + NumTelTF.getText()),  // Replace with recipient's phone number
-                            new PhoneNumber(twilioNumber),               // Your Twilio phone number
-                            "Votre réclamation a été ajoutée avec succès. Merci!")  .create();
+//            Message message = Message.creator(
+//                            new PhoneNumber("+216" + NumTelTF.getText()),  // Replace with recipient's phone number
+//                            new PhoneNumber(twilioNumber),               // Your Twilio phone number
+//                            "Votre réclamation a été ajoutée avec succès. Merci!")  .create();
             showNotification("AJOUT réussie", "Reclamation ajoutée avec succès.");
-
-            System.out.println("Message SID: " + message.getSid()); // Print SID for debugging purposes
+//
+//            System.out.println("Message SID: " + message.getSid()); // Print SID for debugging purposes
 
         } catch (SQLException e) {
             // Displays an error alert if SQLException occurs

@@ -6,12 +6,6 @@ import com.example.rankup.utils.DataSource;
 import java.sql.*;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.*;
 
 import javafx.scene.control.Alert;
@@ -21,12 +15,7 @@ public class UserService implements Iservice<User>
 {
 
     private LocalDate birthdate;
-    static Connection cnx = null;
-
-    public UserService() {
-        cnx = DataSource.getInstance().getCnx();
-    }
-
+    static Connection cnx = DataSource.getInstance().getCnx();
     public static boolean register(User user) {
         try {
 
@@ -40,13 +29,13 @@ public class UserService implements Iservice<User>
 
             String roles = String.join(",", user.getRoles());
 
-            String query = "INSERT INTO user (email, username, password, phone, birthdate , roles) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO user (email, username, password, phone, birthdate, roles, status) VALUES (?, ?, ?, ?, ?, ?, 'active')";
             try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
                 preparedStatement.setString(1, user.getEmail());
                 preparedStatement.setString(2, user.getUsername());
                 preparedStatement.setString(3, hashedPassword);
                 preparedStatement.setString(4, user.getPhone());
-                preparedStatement.setDate(5, java.sql.Date.valueOf(user.getBirthdate()));
+                preparedStatement.setDate(5, Date.valueOf(user.getBirthdate()));
                 preparedStatement.setString(6, roles);
 
 
@@ -199,7 +188,7 @@ public class UserService implements Iservice<User>
 
                 if (rowsUpdated > 0) {
                     System.out.println("Verification code generated and stored successfully");
-                    sendVerificationCodeViaSMS(email, verificationCode); // Send the verification code via SMS
+//                    sendVerificationCodeViaSMS(email, verificationCode); // Send the verification code via SMS
                 } else {
                     System.out.println("Failed to generate and store verification code");
                 }
@@ -386,7 +375,7 @@ public class UserService implements Iservice<User>
                 preparedStatement.setString(2, user.getLastname());
                 preparedStatement.setString(3, user.getUsername());
                 preparedStatement.setString(4, user.getPhone());
-                preparedStatement.setDate(5, java.sql.Date.valueOf(user.getBirthdate()));
+                preparedStatement.setDate(5, Date.valueOf(user.getBirthdate()));
                 preparedStatement.setString(6, user.getSummonername());
                 preparedStatement.setString(7, user.getBio());
                 preparedStatement.setString(8, user.getElo());
@@ -476,43 +465,6 @@ public class UserService implements Iservice<User>
         }
     }
 
-    @Override
-    public void ajouter(User user) {
-        String query = "INSERT INTO `user`(`id`, `email`, `equipe_id`, `firstname`, " +
-                "`lastname`, `reset_token`, `username`, `roles`, `password`, `photo`, " +
-                "`phone`, `birthdate`, `why_blocked`, `status`, `elo`, `bio`, " +
-                "`summonername`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
-            preparedStatement.setInt(1, user.getId());  // Assuming id is an integer
-            preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getEquipe_id());
-            preparedStatement.setString(4, user.getFirstname());
-            preparedStatement.setString(5, user.getLastname());
-            preparedStatement.setString(6, user.getResetToken());
-            preparedStatement.setString(7, user.getUsername());
-            preparedStatement.setString(8, String.join(",", user.getRoles())); // Assuming roles is a list of strings
-            preparedStatement.setString(9, user.getPassword());
-            preparedStatement.setString(10, user.getPhoto());
-            preparedStatement.setString(11, user.getPhone());
-            preparedStatement.setDate(12, java.sql.Date.valueOf(user.getBirthdate())); // Assuming birthdate is a LocalDate
-            preparedStatement.setString(13, user.getWhyBlocked());
-            preparedStatement.setString(14, user.getStatus());
-            preparedStatement.setString(15, user.getElo());
-            preparedStatement.setString(16, user.getBio());
-            preparedStatement.setString(17, user.getSummonername());
-
-            preparedStatement.executeUpdate();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-    @Override
-    public void modifier(User user) {
-
-    }
-
     public void modifierEquipe_id(User user) {
         String query = "UPDATE user SET equipe_id = ? WHERE id = ?";
 
@@ -524,6 +476,16 @@ public class UserService implements Iservice<User>
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void ajouter(User user) {
+
+    }
+
+    @Override
+    public void modifier(User user) {
+
     }
 
     @Override
@@ -551,8 +513,7 @@ public class UserService implements Iservice<User>
                         user.setLastname(resultSet.getString("lastname"));
                         user.setUsername(resultSet.getString("username"));
                         user.setPhone(resultSet.getString("phone"));
-//                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
-                        user.setBirthdate(LocalDate.of(1, Month.JANUARY, 1));
+                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
                         user.setElo(resultSet.getString("elo"));
                         user.setBio(resultSet.getString("bio"));
                         user.setSummonername(resultSet.getString("summonername"));
@@ -596,10 +557,7 @@ public class UserService implements Iservice<User>
                         user.setLastname(resultSet.getString("lastname"));
                         user.setUsername(resultSet.getString("username"));
                         user.setPhone(resultSet.getString("phone"));
-
-//                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
-                        user.setBirthdate(LocalDate.of(1, Month.JANUARY, 1));
-
+                        user.setBirthdate(resultSet.getDate("birthdate").toLocalDate());
                         user.setElo(resultSet.getString("elo"));
                         user.setBio(resultSet.getString("bio"));
                         user.setSummonername(resultSet.getString("summonername"));

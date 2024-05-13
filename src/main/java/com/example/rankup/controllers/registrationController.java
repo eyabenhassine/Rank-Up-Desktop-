@@ -72,8 +72,18 @@ public class registrationController {
             showErrorDialog("Password must be at least 8 characters long!");
             return;
         }
+        String role;
+        if ("player".equalsIgnoreCase(selectedRole)) {
+            role = "[\"ROLE_PLAYER\"]";
+        } else if ("coach".equalsIgnoreCase(selectedRole)) {
+            role = "[\"ROLE_COACH\"]";
+        } else {
+            showErrorDialog("Invalid role selected!");
+            return;
+        }
+
         List<String> roles = new ArrayList<>();
-        roles.add(selectedRole);
+        roles.add(role);
         User newUser = new User(email, username, password, birthdate, roles);
 
 

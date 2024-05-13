@@ -107,7 +107,7 @@ public class logincontroller {
                         } else if (role == 1) {
 
                             try {
-                                Parent root = FXMLLoader.load(getClass().getResource("/admin.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("/adminhome.fxml"));
                                 emailLogin.getScene().setRoot(root);
                             } catch (IOException ex) {
                                 ex.printStackTrace();

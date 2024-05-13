@@ -15,7 +15,7 @@ public class ReclamationService implements IService<Reclamation> {
 //    @Override
     public void add(Reclamation reclamation) throws SQLException {
         // Define the SQL query with placeholders for the parameters
-        String sql = "INSERT INTO `reclamation` (id, Nom, Num_Tel, type, description, date, id_user) VALUES (?,?,?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO `reclamation` (id, Nom, Num_Tel, type, description, date, user_id) VALUES (?,?,?, ?, ?, ?, ?)";
 
         // Create a PreparedStatement using the SQL query
         PreparedStatement preparedStatement = cnx.prepareStatement(sql);

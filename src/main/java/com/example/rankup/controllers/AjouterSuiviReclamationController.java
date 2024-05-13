@@ -6,7 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class AjouterSuiviReclamationController {
+public class
+AjouterSuiviReclamationController {
 
     @FXML
     private TextField idRecField;
