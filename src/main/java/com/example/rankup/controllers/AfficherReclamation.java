@@ -86,7 +86,7 @@ public class AfficherReclamation {
             tableView.setItems(observableList);
 
             nomcol.setCellValueFactory(new PropertyValueFactory<>("nom"));
-            NumtelCol.setCellValueFactory(new PropertyValueFactory<>("NumTel"));
+            //NumtelCol.setCellValueFactory(new PropertyValueFactory<>("NumTel"));
             typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
             descriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
             dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
@@ -121,7 +121,7 @@ public class AfficherReclamation {
         // Vous pouvez afficher ces détails où vous le souhaitez
         // Par exemple, affichez-les dans des labels à côté de la table
         selectedNomLabel.setText(reclamation.getNom());
-        selectedNumTelLabel.setText(String.valueOf(reclamation.getNumTel()));
+        //selectedNumTelLabel.setText(String.valueOf(reclamation.getNum_Tel()));
         selectedTypeLabel.setText(reclamation.getType());
         selectedDescriptionLabel.setText(reclamation.getDescription());
         selectedDateLabel.setText(reclamation.getDate());
@@ -244,7 +244,7 @@ public class AfficherReclamation {
                 comparator = Comparator.comparing(Reclamation::getNom);
                 break;
             case "NumTel":
-                comparator = Comparator.comparingInt(Reclamation::getNumTel);
+                comparator = Comparator.comparingInt(Reclamation::getNum_Tel);
                 break;
             case "Type":
                 comparator = Comparator.comparing(Reclamation::getType);
@@ -349,7 +349,7 @@ public class AfficherReclamation {
                         contentStream.newLineAtOffset(0, -20); // Décaler verticalement pour la prochaine ligne
                         contentStream.showText("------------------------------------------");
                         contentStream.newLineAtOffset(0, -20);
-                        contentStream.showText("NumTel: " + selectedReclamation.getNumTel());
+                        contentStream.showText("NumTel: " + selectedReclamation.getNum_Tel());
                         contentStream.newLineAtOffset(0, -20);
                         contentStream.showText("------------------------------------------");
                         contentStream.newLineAtOffset(0, -20);

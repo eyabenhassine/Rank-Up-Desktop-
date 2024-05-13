@@ -4,7 +4,7 @@ public class Reclamation {
     //att
     private  int id ;
     private  String nom;
-    private  int NumTel ;
+    private  Integer Num_Tel ;
     private  String type;
     private  String description ;
     private  String date ;
@@ -20,36 +20,36 @@ public class Reclamation {
     public Reclamation() {
     }
 
-    public Reclamation(int id, int NumTel, String type, String description, String date, int userId) {
+    public Reclamation(int id, Integer Num_Tel, String type, String description, String date, int userId) {
         this.id = id;
         this.nom = "user";
-        this.NumTel = NumTel;
+        this.Num_Tel = Num_Tel;
         this.type = type;
         this.description = description;
         this.date = date;
         this.userId = userId;
     }
 
-    public Reclamation(int id, String nom, int NumTel, String type, String description, String date) {
+    public Reclamation(int id, String nom, Integer Num_Tel, String type, String description, String date) {
         this.id = id;
         this.nom = nom;
-        this.NumTel = NumTel;
+        this.Num_Tel = Num_Tel;
         this.type = type;
         this.description = description;
         this.date = date;
     }
-    public Reclamation( String nom,int NumTel,String type, String description,  String date) {
+    public Reclamation( String nom,Integer Num_Tel,String type, String description,  String date) {
         this.nom=nom;
-        this.NumTel=NumTel;
+        this.Num_Tel=Num_Tel;
         this.type = type;
         this.description = description;
         this. date =  date;
     }
 
-    public Reclamation(String nom, int NumTel, String type, String description, String date, int userId) {
+    public Reclamation(String nom, Integer Num_Tel, String type, String description, String date, int userId) {
         this.id = id;
         this.nom = "user";
-        this.NumTel = NumTel;
+        this.Num_Tel = Num_Tel;
         this.type = type;
         this.description = description;
         this.date = date;
@@ -110,12 +110,12 @@ public class Reclamation {
         this.nom = nom;
     }
 
-    public  int getNumTel() {
-        return NumTel;
+    public  Integer getNum_Tel() {
+        return Num_Tel;
     }
 
-    public  void setNumTel(int numTel) {
-        NumTel = numTel;
+    public  void setNum_Tel(int num_Tel) {
+        Num_Tel = num_Tel;
     }
 
     @Override

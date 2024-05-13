@@ -49,7 +49,7 @@ public class UpdateReclamation implements Initializable {
 
         if (reclamation != null) {
             nomUpdate.setText(reclamation.getNom());
-            numTelUpdate.setText(String.valueOf(reclamation.getNumTel()));
+            numTelUpdate.setText(String.valueOf(reclamation.getNum_Tel()));
             dateUpdate.setText(reclamation.getDate());
             descriptionUpdate.setText(reclamation.getDescription());
             typeUpdate.setText(reclamation.getType());
@@ -81,7 +81,7 @@ public class UpdateReclamation implements Initializable {
                 }*/
 
                 // Mettre à jour les propriétés de `selectedReclamation`
-                selectedReclamaton.setNumTel(numTel);
+                selectedReclamaton.setNum_Tel(numTel);
                 selectedReclamaton.setNom(nom);
                 selectedReclamaton.setDate(date);
                 selectedReclamaton.setDescription(description);
