@@ -38,14 +38,14 @@
                <Image url="@img/divider.png" />
             </image>
          </ImageView>
-         <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="68.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="104.0" fitWidth="112.0" layoutX="75.0" layoutY="14.0">
             <image>
-               <Image url="@../../../../../projet-eya/Rank-Up-Desktop-/src/main/resources/img/competition.png" />
+               <Image url="@img/4292619.png" />
             </image>
          </ImageView>
-         <ImageView fitHeight="103.0" fitWidth="116.0" layoutX="273.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="104.0" fitWidth="133.0" layoutX="269.0" layoutY="14.0">
             <image>
-               <Image url="@../../../../../projet-eya/Rank-Up-Desktop-/src/main/resources/img/competition.png" />
+               <Image url="@img/1006889.png" />
             </image>
          </ImageView>
       </children>
