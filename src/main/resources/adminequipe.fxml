@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="404.0" prefWidth="676.0" style="-fx-background-color: #7c7c7c;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rankup.controllers.EquipeController">
+    <AnchorPane layoutX="13.0" layoutY="-2.0">
+        <fx:include source="adminbackground.fxml" />
+      <Label layoutX="227.0" layoutY="14.0" prefHeight="70.0" prefWidth="164.0" text="Create Team" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+    </AnchorPane>
+    <AnchorPane layoutX="423.0" layoutY="18.0">
+        <fx:include source="upperPanel.fxml" />
+    </AnchorPane>
+    <AnchorPane prefHeight="404.0" prefWidth="222.0">
+        <children>
+            <fx:include source="adminnavSlider.fxml" />
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="225.0" layoutY="77.0" prefHeight="327.0" prefWidth="476.0">
+      <children>
+         <AnchorPane prefHeight="276.0" prefWidth="498.0">
+            <children>
+               <AnchorPane fx:id="anchorid14" layoutX="392.0" layoutY="93.0" prefHeight="55.0" prefWidth="67.0" style="-fx-background-color: #6f69a3;" />
+               <AnchorPane fx:id="anchorid13" layoutX="307.0" layoutY="93.0" prefHeight="55.0" prefWidth="67.0" style="-fx-background-color: #6f69a3;" />
+               <AnchorPane fx:id="anchorid12" layoutX="227.0" layoutY="93.0" prefHeight="55.0" prefWidth="67.0" style="-fx-background-color: #6f69a3;" />
+               <AnchorPane fx:id="anchorid11" layoutX="146.0" layoutY="93.0" prefHeight="55.0" prefWidth="67.0" style="-fx-background-color: #6f69a3;" />
+               <AnchorPane fx:id="anchorid1" layoutX="66.0" layoutY="93.0" prefHeight="55.0" prefWidth="67.0" style="-fx-background-color: #6f69a3;" />
+               <TextField fx:id="nomEquipe" layoutX="66.0" layoutY="18.0" promptText="Team Name" />
+               <Button layoutX="404.0" layoutY="18.0" mnemonicParsing="false" onAction="#showEquipeList" prefHeight="26.0" prefWidth="56.0" style="-fx-background-color: #0D98Ba;" text="List" textFill="WHITE" />
+               <Button fx:id="choosePlayer1" layoutX="72.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="choosePlayer2" layoutX="152.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <TextFlow fx:id="textFlow1" layoutX="72.0" layoutY="121.0" prefHeight="26.0" prefWidth="56.0">
+                  <children>
+                     <Text fx:id="text1" strokeType="OUTSIDE" strokeWidth="0.0" text="None" />
+                     <Hyperlink fx:id="rmUser1" prefHeight="15.0" prefWidth="10.0" text="X" textFill="#f67676" underline="true" />
+                  </children>
+               </TextFlow>
+               <TextFlow fx:id="textFlow2" layoutX="152.0" layoutY="121.0" prefHeight="26.0" prefWidth="56.0">
+                  <children>
+                     <Text fx:id="text2" strokeType="OUTSIDE" strokeWidth="0.0" text="None" />
+                     <Hyperlink fx:id="rmUser2" prefHeight="20.0" prefWidth="2.0" text="X" textFill="#f67676" underline="true" />
+                  </children>
+               </TextFlow>
+               <TextFlow fx:id="textFlow3" layoutX="236.0" layoutY="121.0" prefHeight="26.0" prefWidth="56.0">
+                  <children>
+                     <Text fx:id="text3" strokeType="OUTSIDE" strokeWidth="0.0" text="None" />
+                     <Hyperlink fx:id="rmUser3" prefHeight="22.0" prefWidth="0.0" text="X" textFill="#f67676" underline="true" />
+                  </children>
+               </TextFlow>
+               <TextFlow fx:id="textFlow4" layoutX="313.0" layoutY="121.0" prefHeight="26.0" prefWidth="56.0">
+                  <children>
+                     <Text fx:id="text4" strokeType="OUTSIDE" strokeWidth="0.0" text="None" />
+                     <Hyperlink fx:id="rmUser4" prefHeight="21.0" prefWidth="0.0" text="X" textFill="#f67676" underline="true" />
+                  </children>
+               </TextFlow>
+               <TextFlow fx:id="textFlow5" layoutX="398.0" layoutY="121.0" prefHeight="26.0" prefWidth="56.0">
+                  <children>
+                     <Text fx:id="text5" strokeType="OUTSIDE" strokeWidth="0.0" text="None" />
+                     <Hyperlink fx:id="rmUser5" prefHeight="20.0" prefWidth="0.0" text="X" textFill="#f67676" underline="true" />
+                  </children>
+               </TextFlow>
+               <Button fx:id="choosePlayer3" layoutX="233.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="choosePlayer4" layoutX="313.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="choosePlayer5" layoutX="398.0" layoutY="158.0" mnemonicParsing="false" style="-fx-background-color: #0D98Ba;" text="Choose" textFill="WHITE" />
+               <Button fx:id="confirmButton" layoutX="308.0" layoutY="235.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #9b59b6; -fx-border-color: #8338ec;" text="Confirm" textFill="WHITE" />
+               <Button fx:id="resetButton" layoutX="383.0" layoutY="235.0" mnemonicParsing="false" onAction="#clearSelectedUsers" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #9b59b6; -fx-border-color: #8338ec;" text="Clear" textFill="WHITE" />
+            </children>
+         </AnchorPane>
+      </children>
+    </AnchorPane>
+
+
+    <!--   </children>-->
+</AnchorPane>

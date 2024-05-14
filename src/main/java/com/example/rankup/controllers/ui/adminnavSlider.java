@@ -18,7 +18,7 @@ public class adminnavSlider {
     @FXML
     void navToCompetition(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/adminhome.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/admincompetition.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage();
             stage.setScene(scene);

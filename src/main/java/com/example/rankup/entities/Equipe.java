@@ -40,8 +40,8 @@ public class Equipe {
         this.nom = nom;
     }
 
-    public <E> List<E> getUsers() {
-        return (List<E>) users;
+    public List<User> getUsers() {
+        return (List<User>) users;
     }
 
     @Override
